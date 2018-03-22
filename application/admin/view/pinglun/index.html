@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" href="/js/jquery.xdomainrequest.min.js">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/ckform.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="get">
+    评论管理
+    <!-- <input type="text" name="rolename" id="rolename"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;  <a href="/admin/node/add"><button type="button" class="btn btn-success" id="addnew">新增板块</button></a>-->
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <th style="width:10%">选择</th>
+        <th style="width:5%">ID</th>
+        <th style="width:30%">评论人</th>
+        <th style="width:30%">评论内容</th>
+        <th style="width:15%">评论时间</th>
+        <th>编辑</th>
+    </tr>
+</table>
+<table id="table" class="table table-bordered table-hover definewidth m10" id="table">
+<!--<form action="/admin/node/duoshan" method="post">
+      <tr>
+    <th>选择</th>
+    <th>ID</th>
+    <th>板块名称</th>
+    <th>板块图标</th>
+    <th>管理操作</th>
+</tr>
+
+    <tr>
+   <td><button>删除</button></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+    </tr>
+    </form> -->
+
+</table>
+    <div id="page" style="text-align: center">
+        <a href="" class="a">首页</a>
+        <a href="" class="a">上一页</a>
+        <a href="" class="a">下一页</a>
+        <a href="" class="a">尾页</a>
+        <!-- <a href="javascript:test('http://localhost:80/php1714/gaoji/day22/list.php?rand=0.2561276820402456&page=5')"></a> -->
+    </div>
+</body>
+</html>
+<script>
+
+
+
+
+var oTable = document.getElementById('table');
+var aA = document.getElementsByClassName('a');
+    ajax({
+        method:'get',
+        url:'/admin/pinglun/index1',
+        async:true,
+        data:{page:1},
+        success:success
+    });
+
+    function success(data)
+    {
+        function Lond_ckeck(objname){
+         obj = document.getElementsByName(objname);
+        checkval = [];
+        for(k in obj){
+            if(obj[k].checked)
+                checkval.push(obj[k].value);
+        }
+        return checkval;
+    }
+        function getLocalTime(nS) {
+        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+        }
+        //console.log(data);
+        oTable.innerHTML = '';
+        var obj = JSON.parse(data);
+        for(var i in obj.data){
+            var oTr = document.createElement('tr');
+            var oTd6 = document.createElement('td');
+            oTd6.style="width:10%";
+            var oBox = document.createElement('input');
+            oBox.type="checkbox";
+            oBox.name='id';
+            oBox.value = obj.data[i].pid;
+            oTd6.appendChild(oBox);
+            oTr.appendChild(oTd6);
+            var oTd1 = document.createElement('td');
+            oTd1.innerHTML = obj.data[i].pid;
+            oTd1.style="width:5%";
+            var oTd2 = document.createElement('td');
+            oTd2.innerHTML = obj.data[i].nickname;
+            oTd2.style="width:10%";
+            var oTd3 = document.createElement('td');
+            oTd3.innerHTML = obj.data[i].content;
+            oTd2.style="width:30%";
+            var oTd4 = document.createElement('td');
+            oTd4.innerHTML = getLocalTime(obj.data[i].create_time);
+            oTd4.style="width:15%";
+            var oTd5 = document.createElement('td');
+            var oA2 = document.createElement('a');
+            oA2.innerHTML = '删除';
+            oA2.href='/admin/pinglun/del?id='+obj.data[i].pid;
+            oTd5.appendChild(oA2);
+            oTr.appendChild(oTd1);
+            oTr.appendChild(oTd2);
+            oTr.appendChild(oTd3);
+            oTr.appendChild(oTd4);
+            oTr.appendChild(oTd5);
+            oTable.appendChild(oTr);
+        }
+        var oTr2 = document.createElement('tr');
+        var oTd7 = document.createElement('td');
+        var oTd8 = document.createElement('td');
+        var oTd9 = document.createElement('td');
+        var oTd10 = document.createElement('td');
+        var oTd11 = document.createElement('td');
+        var oTd12 = document.createElement('td');
+        var oBtn = document.createElement('button');
+        oBtn.innerHTML='删除';
+        oTd7.appendChild(oBtn);
+        oTr2.appendChild(oTd7);
+        oTr2.appendChild(oTd8);
+        oTr2.appendChild(oTd9);
+        oTr2.appendChild(oTd10);
+        oTr2.appendChild(oTd11);
+        oTr2.appendChild(oTd12);
+        oTable.appendChild(oTr2);
+        var oPage =  obj.allPage;
+        var i = 0;
+        for (var name in oPage) {
+            //console.log(name);
+            aA[i].href = 'javascript:test(\'' +oPage[name] +'\')';
+            i++;
+        }
+        oBtn.onclick = function(){
+          var id = (Lond_ckeck('id'));
+          //alert(id);
+         ajax({
+            method:'post',
+            url:'/admin/pinglun/duoshan',
+            async:true,
+            data:{id:id},
+            success:success
+        });
+         function success(data)
+         {
+            //console.log(data);
+            var obj = JSON.parse(data);
+            if(obj.sta == 1){
+                alert('删除成功','/admin/index/index');
+            }else if(obj.sta == 0){
+                alert('删除失败');
+            }else if(obj.sta == 2){
+                alert('请选择要删除的数据');
+            }
+         }
+    }
+
+
+}
+
+    function test(url)
+    {
+        $.ajax({
+            method:'get',
+            url:url,
+            async:true,
+            data:null,
+            success:success
+        });
+    }
+
+
+
+</script>

@@ -1,0 +1,1312 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+    <script src="/js/route.min.js"></script>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="Copyright (c) AcFun">
+    <meta name="keywords" content="A站 ACFUN ACG 弹幕 视频 动画 漫画 游戏 新番 鬼畜 东方 初音 DOTA MUGEN">
+    <meta name="description" content="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐。">
+    <meta name="baidu-site-verification" content="4YkN38sctT">
+    <!-- <link rel="search" type="application/opensearchdescription+xml" href="http://cdn.aixifan.com/acfun-pc/2.2.93/xml/opensearch.xml" title="AcFun"> -->
+    <title>AcFun弹幕视频网 - 认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
+    <link href="/ico/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/core.min_1.css">
+    <link rel="stylesheet" href="/css/index.min_1.css">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min_1.js"></script>
+    <![endif]-->
+    <script>window.system = {};
+      window.globalConfig = {
+        debug: false,
+        cdn: "http://cdn.aixifan.com",
+        path: "http://cdn.aixifan.com/acfun-pc/2.2.93",
+        oldPath: 'http://cdn.aixifan.com/dotnet/20130418',
+        version: "2.2.93",
+        rootDomain: "http://www.acfun.cn",
+        showTime: "2018年1月26日晚上6点28分",
+        api: "http://webapi.aixifan.com"
+      }</script>
+  </head>
+
+  <body>
+    
+    <div id="christmas" style="display:none">
+      <div class="close-btn">跳过动画(14)</div></div>
+    <div id="header" class="header">
+      <div class="header-top">
+        <div class="wp clearfix header-top-con">
+          <h1 class="fl logo">
+            <a href="/">
+              <img src="/picture/logo.png" width="88" height="27"></a>
+          </h1>
+
+          <ul id="header-guide" class="fr header-guide">
+            {if !empty($ziliao)}
+            <li class="guide-item guide-user user-logined">
+              <a href="/index/user/member" target="_blank" class="item user-avatar">
+                <img src="{$ziliao['touxiang']}" width="30" height="30"></a>
+              <a href="/index/user/login/" target="_blank" class="item user-login">登录/注册</a>
+              <span class="user-message-count hidden"></span>
+              <div class="guide-item-con">
+                <p class="clearfix">
+                  {if $quanxian == 1}
+                  <a href="/admin/login/login" target="_blank" class="fl user-name">管理员登录</a>
+                  {/if}
+                  <a href="/index/index/clear" class="fr icon icon-logout user-logout">退出</a></p>
+                <div id="user-message" class="user-message"></div>
+                <!-- <a href="http://www.acfun.cn/member/#area=mail" target="_blank" class="more">查看更多</a> --></div>
+            </li>
+            <!-- <li class="guide-item guide-history">
+              <a href="http://www.acfun.cn/member/#area=history" target="_blank" class="icon icon-history item"></a>
+              <div class="guide-item-con">
+                <ul></ul>
+                <a href="http://www.acfun.cn/member/#area=history" target="_blank" class="more">查看更多</a></div>
+              <script id="temp-history" type="text/template">< li > <a href = "[url]"target = "_blank" > [title] < /a><p>浏览于[time]</p > </li>/</script></li> -->
+            <li class="guide-item guide-upload">
+              <a href="/index/video/upload" target="_blank" class="icon icon-upload item"></a>
+              <div class="guide-item-con">
+                <ul>
+                  <li>
+                    <a href="/index/video/upload" target="_blank">投视频</a></li>
+
+                  
+
+
+
+                </ul>
+              </div>
+            </li>
+            <li class="guide-item">
+              <a href="/index/video/shoucang" target="_blank" class="icon icon-collect item"></a>
+            </li>
+          </ul>
+            {else}
+            <li class="guide-item guide-user">
+              <a href="http://www.acfun.cn/member/" target="_blank" class="user-avatar item">
+                <img src="" width="30" height="30"></a>
+              <a href="/index/user/login/" target="_blank" class="item user-login">登录/注册</a>
+              <span class="user-message-count hidden"></span>
+            </li>
+          </ul>
+            {/if}
+
+          <div id="search-box" class="fr search-box">
+
+
+            <form  method="post" action="/index/video/souSuo">
+              <input id="search-text" type="text" placeholder="文章猴姬的恋爱小课堂 ver1.0" value="" name="content"><button id="search-btn" class="search-btn"><i class="icon icon-search"></i><span>搜索</span></button>
+
+            </form>
+          </div>
+          <!--.tourIcon-->
+          <!-- a(class="fr tourPortal",href="/tour")-->
+          <!-- i.icon.icon-tour-->
+          <!-- span 旅游中心--></div>
+      </div>
+      <nav id="nav" class="wp nav">
+        <div class="clearfix wp nav-parent">
+          <ul class="clearfix">
+            <li class="nav-home active">
+              <a href="/">首页</a></li>
+            {foreach $lala as $k=>$v}
+            <li data-category="{$v['cid']}" class="ac"
+            data-cid="{$v['cid']}">
+              <a href="/index/video/list?parentid={$v['cid']}">
+              {$v['bkname']}
+            </a>
+            </li>
+            {/foreach}
+          </ul>
+        </div>
+        <!-- <script type="text/javascript" src="/js/ajax.js"></script>
+        <script type="text/javascript">
+          var aButton = document.getElementsByClassName('ac');
+          for (var i = 0; i < aButton.length; i++) {
+            aButton[i].index = i;
+            aButton[i].onmouseover = function () {
+               ajax({
+                  method:'post',
+                  url:'/index/index/topxia',
+                  async:true,
+                  data:{cid:this.id},
+                  success:success
+                });
+              };
+
+              function success(data)
+              {
+                var obj = JSON.parse(data);
+                console.log(obj);
+                var oSpan = document.getElementById('xiala');
+                oSpan.innerHTML = '';
+                oSpan.className = '';
+                oSpan.className = 'unit channel-am c1 sc2 wc1 swc1 active';
+                oSpan.style = 'opacity: 1; left: 107.2px;';
+                var od = document.getElementById('sub-guide');
+                od.className = 'active';
+                od.style = '';
+                od.style = 'width:100%;';
+                for (var i in obj.xiao) {
+                  var oa = document.createElement('a');
+                  //alert('1');
+                  oa.innerHTML = obj.xiao[i].bkname;
+                  oSpan.appendChild(oa);
+                }
+
+
+
+              }
+            };
+        </script>-->
+        <div class="nav-sub">
+          <div class="wp nav-sub-con" id="xiala">
+            {foreach $lala as $k=>$v}
+            <ul data-category="{$v['cid']}"
+            data-cid="{$v['cid']}" class="clearfix">
+              {foreach $lala1 as $key=>$value}
+              {if $v['cid'] == $value['parentid']}
+              <li>
+                <a href="/index/video/list?cid={$value['cid']}" data-cid="{$value['cid']}">
+                  {$value['bkname']}
+                </a>
+              </li>
+
+              {/if}
+              {/foreach}
+
+            </ul>
+            {/foreach}
+          </div>
+        </div>
+      </nav>
+      <div class="header-banner">
+        <style>.header .header-banner .banner-href{ background-image: url(/images/1516949822703_1.png); } @media screen and (max-width:1280px){ .header .header-banner .banner-href{ background-image: url(/images/1516949825643_1.png); } }</style>
+        <a href="" class="banner-href"></a>
+        <span class="point hidden">快来看！这是一份AC娘的MH手札！</span>
+        <a href="" style="background-image:url(/images/1515667683355_1.png)" class="header-pendant"></a>
+      </div>
+    </div>
+    <div id="main" class="main">
+      <section b-id="181" b-name="【1】轮播图+6小视频" b-type="26" class="clearfix wp area area-slider">
+        <div class="slider-wrap fl">
+          <div class="slider-wrap-1">
+            <div id="slider-big" m-id="301" m-name="轮播图" m-type="1" class="fl slider-big">
+              <ul class="slider-con">
+
+                {foreach $lunbo as $k=>$v}<li class="slider-item">
+                  <a data-adTag="0" href="/index/video/v?vid={$v['vid']}" target="_blank">
+                    <img src="{$v['vimg']}" />
+                    <span class="mask-gradient slider-title">
+                      <b class="text-overflow">{$v['title']}</b></span>
+                  </a>
+                </li>{/foreach}
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="fr slider-right-x6">
+
+
+          <ul m-id="302" m-name="小图综合推荐" m-type="2" class="slider-small">
+
+            {foreach $shi6 as $k=>$v}<li>
+              <a data-adtag="0" href="/index/video/v?vid={$v['vid']}">
+                <img src="{$v['vimg']}" width="216" height="120" />
+                <div class="mask-gradient mask">
+                  <b>{$v['title']}</b>
+                  <p class="text-overflow">
+                    <span>UP:
+                    {foreach $qbzl as $key=>$value}
+                    {if $v['uname'] == $value['uid']}
+                    {$value['username']}
+                    {/if}
+                    {/foreach}
+                    </span>
+                    <span class="clearfix">
+                      <i class="icon icon-view-player">{$v['bofangliang']}</i>
+                      <i class="icon icon-danmu">{$v['danmu']}</i></span>
+                  </p>
+                </div>
+              </a>
+            </li>{/foreach}
+
+          </ul>
+
+
+        </div>
+      </section>
+      <!-- <section b-id="2" b-name="【2】猴子推荐+图片活动+直播" b-type="2" class="wp area area-monkey">
+        <header class="clearfix area-header">
+          <h3 class="fl area-title has-subtitle">
+            <img src="/picture/1_1.png" data-original="/picture/che.gif" width="40" height="40" class="fl" />
+            <b>猴子推荐</b>
+            <p>食蕉啦！</p>
+          </h3>
+        </header>
+        <div class="clearfix column-box area-main">
+          <div class="column-left">
+            <div m-id="4" m-name="猴子推荐" m-type="3" class="clearfix crop-margin">
+              <figure class="fl block-box block-video  no-animate">
+                <a data-adTag="0" href="/v/ac4212088" data-did="5854455" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516874482.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>4:16</time></a>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212088" target="_blank" title="英联杯半决赛 阿森纳vs切尔西&#13;UP:富兰克林.罗斯福&#13;发布于2018-01-25 18:05:06&#160;/&#160;点击:4974&#160;/&#160;评论:13">英联杯半决赛 阿森纳vs切尔西</a></b>
+                  <p class="clearfix">
+                    <span class="up fl text-overflow">
+                      <a href="http://www.acfun.cn/u/303310.aspx" target="_blank" title="富兰克林.罗斯福">UP: 富兰克林.罗斯福</a></span>
+                    <span class="fr">1 天前</span></p>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video  no-animate">
+                <a data-adTag="0" href="/v/ac4210375" data-did="5852597" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_24/1516797453.png?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>10:32</time></a>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4210375" target="_blank" title="草丛主播夏一鸽&#13;UP:夏一可死毒舌&#13;发布于2018-01-24 20:57:48&#160;/&#160;点击:17742&#160;/&#160;评论:10">草丛主播夏一鸽</a></b>
+                  <p class="clearfix">
+                    <span class="up fl text-overflow">
+                      <a href="http://www.acfun.cn/u/693865.aspx" target="_blank" title="夏一可死毒舌">UP: 夏一可死毒舌</a></span>
+                    <span class="fr">2 天前</span></p>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video  no-animate">
+                <a data-adTag="0" href="/v/ac4210425" data-did="5852638" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_24/1516801186.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>4:17</time></a>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4210425" target="_blank" title="全程超爽的四分钟！&#13;UP:Mr_布鲁&#13;发布于2018-01-24 21:40:36&#160;/&#160;点击:87370&#160;/&#160;评论:160">全程超爽的四分钟！</a></b>
+                  <p class="clearfix">
+                    <span class="up fl text-overflow">
+                      <a href="http://www.acfun.cn/u/326967.aspx" target="_blank" title="Mr_布鲁">UP: Mr_布鲁</a></span>
+                    <span class="fr">2 天前</span></p>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video  no-animate">
+                <a data-adTag="0" href="/v/ac4202301" data-did="5844210" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_20/1516420717.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>13:20</time></a>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4202301" target="_blank" title="【清风】神兵玄奇第37期&#13;UP:清风大诗兄&#13;发布于2018-01-20 12:14:27&#160;/&#160;点击:37406&#160;/&#160;评论:111">【清风】神兵玄奇第37期</a></b>
+                  <p class="clearfix">
+                    <span class="up fl text-overflow">
+                      <a href="http://www.acfun.cn/u/12643168.aspx" target="_blank" title="清风大诗兄">UP: 清风大诗兄</a></span>
+                    <span class="fr">6 天前</span></p>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video  no-animate">
+                <a data-adTag="0" href="/v/ac4210458" data-did="5852681" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201801/25091104fuf33i2n.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>3:16</time></a>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4210458" target="_blank" title="古代哪些皇帝最能生娃？&#13;UP:公子_扶苏&#13;发布于2018-01-24 22:13:12&#160;/&#160;点击:9135&#160;/&#160;评论:16">古代哪些皇帝最能生娃？</a></b>
+                  <p class="clearfix">
+                    <span class="up fl text-overflow">
+                      <a href="http://www.acfun.cn/u/1087205.aspx" target="_blank" title="公子_扶苏">UP: 公子_扶苏</a></span>
+                    <span class="fr">2 天前</span></p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="column-right">
+            <div m-id="5" m-name="活动位" m-type="5" class="pic-box">
+              <a data-adTag="0" href="http://www.acfun.cn/sp/chunwanyure2018" target="_blank">
+                <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/cms/2018_01_16/1516074630015.png?imageView2/1/w/520/h/256" width="260" height="128" /></a>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <!-- <section b-id="3" b-name="【3】香蕉榜+文章推荐" b-type="10" class="wp clearfix column-box area area-banana-rank">
+        <div data-tab="" class="column-left">
+          Created by user on 16/3/3.
+          <header class="clearfix area-header">
+            <h3 class="fl area-title has-subtitle">
+              <img src="/picture/1_1.png" data-original="/picture/xiangjiao.gif" width="40" height="40" class="fl" />
+              <b>香蕉榜</b>
+              <p>为什么只能投5蕉</p>
+            </h3>
+            <div class="fr area-tab-nav">
+              <a href="javascript:;" data-nav="1" class="no-select active">日榜</a>
+              <a href="javascript:;" data-nav="2" class="no-select">周榜</a></div>
+          </header>
+          <div m-id="13" m-name="香蕉榜" m-type="16" class="clearfix column-box area-main">
+            <div data-con="1" class="clearfix crop-margin">
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212207" data-did="5854571" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516875502.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>11:09</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>1</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212207" target="_blank" title="孤独的人总是晚归家，但这一次，我想带你回家@野食小哥&#13;UP:野食小哥&#13;发布于2018-01-25 19:06:53&#160;/&#160;点击:333701&#160;/&#160;评论:429">孤独的人总是晚归家，但这一次，我想带你回家@野食小哥</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/4551417.aspx" target="_blank" title="野食小哥">UP: 野食小哥</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>26744</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212136" data-did="5852845" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516875835.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>25:34</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>2</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212136" target="_blank" title="2018年碉堡有趣视频合辑【第4期】&#13;UP:关注撸主三十年&#13;发布于2018-01-25 18:30:16&#160;/&#160;点击:253452&#160;/&#160;评论:485">2018年碉堡有趣视频合辑【第4期】</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/331065.aspx" target="_blank" title="关注撸主三十年">UP: 关注撸主三十年</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>7582</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212542" data-did="5854937" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516882183.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>53:02</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>3</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212542" target="_blank" title="【木鱼微剧场】《射雕英雄传》完结篇（P16）华山论剑分成败，漠北求道问英雄&#13;UP:木鱼水心&#13;发布于2018-01-25 23:10:23&#160;/&#160;点击:66476&#160;/&#160;评论:184">【木鱼微剧场】《射雕英雄传》完结篇（P16）华山论剑分成败，漠北求道问英雄</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/707822.aspx" target="_blank" title="木鱼水心">UP: 木鱼水心</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>4426</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212456" data-did="5854857" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516887446.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>33:13</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>4</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212456" target="_blank" title="【暴走大事件第五季】44酒局神器助你春节千杯不倒，氪金少女的中年男人养成记&#13;UP:暴走漫画&#13;发布于2018-01-25 21:38:38&#160;/&#160;点击:106868&#160;/&#160;评论:130">【暴走大事件第五季】44酒局神器助你春节千杯不倒，氪金少女的中年男人养成记</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/268722.aspx" target="_blank" title="暴走漫画">UP: 暴走漫画</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>1592</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212405" data-did="5854785" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516885257.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>11:24</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>5</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212405" target="_blank" title="【逗鱼时刻】第141期 感受香菜的怒火&#13;UP:天天卡牌&#13;发布于2018-01-25 21:09:14&#160;/&#160;点击:108055&#160;/&#160;评论:120">【逗鱼时刻】第141期 感受香菜的怒火</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/1059146.aspx" target="_blank" title="天天卡牌">UP: 天天卡牌</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>1548</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4213123" data-did="5855228" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_26/1516933393.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>15:33</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>6</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4213123" target="_blank" title="【我的三体】罗辑传 第6集（MC动画）&#13;UP:神游八方&#13;发布于2018-01-26 12:00:36&#160;/&#160;点击:8797&#160;/&#160;评论:60">【我的三体】罗辑传 第6集（MC动画）</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/776776.aspx" target="_blank" title="神游八方">UP: 神游八方</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>1279</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212415" data-did="5854819" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516885388.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>1:58</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>7</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212415" target="_blank" title="【冰冰】人设崩坏~我的名字是你大爷！&#13;UP:新月冰冰&#13;发布于2018-01-25 21:12:38&#160;/&#160;点击:11779&#160;/&#160;评论:85">【冰冰】人设崩坏~我的名字是你大爷！</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/56163.aspx" target="_blank" title="新月冰冰">UP: 新月冰冰</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>1125</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212490" data-did="5854886" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516883552.jpeg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>19:37</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>8</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212490" target="_blank" title="什么纪录片竟吸引日本导演要来中国南京定居拍摄？【我住在这里的理由100上】&#13;UP:和之梦影视&#13;发布于2018-01-25 22:11:22&#160;/&#160;点击:25698&#160;/&#160;评论:61">什么纪录片竟吸引日本导演要来中国南京定居拍摄？【我住在这里的理由100上】</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/4495932.aspx" target="_blank" title="和之梦影视">UP: 和之梦影视</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>1091</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212307" data-did="5854638" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516880020.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>8:54</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>9</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212307" target="_blank" title="「盗月社」第一次吃用冰块煮的羊肉火锅，冰激凌一般的口感，用勺大口大口吃超级爽&#13;UP:盗月社食遇记&#13;发布于2018-01-25 20:11:11&#160;/&#160;点击:58021&#160;/&#160;评论:106">「盗月社」第一次吃用冰块煮的羊肉火锅，冰激凌一般的口感，用勺大口大口吃超级爽</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/11962349.aspx" target="_blank" title="盗月社食遇记">UP: 盗月社食遇记</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>988</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212870" data-did="5855221" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_26/1516931098.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>19:16</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>10</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212870" target="_blank" title="【麦子】童年经典《数码宝贝》骚气回顾第三期:吸血魔兽篇&#13;UP:哀是麦子的球迷&#13;发布于2018-01-26 10:29:20&#160;/&#160;点击:4585&#160;/&#160;评论:30">【麦子】童年经典《数码宝贝》骚气回顾第三期:吸血魔兽篇</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/1248105.aspx" target="_blank" title="哀是麦子的球迷">UP: 哀是麦子的球迷</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>515</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div data-con="2" class="clearfix crop-margin hidden">
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4212207" data-did="5854571" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516875502.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>11:09</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>1</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4212207" target="_blank" title="孤独的人总是晚归家，但这一次，我想带你回家@野食小哥&#13;UP:野食小哥&#13;发布于2018-01-25 19:06:53&#160;/&#160;点击:333701&#160;/&#160;评论:429">孤独的人总是晚归家，但这一次，我想带你回家@野食小哥</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/4551417.aspx" target="_blank" title="野食小哥">UP: 野食小哥</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>26744</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4206561" data-did="5848455" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_22/1516632697.jpg?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>15:55</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>2</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4206561" target="_blank" title="【阅后即瞎】你听说过让法官怀孕这种脱罪方法吗？&#13;UP:阅后即瞎&#13;发布于2018-01-22 22:54:46&#160;/&#160;点击:568591&#160;/&#160;评论:784">【阅后即瞎】你听说过让法官怀孕这种脱罪方法吗？</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/11842903.aspx" target="_blank" title="阅后即瞎">UP: 阅后即瞎</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>26601</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4210272" data-did="5852487" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_24/1516794611.png?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>5:59</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>3</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4210272" target="_blank" title="《野居青年》出场一定要帅，嗦面一定要快&#13;UP:野居青年&#13;发布于2018-01-24 20:05:34&#160;/&#160;点击:256668&#160;/&#160;评论:501">《野居青年》出场一定要帅，嗦面一定要快</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/12495544.aspx" target="_blank" title="野居青年">UP: 野居青年</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>20242</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4206865" data-did="5848721" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_23/1516670312.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>7:34</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>4</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4206865" target="_blank" title="实拍：火车站骗子被我骗哭了（这期送机械键盘，零食大礼包，LOL手办，护手霜）&#13;UP:神探赵探长&#13;发布于2018-01-23 08:20:30&#160;/&#160;点击:297897&#160;/&#160;评论:3271">实拍：火车站骗子被我骗哭了（这期送机械键盘，零食大礼包，LOL手办，护手霜）</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/12680341.aspx" target="_blank" title="神探赵探长">UP: 神探赵探长</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>19128</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4201411" data-did="5841441" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201801/20163151m07bouog.png?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>32:13</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>5</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4201411" target="_blank" title="2018年碉堡有趣视频合辑【第3期】&#13;UP:关注撸主三十年&#13;发布于2018-01-19 18:06:54&#160;/&#160;点击:513717&#160;/&#160;评论:603">2018年碉堡有趣视频合辑【第3期】</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/331065.aspx" target="_blank" title="关注撸主三十年">UP: 关注撸主三十年</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>16263</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4201822" data-did="5843669" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_19/1516367880.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>17:35</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>6</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4201822" target="_blank" title="人在A站，不外乎笑二十二笑，笑着笑着就停不下来了&#13;UP:A站关注破10W的男人&#13;发布于2018-01-19 21:44:40&#160;/&#160;点击:465186&#160;/&#160;评论:871">人在A站，不外乎笑二十二笑，笑着笑着就停不下来了</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/3863443.aspx" target="_blank" title="A站关注破10W的男人">UP: A站关注破10W的男人</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>11020</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4205627" data-did="5847440" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_22/1516604381.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>16:32</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>7</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4205627" target="_blank" title="STEAM销量周榜2018年第3期 超级赛亚人变身！&#13;UP:SteamParty&#13;发布于2018-01-22 15:18:04&#160;/&#160;点击:304324&#160;/&#160;评论:307">STEAM销量周榜2018年第3期 超级赛亚人变身！</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/934542.aspx" target="_blank" title="SteamParty">UP: SteamParty</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>9490</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4203829" data-did="5843267" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_21/1516515512.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>30:42</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>8</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4203829" target="_blank" title="「米椒」有没有一首歌，瞬间勾起你的回忆，让你泪流满面？童年动画片头曲特辑~这期你们会心甘情愿给我五蕉&#13;UP:丶李米椒&#13;发布于2018-01-21 14:21:03&#160;/&#160;点击:132973&#160;/&#160;评论:265">「米椒」有没有一首歌，瞬间勾起你的回忆，让你泪流满面？童年动画片头曲特辑~这期你们会心甘情愿给我五蕉</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/2750864.aspx" target="_blank" title="丶李米椒">UP: 丶李米椒</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>9270</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4206239" data-did="5848062" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_22/1516618852.png?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>9:47</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>9</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4206239" target="_blank" title="【山野小韦】今天吃竹蜂&#13;UP:山野小韦&#13;发布于2018-01-22 19:10:59&#160;/&#160;点击:146154&#160;/&#160;评论:196">【山野小韦】今天吃竹蜂</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/12891136.aspx" target="_blank" title="山野小韦">UP: 山野小韦</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>8044</span>
+                </figcaption>
+              </figure>
+              <figure class="fl block-box block-video block-banana no-animate">
+                <a data-adTag="0" href="/v/ac4203554" data-did="5845438" target="_blank" class="block-img has-danmu">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_21/1516499572.gif?imageView2/1/w/320/h/180" width="100%" height="100%" />
+                  <time>18:10</time></a>
+                <span class="block-top">
+                  <i class="icon icon-crown"></i>
+                  <strong>10</strong></span>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/v/ac4203554" target="_blank" title="AcFun评论才是本体【2018年1月上篇】&#13;UP:鲁路修·VI布里塔尼亚&#13;发布于2018-01-21 09:55:09&#160;/&#160;点击:165337&#160;/&#160;评论:1723">AcFun评论才是本体【2018年1月上篇】</a></b>
+                  <em class="text-overflow">
+                    <a href="http://www.acfun.cn/u/243400.aspx" target="_blank" title="鲁路修·VI布里塔尼亚">UP: 鲁路修·VI布里塔尼亚</a></em>
+                  <span class="banana-number">
+                    <i class="icon icon-banana"></i>7832</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div m-id="253" m-name="香蕉榜下广告位" m-type="38" class="clearfix banana-ad">
+            <a data-adTag="0" href="/v/ac4159101" target="_blank">
+              <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/cms/2017_12_28/1514441779306.png?imageView2/1/q/100" /></a>
+          </div>
+        </div>
+        <div class="column-right">
+          <section data-tab="" class="module module-article">
+            <header class="clearfix module-header">
+              <div class="module-title">
+                <a href="/v/list63/index.htm" target="_blank">
+                  <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/cms/2017_11_01/1509501619127.gif?imageView2/1/w/100/h/100" width="40" height="40" class="fl" /></a>
+                <b>
+                  <a href="/v/list63/index.htm" target="_blank">文章</a></b>
+              </div>
+              先注释掉 如一月之内无改动 可删除 2016.06.07
+              a.more(href="#{think.config().rootDomain || ''}/v/list110/index.htm",target="_blank") 更多
+              i.icon.icon-arrow-slim-right</header>
+            <div class="module-main">
+              <div class="module-tab">
+                应产品需求热议显示综合数据
+                <a href="javascript:;" data-nav="110">综合</a>
+                <a href="javascript:;" data-nav="73">工作情感</a>
+                <a href="javascript:;" data-nav="74">动漫文化</a>
+                <a href="javascript:;" data-nav="75">漫画小说</a>
+                <a href="javascript:;" data-nav="164">游戏</a></div>
+              <div class="module-con">
+                <div data-con="63" m-id="7" m-name="热议" m-type="6">
+                  <ul>
+                    <li class="clearfix has-img">
+                      <a href="/a/ac4212637" target="_blank" title="“豆瓣史上最低分”影片要索赔1元&#13;UP:会计&#13;发布于2018-01-26 01:07:54&#160;/&#160;点击:88438&#160;/&#160;评论:517" class="fl img-wp">
+                        <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/cms/2018_01_26/1516936483890.jpg?imageView2/1/w/180/h/100" width="90" height="50" /></a>
+                      <b>
+                        <a href="/a/ac4212637" target="_blank" title="“豆瓣史上最低分”影片要索赔1元&#13;UP:会计&#13;发布于2018-01-26 01:07:54&#160;/&#160;点击:88438&#160;/&#160;评论:517" class="clearfix">“豆瓣史上最低分”影片要索赔1元</a></b>
+                      <p>大概这就是演艺圈吧！</p>
+                      <p>
+                        <span class="text-overflow">
+                          <a href="http://www.acfun.cn/u/579011.aspx" target="_blank" title="会计">UP: 会计</a></span>
+                        <span class="icon icon-comments">517</span></p>
+                    </li>
+                    <li>
+                      <a href="/a/ac4213956" target="_blank" title="心疼，一个26岁的老阿姨被母亲念叨一个世纪之久，至此再抱一丝丝希望，渴望大龄老男人关爱。。。&#13;UP:Yuki欧尼酱&#13;发布于2018-01-26 17:33:51&#160;/&#160;点击:3744&#160;/&#160;评论:263">心疼，一个26岁的老阿姨被母亲念叨一个世纪之久，至此再抱一丝丝希望，渴望大龄老男人关爱。。。</a></li>
+                    <li>
+                      <a href="/a/ac4213870" target="_blank" title="斋藤飞鸟又来撩人了，大伙儿要撑住啊&#13;UP:钛菊王&#13;发布于2018-01-26 17:05:07&#160;/&#160;点击:2892&#160;/&#160;评论:20">斋藤飞鸟又来撩人了，大伙儿要撑住啊</a></li>
+                    <li>
+                      <a href="/a/ac4213470" target="_blank" title="绝地求生正式服更新反作弊机制 大量玩家被封喊冤&#13;UP:网易爱玩网&#13;发布于2018-01-26 14:38:23&#160;/&#160;点击:6842&#160;/&#160;评论:52">绝地求生正式服更新反作弊机制 大量玩家被封喊冤</a></li>
+                    <li>
+                      <a href="/a/ac4212846" target="_blank" title="你就是免费提款机！LOL玩家自曝四开骗人 月收入上万&#13;UP:网易爱玩网&#13;发布于2018-01-26 10:21:10&#160;/&#160;点击:18681&#160;/&#160;评论:61">你就是免费提款机！LOL玩家自曝四开骗人 月收入上万</a></li>
+                    <li>
+                      <a href="/a/ac4213025" target="_blank" title="《Darling in the FranXX》第3话预告 幼年男主激萌&#13;UP:会计&#13;发布于2018-01-26 11:26:54&#160;/&#160;点击:3831&#160;/&#160;评论:37">《Darling in the FranXX》第3话预告 幼年男主激萌</a></li>
+                    <li>
+                      <a href="/a/ac4212539" target="_blank" title="飞机上可以玩手机了？网友：不明白为什么要允许？噪音很烦人&#13;UP:梦斩千钧&#13;发布于2018-01-25 23:06:43&#160;/&#160;点击:25540&#160;/&#160;评论:140">飞机上可以玩手机了？网友：不明白为什么要允许？噪音很烦人</a></li>
+                    <li>
+                      <a href="/a/ac4213515" target="_blank" title="千古悬疑：五星出东方利中国——天意还是巧合？&#13;UP:了不起我的国&#13;发布于2018-01-26 14:56:53&#160;/&#160;点击:6613&#160;/&#160;评论:29">千古悬疑：五星出东方利中国——天意还是巧合？</a></li>
+                    <li>
+                      <a href="/a/ac4213211" target="_blank" title="采购S400导弹俄印谈崩了 印方要求有印度制造&#13;UP:シ浅吟夏未央へ&#13;发布于2018-01-26 12:50:41&#160;/&#160;点击:8008&#160;/&#160;评论:68">采购S400导弹俄印谈崩了 印方要求有印度制造</a></li>
+                    <li>
+                      <a href="/a/ac4213453" target="_blank" title="《真三国无双8》关兴人设图公布 雄姿英发的军神之子&#13;UP:栀颜丶&#13;发布于2018-01-26 14:30:09&#160;/&#160;点击:1994&#160;/&#160;评论:3">《真三国无双8》关兴人设图公布 雄姿英发的军神之子</a></li>
+                    <li>
+                      <a href="/a/ac4213428" target="_blank" title="国外网友热议瑞兹改动：比尔森终于不用再选瑞兹了&#13;UP:会计&#13;发布于2018-01-26 14:20:37&#160;/&#160;点击:2516&#160;/&#160;评论:10">国外网友热议瑞兹改动：比尔森终于不用再选瑞兹了</a></li>
+                  </ul>
+                </div>
+                <div data-con="110" m-id="8" m-name="综合" m-type="6" class="hidden">
+                  <ul>
+                    <li class="clearfix has-img">
+                      <a href="/a/ac4212637" target="_blank" title="“豆瓣史上最低分”影片要索赔1&#13;UP:会计&#13;发布于2018-01-26 01:07:54&#160;/&#160;点击:88438&#160;/&#160;评论:517" class="fl img-wp">
+                        <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/cms/2018_01_26/1516936504298.jpg?imageView2/1/w/180/h/100" width="90" height="50" /></a>
+                      <b>
+                        <a href="/a/ac4212637" target="_blank" title="“豆瓣史上最低分”影片要索赔1&#13;UP:会计&#13;发布于2018-01-26 01:07:54&#160;/&#160;点击:88438&#160;/&#160;评论:517" class="clearfix">“豆瓣史上最低分”影片要索赔1</a></b>
+                      <p>大概这就是演艺圈吧！</p>
+                      <p>
+                        <span class="text-overflow">
+                          <a href="http://www.acfun.cn/u/579011.aspx" target="_blank" title="会计">UP: 会计</a></span>
+                        <span class="icon icon-comments">517</span></p>
+                    </li>
+                    <li>
+                      <a href="/a/ac4213870" target="_blank" title="斋藤飞鸟又来撩人了，大伙儿要撑住啊&#13;UP:钛菊王&#13;发布于2018-01-26 17:05:07&#160;/&#160;点击:2892&#160;/&#160;评论:20">斋藤飞鸟又来撩人了，大伙儿要撑住啊</a></li>
+                    <li>
+                      <a href="/a/ac4212539" target="_blank" title="飞机上可以玩手机了？网友：不明白为什么要允许？噪音很烦人&#13;UP:梦斩千钧&#13;发布于2018-01-25 23:06:43&#160;/&#160;点击:25540&#160;/&#160;评论:140">飞机上可以玩手机了？网友：不明白为什么要允许？噪音很烦人</a></li>
+                    <li>
+                      <a href="/a/ac4213515" target="_blank" title="千古悬疑：五星出东方利中国——天意还是巧合？&#13;UP:了不起我的国&#13;发布于2018-01-26 14:56:53&#160;/&#160;点击:6613&#160;/&#160;评论:29">千古悬疑：五星出东方利中国——天意还是巧合？</a></li>
+                    <li>
+                      <a href="/a/ac4213211" target="_blank" title="采购S400导弹俄印谈崩了 印方要求有印度制造&#13;UP:シ浅吟夏未央へ&#13;发布于2018-01-26 12:50:41&#160;/&#160;点击:8008&#160;/&#160;评论:68">采购S400导弹俄印谈崩了 印方要求有印度制造</a></li>
+                    <li>
+                      <a href="/a/ac4213409" target="_blank" title="民警暴风雪中实施停电 诈骗大盗被冻得出门落网&#13;UP:会计&#13;发布于2018-01-26 14:14:50&#160;/&#160;点击:4627&#160;/&#160;评论:22">民警暴风雪中实施停电 诈骗大盗被冻得出门落网</a></li>
+                    <li>
+                      <a href="/a/ac4212971" target="_blank" title="外卖订单现求救信息 送餐员报警协助查获传销窝点&#13;UP:会计&#13;发布于2018-01-26 11:06:44&#160;/&#160;点击:6643&#160;/&#160;评论:39">外卖订单现求救信息 送餐员报警协助查获传销窝点</a></li>
+                    <li>
+                      <a href="/a/ac4212637" target="_blank" title="“豆瓣史上最低分”影片要索赔1元 豆瓣回应亮了&#13;UP:会计&#13;发布于2018-01-26 01:07:54&#160;/&#160;点击:88730&#160;/&#160;评论:517">“豆瓣史上最低分”影片要索赔1元 豆瓣回应亮了</a></li>
+                    <li>
+                      <a href="/a/ac4213202" target="_blank" title="南方也曾是雪国？江浙雪深达两厘米&#13;UP:njd0040&#13;发布于2018-01-26 12:45:09&#160;/&#160;点击:10103&#160;/&#160;评论:86">南方也曾是雪国？江浙雪深达两厘米</a></li>
+                    <li>
+                      <a href="/a/ac4213613" target="_blank" title="上厕所玩手机的人注意 你的7个器官可能正在慢慢受损&#13;UP:会计&#13;发布于2018-01-26 15:29:01&#160;/&#160;点击:9682&#160;/&#160;评论:71">上厕所玩手机的人注意 你的7个器官可能正在慢慢受损</a></li>
+                    <li>
+                      <a href="/a/ac4212489" target="_blank" title="男友诚意相邀回家过年 她明白这是在提分手&#13;UP:aa8793819&#13;发布于2018-01-25 22:11:20&#160;/&#160;点击:22260&#160;/&#160;评论:89">男友诚意相邀回家过年 她明白这是在提分手</a></li>
+                  </ul>
+                </div>
+                <div data-con="73" m-id="9" m-name="工作情感" m-type="6" class="hidden">
+                  <ul>
+                    <li class="clearfix has-img">
+                      <a href="/a/ac4212504" target="_blank" title="相亲受挫寻答案&#13;UP:哲桑&#13;发布于2018-01-25 22:27:28&#160;/&#160;点击:21493&#160;/&#160;评论:299" class="fl img-wp">
+                        <img src="/picture/1_1.png" data-original="http://imgs.aixifan.com/cms/2018_01_26/1516936557280.jpg?imageView2/1/w/180/h/100" width="90" height="50" /></a>
+                      <b>
+                        <a href="/a/ac4212504" target="_blank" title="相亲受挫寻答案&#13;UP:哲桑&#13;发布于2018-01-25 22:27:28&#160;/&#160;点击:21493&#160;/&#160;评论:299" class="clearfix">相亲受挫寻答案</a></b>
+                      <p>先把耳机要回来！</p>
+                      <p>
+                        <span class="text-overflow">
+                          <a href="http://www.acfun.cn/u/211886.aspx" target="_blank" title="哲桑">UP: 哲桑</a></span>
+                        <span class="icon icon-comments">299</span></p>
+                    </li>
+                    <li>
+                      <a href="/a/ac4213956" target="_blank" title="心疼，一个26岁的老阿姨被母亲念叨一个世纪之久，至此再抱一丝丝希望，渴望大龄老男人关爱。。。&#13;UP:Yuki欧尼酱&#13;发布于2018-01-26 17:33:51&#160;/&#160;点击:3744&#160;/&#160;评论:263">心疼，一个26岁的老阿姨被母亲念叨一个世纪之久，至此再抱一丝丝希望，渴望大龄老男人关爱。。。</a></li>
+                    <li>
+                      <a href="/a/ac4212820" target="_blank" title="大龄光棍求助，我目前的情况我应该咋办？&#13;UP:重庆电信&#13;发布于2018-01-26 10:05:19&#160;/&#160;点击:4479&#160;/&#160;评论:80">大龄光棍求助，我目前的情况我应该咋办？</a></li>
+                    <li>
+                      <a href="/a/ac4212504" target="_blank" title="相亲初体验的ACER表示受到了重伤，并带着一些疑惑望诸位解疑&#13;UP:哲桑&#13;发布于2018-01-25 22:27:28&#160;/&#160;点击:21579&#160;/&#160;评论:299">相亲初体验的ACER表示受到了重伤，并带着一些疑惑望诸位解疑</a></li>
+                    <li>
+                      <a href="/a/ac4212821" target="_blank" title="医疗器械售后攻城狮给大家聊聊理疗仪里面的道道&#13;UP:这个人吊大&#13;发布于2018-01-26 10:06:30&#160;/&#160;点击:3523&#160;/&#160;评论:33">医疗器械售后攻城狮给大家聊聊理疗仪里面的道道</a></li>
+                    <li>
+                      <a href="/a/ac4212850" target="_blank" title="第一次有恋爱的感觉但是只有短短的不到三个月，A站魔咒破不了吗？&#13;UP:由于忧郁犹豫的鱿鱼&#13;发布于2018-01-26 10:22:40&#160;/&#160;点击:4424&#160;/&#160;评论:69">第一次有恋爱的感觉但是只有短短的不到三个月，A站魔咒破不了吗？</a></li>
+                    <li>
+                      <a href="/a/ac4212786" target="_blank" title="跟女朋友出现了点问题，实在是不知道该咋办求助各位大佬&#13;UP:你叫禹同&#13;发布于2018-01-26 09:46:00&#160;/&#160;点击:4667&#160;/&#160;评论:49">跟女朋友出现了点问题，实在是不知道该咋办求助各位大佬</a></li>
+                    <li>
+                      <a href="/a/ac4213124" target="_blank" title="实在忍不住想吐槽两句，关于父母，关于相亲。&#13;UP:水无镜连&#13;发布于2018-01-26 12:00:41&#160;/&#160;点击:6224&#160;/&#160;评论:127">实在忍不住想吐槽两句，关于父母，关于相亲。</a></li>
+                    <li>
+                      <a href="/a/ac4212886" target="_blank" title="遇到了职场性骚扰怎么办...QAQ&#13;UP:我的JJ硬起来只有6cm&#13;发布于2018-01-26 10:36:49&#160;/&#160;点击:14138&#160;/&#160;评论:136">遇到了职场性骚扰怎么办...QAQ</a></li>
+                    <li>
+                      <a href="/a/ac4212269" target="_blank" title="【一条咸鱼的自述】说说我的情况，和问大家如何找工作&#13;UP:值日队白番队1队长.&#13;发布于2018-01-25 19:49:16&#160;/&#160;点击:4597&#160;/&#160;评论:35">【一条咸鱼的自述】说说我的情况，和问大家如何找工作</a></li>
+                    <li>
+                      <a href="/a/ac4212654" target="_blank" title="2018年1月25日，纪念一个时代的结束，再见了那个天真的少年&#13;UP:霸道学长韩登登&#13;发布于2018-01-26 01:23:47&#160;/&#160;点击:5661&#160;/&#160;评论:46">2018年1月25日，纪念一个时代的结束，再见了那个天真的少年</a></li>
+                  </ul>
+                </div>
+                <div data-con="74" m-id="10" m-name="动漫文化" m-type="6" class="hidden">
+                  <ul>
+                    <li class="clearfix has-img">
+                      <a href="/a/ac4209963" target="_blank" title="动漫是否属于小众文化？&#13;UP:桃子酱_MoMo&#13;发布于2018-01-24 17:37:45&#160;/&#160;点击:12924&#160;/&#160;评论:129" class="fl img-wp">
+                        <img src="picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_24/1516785685.jpg?imageView2/1/w/180/h/100" width="90" height="50" /></a>
+                      <b>
+                        <a href="/a/ac4209963" target="_blank" title="动漫是否属于小众文化？&#13;UP:桃子酱_MoMo&#13;发布于2018-01-24 17:37:45&#160;/&#160;点击:12924&#160;/&#160;评论:129" class="clearfix">动漫是否属于小众文化？</a></b>
+                      <p>二刺猿？</p>
+                      <p>
+                        <span class="text-overflow">
+                          <a href="http://www.acfun.cn/u/12982050.aspx" target="_blank" title="桃子酱_MoMo">UP: 桃子酱_MoMo</a></span>
+                        <span class="icon icon-comments">129</span></p>
+                    </li>
+                    <li>
+                      <a href="/a/ac4213025" target="_blank" title="《Darling in the FranXX》第3话预告 幼年男主激萌&#13;UP:会计&#13;发布于2018-01-26 11:26:54&#160;/&#160;点击:3831&#160;/&#160;评论:37">《Darling in the FranXX》第3话预告 幼年男主激萌</a></li>
+                    <li>
+                      <a href="/a/ac4213693" target="_blank" title="《妖精的尾巴》纳兹1/4雕像：售价1万元 全球限量777个&#13;UP:会计&#13;发布于2018-01-26 15:56:21&#160;/&#160;点击:1753&#160;/&#160;评论:4">《妖精的尾巴》纳兹1/4雕像：售价1万元 全球限量777个</a></li>
+                    <li>
+                      <a href="/a/ac4213963" target="_blank" title="Anitama新声：没有娱乐的土地&#13;UP:AnimeTamashii&#13;发布于2018-01-26 17:35:49&#160;/&#160;点击:1023&#160;/&#160;评论:1">Anitama新声：没有娱乐的土地</a></li>
+                    <li>
+                      <a href="/a/ac4212983" target="_blank" title="日本实体漫画销售额下滑令出版行业面临生死存亡的关键时刻&#13;UP:会计&#13;发布于2018-01-26 11:11:32&#160;/&#160;点击:2256&#160;/&#160;评论:7">日本实体漫画销售额下滑令出版行业面临生死存亡的关键时刻</a></li>
+                    <li>
+                      <a href="/a/ac4212616" target="_blank" title="《记录的地平线》文库版第 11 卷小说 3 月 20 日发售&#13;UP:会计&#13;发布于2018-01-26 00:43:53&#160;/&#160;点击:2974&#160;/&#160;评论:19">《记录的地平线》文库版第 11 卷小说 3 月 20 日发售</a></li>
+                    <li>
+                      <a href="/a/ac4213753" target="_blank" title="《阿松》第二季低迷引发日媒关注&#13;UP:九折坂二人&#13;发布于2018-01-26 16:16:48&#160;/&#160;点击:1369&#160;/&#160;评论:5">《阿松》第二季低迷引发日媒关注</a></li>
+                    <li>
+                      <a href="/a/ac4213762" target="_blank" title="50年了！知名动画《佐助》将推蓝光版&#13;UP:九折坂二人&#13;发布于2018-01-26 16:19:10&#160;/&#160;点击:1627&#160;/&#160;评论:3">50年了！知名动画《佐助》将推蓝光版</a></li>
+                    <li>
+                      <a href="/a/ac4213160" target="_blank" title="《火影忍者：博人传》码农社畜被公司压榨又背上高利贷 走上不归路&#13;UP:会计&#13;发布于2018-01-26 12:23:17&#160;/&#160;点击:5511&#160;/&#160;评论:17">《火影忍者：博人传》码农社畜被公司压榨又背上高利贷 走上不归路</a></li>
+                    <li>
+                      <a href="/a/ac4213734" target="_blank" title="《食戟之灵》漫画第248话文字情报 猝不及防的告白&#13;UP:会计&#13;发布于2018-01-26 16:10:59&#160;/&#160;点击:1734&#160;/&#160;评论:3">《食戟之灵》漫画第248话文字情报 猝不及防的告白</a></li>
+                    <li>
+                      <a href="/a/ac4213098" target="_blank" title="《海贼王》漫画第892话情报 路飞战斗中进步神速&#13;UP:栀颜丶&#13;发布于2018-01-26 11:50:27&#160;/&#160;点击:6814&#160;/&#160;评论:60">《海贼王》漫画第892话情报 路飞战斗中进步神速</a></li>
+                  </ul>
+                </div>
+                <div data-con="75" m-id="11" m-name="漫画小说" m-type="6" class="hidden">
+                  <ul>
+                    <li class="clearfix has-img">
+                      <a href="/a/ac4211841" target="_blank" title="【漫画】想被女子高中生杀掉 #01—#03&#13;UP:poorich&#13;发布于2018-01-25 16:35:34&#160;/&#160;点击:5761&#160;/&#160;评论:18" class="fl img-wp">
+                        <img src="picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516868915.jpg?imageView2/1/w/180/h/100" width="90" height="50" /></a>
+                      <b>
+                        <a href="/a/ac4211841" target="_blank" title="【漫画】想被女子高中生杀掉 #01—#03&#13;UP:poorich&#13;发布于2018-01-25 16:35:34&#160;/&#160;点击:5761&#160;/&#160;评论:18" class="clearfix">【漫画】想被女子高中生杀掉 #01—#03</a></b>
+                      <p>enmmmm</p>
+                      <p>
+                        <span class="text-overflow">
+                          <a href="http://www.acfun.cn/u/614361.aspx" target="_blank" title="poorich">UP: poorich</a></span>
+                        <span class="icon icon-comments">18</span></p>
+                    </li>
+                    <li>
+                      <a href="/a/ac4212585" target="_blank" title="放心，有我在，你一定不会出事的【漫画】《唐僧也妖娆》第24话&#13;UP:万画筒漫画&#13;发布于2018-01-26 00:04:50&#160;/&#160;点击:1628&#160;/&#160;评论:2">放心，有我在，你一定不会出事的【漫画】《唐僧也妖娆》第24话</a></li>
+                    <li>
+                      <a href="/a/ac4212961" target="_blank" title="【戏精宿舍】听说你们想视奸欧阳的朋友圈？&#13;UP:网易王三三&#13;发布于2018-01-26 11:04:30&#160;/&#160;点击:3604&#160;/&#160;评论:10">【戏精宿舍】听说你们想视奸欧阳的朋友圈？</a></li>
+                    <li>
+                      <a href="/a/ac4213260" target="_blank" title="【漫画】不要欺负我、长瀞同学 #06&#13;UP:多吉君&#13;发布于2018-01-26 13:16:33&#160;/&#160;点击:1708&#160;/&#160;评论:11">【漫画】不要欺负我、长瀞同学 #06</a></li>
+                    <li>
+                      <a href="/a/ac4213416" target="_blank" title="【漫画】海賊王 第 892 话 強敵認定&#13;UP:爱吃菠萝包QwQ&#13;发布于2018-01-26 14:16:40&#160;/&#160;点击:5525&#160;/&#160;评论:52">【漫画】海賊王 第 892 话 強敵認定</a></li>
+                    <li>
+                      <a href="/a/ac4213262" target="_blank" title="【漫画】十二个想死的孩子 #03&#13;UP:多吉君&#13;发布于2018-01-26 13:16:41&#160;/&#160;点击:1408&#160;/&#160;评论:2">【漫画】十二个想死的孩子 #03</a></li>
+                    <li>
+                      <a href="/a/ac4213258" target="_blank" title="【漫画】入间同学入魔了 #43&#13;UP:多吉君&#13;发布于2018-01-26 13:16:24&#160;/&#160;点击:1437&#160;/&#160;评论:4">【漫画】入间同学入魔了 #43</a></li>
+                    <li>
+                      <a href="/a/ac4213551" target="_blank" title="#非人哉# 【第308话】不论是一百岁还是一千岁，总是逃脱不了恋爱的烦恼。 ​&#13;UP:非人哉&#13;发布于2018-01-26 15:08:54&#160;/&#160;点击:1606&#160;/&#160;评论:4">#非人哉# 【第308话】不论是一百岁还是一千岁，总是逃脱不了恋爱的烦恼。 ​</a></li>
+                    <li>
+                      <a href="/a/ac4213261" target="_blank" title="【漫画】真子小姐她死都不想自立 #09&#13;UP:多吉君&#13;发布于2018-01-26 13:16:36&#160;/&#160;点击:1512&#160;/&#160;评论:2">【漫画】真子小姐她死都不想自立 #09</a></li>
+                    <li>
+                      <a href="/a/ac4212323" target="_blank" title="【漫画】盾之勇者成名录 第40话&#13;UP:平井久司&#13;发布于2018-01-25 20:26:32&#160;/&#160;点击:3577&#160;/&#160;评论:11">【漫画】盾之勇者成名录 第40话</a></li>
+                    <li>
+                      <a href="/a/ac4212321" target="_blank" title="【漫画】狂赌之渊·双 第19话&#13;UP:平井久司&#13;发布于2018-01-25 20:24:37&#160;/&#160;点击:2416&#160;/&#160;评论:5">【漫画】狂赌之渊·双 第19话</a></li>
+                  </ul>
+                </div>
+                <div data-con="164" m-id="12" m-name="游戏" m-type="6" class="hidden">
+                  <ul>
+                    <li class="clearfix has-img">
+                      <a href="/a/ac4212244" target="_blank" title="《怪物猎人世界》即将解锁！&#13;UP:网易爱玩网&#13;发布于2018-01-25 19:33:52&#160;/&#160;点击:14591&#160;/&#160;评论:73" class="fl img-wp">
+                        <img src="picture/1_1.png" data-original="http://imgs.aixifan.com/content/2018_01_25/1516880006.jpg?imageView2/1/w/180/h/100" width="90" height="50" /></a>
+                      <b>
+                        <a href="/a/ac4212244" target="_blank" title="《怪物猎人世界》即将解锁！&#13;UP:网易爱玩网&#13;发布于2018-01-25 19:33:52&#160;/&#160;点击:14591&#160;/&#160;评论:73" class="clearfix">《怪物猎人世界》即将解锁！</a></b>
+                      <p>你准备好了吗!</p>
+                      <p>
+                        <span class="text-overflow">
+                          <a href="http://www.acfun.cn/u/11411235.aspx" target="_blank" title="网易爱玩网">UP: 网易爱玩网</a></span>
+                        <span class="icon icon-comments">73</span></p>
+                    </li>
+                    <li>
+                      <a href="/a/ac4213470" target="_blank" title="绝地求生正式服更新反作弊机制 大量玩家被封喊冤&#13;UP:网易爱玩网&#13;发布于2018-01-26 14:38:23&#160;/&#160;点击:6842&#160;/&#160;评论:52">绝地求生正式服更新反作弊机制 大量玩家被封喊冤</a></li>
+                    <li>
+                      <a href="/a/ac4212846" target="_blank" title="你就是免费提款机！LOL玩家自曝四开骗人 月收入上万&#13;UP:网易爱玩网&#13;发布于2018-01-26 10:21:10&#160;/&#160;点击:18681&#160;/&#160;评论:61">你就是免费提款机！LOL玩家自曝四开骗人 月收入上万</a></li>
+                    <li>
+                      <a href="/a/ac4213453" target="_blank" title="《真三国无双8》关兴人设图公布 雄姿英发的军神之子&#13;UP:栀颜丶&#13;发布于2018-01-26 14:30:09&#160;/&#160;点击:1994&#160;/&#160;评论:3">《真三国无双8》关兴人设图公布 雄姿英发的军神之子</a></li>
+                    <li>
+                      <a href="/a/ac4213428" target="_blank" title="国外网友热议瑞兹改动：比尔森终于不用再选瑞兹了&#13;UP:会计&#13;发布于2018-01-26 14:20:37&#160;/&#160;点击:2516&#160;/&#160;评论:10">国外网友热议瑞兹改动：比尔森终于不用再选瑞兹了</a></li>
+                    <li>
+                      <a href="/a/ac4213743" target="_blank" title="西卡谈若风吃鸡账号被封：哪怕他杀60个也不会是开挂的&#13;UP:会计&#13;发布于2018-01-26 16:14:03&#160;/&#160;点击:12428&#160;/&#160;评论:107">西卡谈若风吃鸡账号被封：哪怕他杀60个也不会是开挂的</a></li>
+                    <li>
+                      <a href="/a/ac4213097" target="_blank" title="《彩虹六号：围攻》下个月将涨价 完整版上涨40美元&#13;UP:栀颜丶&#13;发布于2018-01-26 11:50:09&#160;/&#160;点击:2431&#160;/&#160;评论:12">《彩虹六号：围攻》下个月将涨价 完整版上涨40美元</a></li>
+                    <li>
+                      <a href="/a/ac4213926" target="_blank" title="如果再给你一次机会，你会杀害游戏里的NPC吗？&#13;UP:网易爱玩网&#13;发布于2018-01-26 17:27:57&#160;/&#160;点击:1746&#160;/&#160;评论:18">如果再给你一次机会，你会杀害游戏里的NPC吗？</a></li>
+                    <li>
+                      <a href="/a/ac4214083" target="_blank" title="LPL首周数据总览&#13;UP:会计&#13;发布于2018-01-26 18:10:43&#160;/&#160;点击:273&#160;/&#160;评论:1">LPL首周数据总览</a></li>
+                    <li>
+                      <a href="/a/ac4214088" target="_blank" title="设计师：秒表还会削弱 启封的秘籍适合新乌鸦&#13;UP:会计&#13;发布于2018-01-26 18:12:02&#160;/&#160;点击:533&#160;/&#160;评论:1">设计师：秒表还会削弱 启封的秘籍适合新乌鸦</a></li>
+                    <li>
+                      <a href="/a/ac4213744" target="_blank" title="LCK今日前瞻：“通讯社”共同出战，SKT再遇强敌&#13;UP:会计&#13;发布于2018-01-26 16:14:34&#160;/&#160;点击:1633&#160;/&#160;评论:9">LCK今日前瞻：“通讯社”共同出战，SKT再遇强敌</a></li>
+                  </ul>
+                </div>
+              </div>
+              <footer class="module-footer">
+                <a href="http://www.acfun.cn/v/list110/index.htm" target="_blank" class="more">查看更多
+                  <i class="icon icon-arrow-slim-right"></i></a>
+              </footer>
+            </div>
+          </section>
+        </div>
+      </section> -->
+      {foreach $lala as $k=>$v}
+      <section data-cid="60" b-id="4" b-name="{$v['bkname']}" b-type="4" class="wp clearfix column-box area area-channel area-channel-big">
+        <div data-tab="" class="column-left">
+          <header class="clearfix area-header">
+            <h3 class="fl area-title">
+              <a href="/index/video/list?parentid={$v['cid']}" target="_blank">
+                <img src="{$v['bkimg']}"
+                 data-original="{$v['bkimg']}" width="40" height="40" class="fl" /></a>
+              <b>
+                <a href="/index/video/list?parentid={$v['cid']}" target="_blank">{$v['bkname']}</a></b>
+            </h3>
+            <!-- <div id="area-change-btn60" class="fl no-select area-change-btn">
+              <span>
+                <i class="icon icon-loading"></i>
+                <em>换一批</em></span>
+              .point 弹幕飙升最快的视频会出现在这里</div> -->
+            <a href="/index/video/list?parentid={$v['cid']}" target="_blank" class="fr area-more">
+              <span>更多</span>
+              <i class="icon icon-arrow-slim-right"></i>
+            </a>
+
+          </header>
+          <div class="clearfix column-box area-main">
+            {foreach $tuijian as $key=>$value}
+            {if $v['cid'] == $value['dabankuai']}
+
+            <div m-id="14" m-name="大图视频推荐" m-type="7" class="fl module module-video-big">
+              <a href="/index/video/v?vid={$value['vid']}" target="_blank" data-did="5854893" class="mask-video has-danmu">
+                <img src="{$value['vimg']}"
+                 data-original="{$value['vimg']}" width="340" height="240" />
+                <time>{$a = date('Y:m:d H:i:s',$value['create_time'])}</time>
+                <span class="mask-video-icon">
+                  <i class="icon icon-triangle-right"></i>
+                </span>
+              </a>
+              <p>
+                <b class="text-overflow">
+                  <a href="/v/ac4212570" target="_blank" title="{$value['title']}&#13;UP:{foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}&#13;发布于{$a = date('Y:m:d H:i:s',$value['create_time'])}&#160;/&#160;点击:{$value['bofangliang']}&#160;/&#160;评论:{$value['pinglun']}">{$value['title']}</a></b>
+                <em class="text-overflow">{$value['content']}</em></p>
+            </div>
+            <?php break; ?>
+            {/if}
+            {/foreach}
+            <div data-pagecount="4" data-showlength="11" m-id="15" m-name="小图视频推荐" m-type="8" class="clearfix module-video">
+            {foreach $tuijian as $key=>$value}
+            {if $v['cid'] == $value['dabankuai']}
+
+            <div class="{$i++}"></div>
+            {if $i==1}
+
+
+
+            {elseif $i<=12}
+              {if $value['tuijian'] == 1}
+              <figure class="fl block-box block-video is-recommend">
+              {else}
+              <figure class="fl block-box block-video">
+              {/if}
+                <a data-adTag="0" href="/index/video/v?vid={$value['vid']}" data-did="5855280" target="_blank" class="block-img has-danmu">
+                  <img src="{$value['vimg']}" data-original="{$value['vimg']}" width="100%" height="100%" />
+                  <time>{$a = date('Y:m:d H:i:s',$value['create_time'])}</time>
+                  <i>推荐</i>
+                </a>
+                <figcaption class="block-title">
+                  <b>
+                    <a href="/index/video/v?vid={$value['vid']}" target="_blank" title="{$value['title']}&#13;UP:{foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}&#13;发布于{$a = date('Y:m:d H:i:s',$value['create_time'])}&#160;/&#160;点击:{$value['bofangliang']}&#160;/&#160;评论:{$value['pinglun']}">{$value['title']}</a></b>
+                  <p class="clearfix">
+                    <span class="icon icon-view-player">{$value['bofangliang']}</span>
+                    <span class="icon icon-danmu">{$value['danmu']}</span></p>
+                </figcaption>
+              </figure>
+              {/if}
+              {/if}
+            {/foreach}
+            <div class="{$i = 1}"></div>
+            </div>
+            </div>
+        </div>
+        <div class="column-right">
+          <section data-tab="" b-id="4" b-name="{$v['bkname']}" b-type="4" class="module module-rank">
+            <header class="clearfix module-header">
+              <div class="fl module-title">
+                <b>
+                  <a href="" target="_blank" title="{$v['bkname']}排行榜">{$v['bkname']}排行榜</a></b>
+              </div>
+              <!-- <div class="fr module-tab">
+                <a href="javascript:;" data-nav="1" class="active">日榜</a>
+                <a href="javascript:;" data-nav="2">周榜</a></div> -->
+            </header>
+            <div m-id="17" m-name="排行榜" m-type="17" class="module-main">
+              <div class="module-con">
+                <ul data-con="1">
+                  {foreach $paihang as $key=>$value}
+                  {if $v['cid'] == $value['dabankuai']}
+
+                  {if $j<=3}
+                  <li class="has-img">
+                    <span>
+                      <i>{$j++}</i>
+                    </span>
+                    <a href="/index/video/v?vid={$value['vid']}" title="{$value['title']}&#13;UP:{foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}&#13;发布于{$a = date('Y:m:d H:i:s',$value['create_time'])}&#160;/&#160;点击：{$value['bofangliang']}&#160;/&#160;评论：{$value['pinglun']}" target="_blank" class="fl img-wp">
+                      <img data-original="{$value['vimg']}" src="{$value['vimg']}" width="90" height="50" /></a>
+                    <b>
+                      <a href="/index/video/v?vid={$value['vid']}" title="{$value['title']}&#13;UP:{foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}&#13;发布于{$a = date('Y:m:d H:i:s',$value['create_time'])}&#160;/&#160;点击：{$value['bofangliang']}&#160;/&#160;评论：{$value['pinglun']}" target="_blank">{$value['title']}</a></b>
+                    <p class="text-overflow">
+                      <a href="/index/video/v?vid={$value['vid']}" target="_blank" title="{foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}">UP: {foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}</a></p>
+                    <p>
+                      <span class="icon icon-view-player">
+                        <strong>{$value['bofangliang']}</strong></span>
+                      <span class="icon icon-comments">
+                        <strong>{$value['danmu']}</strong></span>
+                    </p>
+                  </li>
+                  {elseif $j<=10}
+                  <li>
+                    <span>
+                      <i>{$j++}</i>
+                    </span>
+                    <a href="/index/video/v?vid={$value['vid']}" title="{$value['title']}&#13;UP:{foreach $qbzl as $key1=>$value1}
+                    {if $value['uname'] == $value1['uid']}
+                    {$value1['username']}
+                    {/if}
+                    {/foreach}&#13;发布于{$a = date('Y:m:d H:i:s',$value['create_time'])}&#160;/&#160;点击：{$value['bofangliang']}&#160;/&#160;评论：{$value['pinglun']}" target="_blank">{$value['title']}</a></li>
+                  {/if}
+                  {/if}
+                  {/foreach}
+                  <div class="{$j = 1}"></div>
+                </ul>
+
+              </div>
+            </div>
+            <!-- <footer class="module-footer">
+              <a href="/rank/list/#cid=60;range=1" target="_blank" class="more">查看完整榜单
+                <i class="icon icon-arrow-slim-right"></i></a>
+            </footer> -->
+          </section>
+        </div>
+      </section>
+      {/foreach}
+
+
+
+
+
+
+      <!-- <input type="hidden" id="pageType" value="home">
+      <script id="temp-change-video" type="text/template">< figure class = "fl block-box block-video " > <a data - adTag = "[adTag]"href = "[link]"data - did = "[videoId]"target = "_blank"class = "block-img has-danmu" > <img src = "picture/1_1.png"data - original = "[image]?imageView2/1/w/320/h/180"width = "100%"height = "100%" / ><time > [videoTimeFormat] < /time><i>推荐</i ></a><figcaption class="block-title"><b><a href="[link]" target="_blank" title="[title]&#13;UP:[userName]&#13;发布于[timeUpdateFormat]&#160;/ & #160;点击: [views] & #160;
+        /&#160;评论:[comments]">[title]</a > </b><p class="clearfix"><span class="icon icon-view-player">[viewsFormat]</span > <span class = "icon icon-danmu" > [danmakuSize] < /span></p > </figcaption></figure ></script> -->
+      <div id="J_chat_btn"></div>
+    </div>
+    <div id="footer" class="footer">
+      <div class="wp footer-con">
+        <div class="clearfix footer-top">
+          <div class="fl footer-nav">
+            <div class="item-cooperation">
+              <h5>合作</h5>
+              <p>
+                <a href="http://www.acfun.cn/info/#page=about" target="_blank">关于我们</a>
+                <a href="http://www.acfun.cn/info/#page=contact" target="_blank" class="mr0">联系我们</a>
+                <br>
+                <a href="http://www.acfun.cn/info/#page=joinus" target="_blank">AC招聘</a></p>
+            </div>
+            <div class="item-official">
+              <h5>官方</h5>
+              <p>
+                <a href="http://weibo.com/danmushipin/" target="_blank">新浪微博</a>
+                <a href="http://tb.am/cbaz8/" target="_blank" class="mr0">官方网店</a>
+                <br>
+                <a href="/gamecenter" target="_blank" data-id="1" class="gamePortal">游戏中心</a>
+                <a class="i-o-ewm">
+                  <span class="i-o-code">
+                    <img src="picture/erweima_1.jpg"></span>微信公众号</a>
+                <!--br-->
+                <!--a(class="gamePortal",href="/tour",target="_blank",data-id="1") 去旅游--></p>
+            </div>
+            <div class="item-download">
+              <h5>下载</h5>
+              <p>
+                <a href="http://www.acfun.cn/app/" target="_blank" class="mr0">移动客户端</a>
+                <span class="new">new</span>
+                <br>
+                <a href="http://www.acfun.cn/emot/" target="_blank" class="mr0">AC娘表情包</a></p>
+            </div>
+            <div class="item-function">
+              <h5>友情链接</h5>
+              <p>
+                <!--a(href="#{think.config().rootDomain ||''}/map/",target="_blank") 网站地图-->
+                <!--a(href="#{think.config().rootDomain ||''}/rank/",target="_blank") 排行榜-->
+                <!--a.mr0(href="#{think.config().rootDomain ||''}/info/#page=help",target="_blank") 帮助手册-->
+                <!--br-->
+                <!--a(href="https://www.douyu.com/",target="_blank") 斗鱼直播-->
+                <!--a(href="http://h.nimingban.com",target="_blank" class="mr0") 匿名版-->
+                <a href="http://lg.dianbo.me/index.php" target="_blank">AC大逃杀</a></p>
+            </div>
+            <div class="item-feedback">
+              <h5>反馈</h5>
+              <p>
+                <a href="http://www.acfun.cn/feedback/" target="_blank">意见反馈</a>
+                <a href="http://www.acfun.cn/report/" target="_blank">举报</a>
+                <a href="http://www.acfun.cn/about/help" target="_blank" class="mr0">帮助中心</a>
+                <br>
+                <a href="http://www.acfun.cn/info/#page=disclaimer" target="_blank">免责声明</a>
+                <a href="http://www.acfun.cn/info/#page=agreement" target="_blank">用户协议</a>
+                <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf" target="_blank">联系客服</a></p>
+            </div>
+          </div>
+          <div class="fr no-select footer-avatar-ac">
+            <img src="" width="70" height="61">
+            <span class="num"></span>
+          </div>
+        </div>
+        <div class="clearfix footer-link">
+          <div class="item-link1">
+            <i class="item-icon-1"></i>
+            <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a>
+            <br>
+            <i class="item-icon-2"></i>
+            <span>网络文化经营单位</span>
+            <br>
+            <i class="item-icon-3"></i>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032340" target="_blank">京公网安备 11010502032340号</a></div>
+          <div class="item-link2">
+            <span>京ICP备15067359号</span>
+            <br>
+            <a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a>
+            <br>
+            <a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a></div>
+          <div class="item-link3">
+            <a href="//www.miitbeian.gov.cn/" target="_blank">京ICP证161323号</a>
+            <br>
+            <a href="/about/qualification" target="_blank">京网文[2016]0948-099号</a></div>
+          <div class="item-link4">
+            <span>节目制作经营许可证（京）字第05158号</span>
+            <br>
+            <a href="http://www.cyberpolice.cn" target="_blank">公安部网络违法犯罪举报网站</a></div>
+          <div class="item-link5 hidden"></div>
+        </div>
+        <div class="footer-bottom">
+          <a href="http://www.acfun.cn">
+            <img src="picture/logo-gray_1.png" width="78" height="24"></a>
+          <p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017 AcFun. 保留所有权利</p>
+        </div>
+      </div>
+    </div>
+    <div id="allcover" class="allcover"></div>
+    <div id="toolbar" class="toolbar">
+      <div id="to-comm" title="前往评论" class="icon icon-to-comm tool-item tool-to-comm">
+        <span class="pts">0</span></div>
+      <div id="to-top" title="返回顶部" class="icon icon-arrow-slim-up tool-item tool-to-top"></div>
+    </div>
+    <div id="info-box" class="info-box">
+      <p>错误信息</p>
+    </div>
+    <div id="pop-login" style="display:none" class="pop">
+      <div class="login-logo">
+        <img src="picture/area-login.png"></div>
+      <div class="login-tool">
+        <div class="fl help">
+          <a href="/info/#page=help" target="_blank" class="area-login-help">
+            <i class="icon icon-question"></i>
+          </a>
+        </div>
+        <div title="点击关闭窗体" onclick="$.callpop('login', 'close', '', '', '');" class="fl close">
+          <i class="icon icon-close"></i>
+        </div>
+      </div>
+      <div class="form-login">
+        <div class="form-info">
+          <div class="area1">
+            <input name="username" type="text" autocomplete="off" placeholder="请输入账号"></div>
+          <div class="area2">
+            <input name="password" type="password" autocomplete="off" placeholder="请输入密码"></div>
+        </div>
+        <div id="area-captcha-login" class="area area-captcha hidden">
+          <input id="ipt-captcha-login" name="captcha" type="text" data-direction="bottom" disabled="disabled" autocomplete="off" data-name="验证码" data-length="4,4" data-placeholder="输入验证码" required="required" placeholder="输入验证码" class="captcha fl">
+          <!--img(src="/captcha.svl" onclick="this.src='/captcha.svl?d='+(new date()).gettime()").captcha-pic.fl-->
+          <a id="ipt-captcha-switch">换一张</a></div>
+        <div class="area-tool">
+          <div class="fl">
+            <a href="/login/forgot/" target="_blank" class="fogetpwd">忘记密码?</a></div>
+          <div class="fr">还没有acfun账号，
+            <a href="/reg/" title="注册新帐号" target="_blank" class="disabled inro regacfun">立即注册</a></div>
+          <div class="clearfix hidden"></div>
+        </div>
+        <div id="area-login-btn">
+          <a class="login">登录</a></div>
+      </div>
+      <div id="area-login-tool">
+        <!--span.fl 使用第三方登录-->
+        <!--a(href="/loginbysina.aspx" title="使用新浪微博账号登录")#btn-login-sina.fl-->
+        <!-- img(src="http://cdn.aixifan.com/dotnet/20130418/project/sanae/style/image/weibo-reg.png")-->
+        <!--a(href="/loginbyqq.aspx" title="使用腾讯qq账号登录")#btn-login-tencent.fl-->
+        <!-- img(src="http://cdn.aixifan.com/dotnet/20130418/project/sanae/style/image/qq-reg.png")-->
+        <!--.clearfix.hidden--></div>
+    </div>
+    <div id="pop-confirm" style="display:none" class="pop">
+      <span class="win-hint-ensure">( *^_^* )</span>
+      <button id="btn_ok_ensure">确定</button>
+      <button id="btn_cancle_ensure">取消</button></div>
+    <div id="pop-follow" style="display:none" class="pop">
+      <span id="win-btn-close">
+        <i class="icon icon-close"></i>
+      </span>
+      <span class="win-hint-ensure">( *^_^* )</span>
+      <xmp id="temp-item-follow" class="hidden">
+        <option value="[gid]">[name]([count])</option></xmp>
+      <div class="unit">
+        <div class="fl">
+          <p class="p1">选择分组</p></div>
+        <div class="fl">
+          <select id="ipt-group-follow"></select>
+          <p class="hint">请选择分组。
+            <br/>您添加关注的用户将出现在对应的组中。</p></div>
+      </div>
+      <div class="clearfix hidden"></div>
+      <div class="unit-tool">
+        <div class="fl">
+          <button id="btn-do-follow">添加关注</button></div>
+      </div>
+    </div>
+    <div id="share-more" style="display:none">
+      <div class="jiao"></div>
+      <h1>把视频贴到博客或论坛</h1>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">视频地址</span>
+        <input type="text" readonly="readonly" value="" class="ipt-url fl">
+        <span class="copy fl cp-url">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">flash地址</span>
+        <input type="text" readonly="readonly" value="" class="ipt-flash fl">
+        <span class="copy fl cp-flash">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">html代码</span>
+        <input type="text" readonly="readonly" value="" class="ipt-html fl">
+        <span class="copy fl cp-html">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">通用代码</span>
+        <input type="text" readonly="readonly" value="" class="ipt-iframe fl">
+        <span class="copy fl cp-iframe">复制</span></div>
+    </div>
+    <div id="shade-layer"></div>
+    <iframe id="music1" style="z-index: 999;position: fixed;bottom: 0px;left: -250px;" frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=360 src="//music.163.com/outchain/player?type=0&id=2083971023&auto=0&height=430"></iframe>
+    <script type="text/javascript">
+      var music1 = document.getElementById('music1');
+      music1.onmouseover = function()
+      {
+          music1.style = '';
+          music1.style = 'z-index: 999;position: fixed;bottom: 0px;';
+      }
+      music1.onmouseout = function()
+      {
+          music1.style = '';
+          music1.style = 'z-index: 999;position: fixed;bottom: 0px;left:-250px';
+      }
+    </script>
+  </body>
+
+</html>
+<script src="/js/library.min.js"></script>
+<script src="/js/main.min_1.js"></script>
+<!-- <script>var CHAT_JS_LIST = ["http://cdn.aixifan.com/acfun-pc/2.2.93/js/chat/webim.js", "http://cdn.aixifan.com/acfun-pc/2.2.93/js/chat/chatEvents.js", "http://cdn.aixifan.com/acfun-pc/2.2.93/js/chat/app.js"]</script> -->
+<script src="/js/index.min.js"></script>
+<script src="/js/sensorsdata-event.min_1.js"></script>
+<script src="/js/chat.min.js"></script>
+<script src="/js/articlesensor.min_1.js"></script>
+<!-- <div class="hidden">
+  <a key="58807ce2efbfb0190275685d" logo_size="83x30" logo_type="business" href="http://www.anquan.org">
+    <script src="js/aq_auth.js"></script>
+  </a>
+</div>
+<div id="J_chat_wrapper" class="ac-chat-wrapper"></div> -->
+<script>var _hmt = _hmt || []; (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?2af69bc2b378fb58ae04ed2a04257ed1";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();</script>

@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="Copyright (c) AcFun">
+    <meta name="keywords" content="A站 ACFUN ACG 弹幕 视频 动画 漫画 游戏 斗鱼 新番 鬼畜 东方 初音 DOTA MUGEN LOL Vocaloid MAD AMV 天下漫友是一家">
+    <meta name="description" content="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐。">
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <title>注册 - AcFun弹幕视频网</title>
+    <style>
+      #code{
+                font-family:Arial;
+                font-style:italic;
+                font-weight:bold;
+                border:0;
+                letter-spacing:2px;
+                color:blue;
+            }
+    </style>
+
+    <link rel="stylesheet" href="/css/core_1.css">
+
+      <link rel="stylesheet" href="/css/font-awesome.min_1.css"></link>
+
+      <link rel="stylesheet" href="/css/style_2.css"></link>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/css/reg.css"></head>
+
+  <body>
+      {include file="index/top" /}
+      <div id="mainer1">
+        <input id="rightNum" type="hidden">
+        <div id="mainer-inner">
+          <div id="area-reg">
+            <div class="block l">
+              <div class="bg-login"></div>
+            </div>
+            <div class="block r">
+              <div class="area-reg">
+                <div class="after-reg hidden">
+                  <h3 class="title">注册成功!</h3>
+                  <div class="area-info">
+                    <p>您的账号为:
+                      <span class="mobile"></span></p>
+                    <p>请妥善保管!</p>
+                  </div>
+                  <a href="/">稍后将会自动回到首页...</a></div>
+                <form id="form-reg" class="form">
+                  <h3 class="title">注册 AcFun</h3>
+                <!--<div class="area">
+                  <i class="inp-icon icon icon-mobile"></i>
+                  <input id="ipt-mobile-reg" name="mobile" spellcheck="false" type="text" data-name="手机号码" data-direction="right" autocomplete="off" class="mobile l">
+                  <span class="clearfix"></span>
+                </div> -->
+                  <div class="area">
+                    <i class="inp-icon icon icon-user"></i>
+                    <input id="ipt-username-reg" name="name" spellcheck="false" type="text" data-name="昵称" value="" data-direction="right" data-length="4,16" class="regname name l">
+                    <span class="clearfix" id="span"></span>
+                  </div>
+                  <div class="area">
+                    <i class="inp-icon icon icon-lock"></i>
+                    <input id="ipt-pwd-reg" name="password" type="password" data-name="密码" data-length="6,32" data-direction="right" placeholder="请输入密码" value="" class="password l">
+                    <span class="clearfix"></span>
+                  </div>
+                  <div class="area">
+                    <input id="ipt-repwd-reg" name="password2" type="password" data-name="确认密码" data-length="6,32" data-direction="right" placeholder="确认密码" value="" class="re-password l">
+                    <span class="clearfix"></span>
+                  </div>
+                  <div class="area">
+                    <input id="phone" name="phone" type="text" data-name="手机号" data-length="6,32" data-direction="right" placeholder="手机号" value="" class="re-password l">
+                    <span class="clearfix"></span>
+                  </div>
+
+                  <div class="area">
+                    <input id="mail" name="mail" type="text" data-name="手机号" data-length="6,32" data-direction="right" placeholder="请输入QQ邮箱" value="" class="re-password l">
+                    <span class="clearfix"></span>
+                  </div>
+                  <div>
+                    <input type = "text" id = "input" value="" />
+                    <a onclick="getCode()" id="code">获取邮箱验证码</a>
+                </div>
+                  <div class="area area-agree">
+                    <input id="ipt-agree-reg" type="checkbox" checked="checked" class="l agree">
+                    <label for="ipt-agree-reg" class="agree-b">我已经认真阅读并同意AcFun的
+                      <a href="/info/#page=agreement" target="_blank">《使用协议》</a>。</label>
+                    <a href="/index/user/login/" class="back-login">返回登录</a>
+                    <span class="clearfix"></span>
+                  </div>
+                  <div class="area-tool">
+                    <a class="do login-btn primary" onclick="panduan()">注册</a>
+                    <p>
+                      <span id="btn-service-online" style="color:#666;cursor: default;" class="btn">海外用户请邮件联系user@acfun.cn</span>
+                      <!--(onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=800055564&o=acfun.cn&q=7', '_blank')") 海外号码点此联系客服-->
+                      <div id="launchBtn" class="launchBtn bg hidden"></div>
+                    </p>
+                    <span class="clearfix"></span>
+                  </div>
+                  <p class="banner-tip">小提示：点击首页banner有惊喜哦！</p></form>
+              </div>
+            </div>
+            <span class="clearfix"></span>
+          </div>
+        </div>
+      </div>
+      <span class="clearfix"></span>
+      <div id="footer">
+        <div id="footer-inner">
+          <div class="top-footer">
+            <div class="l">
+              <div class="unit unit-0">
+                <div class="a">合作</div>
+                <div class="b">
+                  <a id="" target="_blank" href="/info/#page=about" data-id="" class="a-0">关于我们</a>
+                  <a id="" target="_blank" href="/info/#page=contact" data-id="" class="a-1">联系我们</a>
+                  <a id="" target="_blank" href="/info/#page=joinus" data-id="" class="a-2">AC招聘</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-1">
+                <div class="a">官方</div>
+                <div class="b">
+                  <a id="" target="_blank" href="http://weibo.com/danmushipin/" data-id="" class="a-0">新浪微博</a>
+                  <a id="" target="_blank" href="http://tb.am/cbaz8" data-id="" class="a-1">官方网店</a>
+                  <a id="" target="_blank" href="/gamecenter" data-id="1" class="a-2 gamePortal">游戏中心</a>
+                  <a id="" target="_blank" href="javascript:void(0);" data-id="" class="a-3">微信公众号</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-2">
+                <div class="a">下载</div>
+                <div class="b">
+                  <a id="app-footer-link" target="_blank" href="/app/" data-id="">移动客户端
+                    <span class="bg-new-app"></span></a>
+                  <a id="" target="_blank" href="/emot/" data-id="" class="a-1">AC娘表情包</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-3">
+                <div class="a">友情链接</div>
+                <div class="b">
+                  <a id="" target="_blank" href="http://lg.dianbo.me/index.php" data-id="" class="a-0">AC大逃杀</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-4">
+                <div class="a">反馈</div>
+                <div class="b">
+                  <a id="" target="_blank" href="/feedback/" data-id="" class="a-0">意见反馈</a>
+                  <a id="" target="_blank" href="/report/" data-id="" class="a-1">举报</a>
+                  <a id="" target="_blank" href="/about/help" data-id="" class="a-2">帮助中心</a>
+                  <a id="" target="_blank" href="/info/#page=disclaimer" data-id="" class="a-3">免责声明</a>
+                  <a id="" target="_blank" href="/info/#page=agreement" data-id="" class="a-4">用户协议</a>
+                  <a id="" target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf" data-id="" class="a-5">联系客服</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="erweima">
+                <div class="arrow-top"></div>
+                <img src="/picture/erweima_3.jpg" width="140px" height="140px"></div>
+              <span class="clearfix"></span>
+              <div class="arrow-right"></div>
+            </div>
+            <div class="r">
+              <div id="avatar-ac-footer" class="hidden"></div>
+            </div>
+            <span class="clearfix"></span>
+          </div>
+          <div class="bottom-footer">
+            <ul id="explain">
+              <li>
+                <p class="report">
+                  <span class="reportImg"></span>
+                  <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a></p>
+                <p class="inter">
+                  <span class="reportImg"></span>
+                  <span>网络文化经营单位</span></p>
+                <p class="public">
+                  <span class="reportImg"></span>
+                  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032340" target="_blank">京公网安备 11010502032340号</a></p>
+              </li>
+              <li>
+                <p>
+                  <span>京ICP备15067359号</span></p>
+                <p>
+                  <a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a></p>
+                <p>
+                  <a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a></p>
+              </li>
+              <li>
+                <p>
+                  <span>节目制作经营许可证（京）字第05158号</span></p>
+                <p>
+                  <a href="http://www.cyberpolice.cn" target="_blank">公安部网络违法犯罪举报网站</a></p>
+              </li>
+              <li>
+                <p>
+                  <a href="//www.miitbeian.gov.cn/" target="_blank">京ICP证161323号</a></p>
+                <p>
+                  <a href="/about/qualification" target="_blank">京网文[2016]0948-099号</a></p>
+                <p class="hidden"></p>
+              </li>
+              <div style="clear:both"></div>
+            </ul>
+            <a id="a-logo-footer" href="/"></a>
+            <p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017 AcFun. 保留所有权利</p>
+          </div>
+          <p id="hint-time-released" data-time="2018.1.26 23:09:16" class="hidden">Released at 2018.1.26 23:09:16.</p></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    //设置一个全局的变量，便于保存验证码
+/*    var code;
+    function createCode(){
+        //首先默认code为空字符串
+        code = '';
+        //设置长度，这里看需求，我这里设置了4
+        var codeLength = 4;
+        var codeV = document.getElementById('code');
+        //设置随机字符
+        var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z');
+        //循环codeLength 我设置的4就是循环4次
+        for(var i = 0; i < codeLength; i++){
+            //设置随机数范围,这设置为0 ~ 36
+             var index = Math.floor(Math.random()*36);
+             //字符串拼接 将每次随机的字符 进行拼接
+             code += random[index];
+        }
+        //将拼接好的字符串赋值给展示的Value
+        codeV.value = code;
+    }*/
+
+
+      /*邮箱验证*/
+      var mail = document.getElementById('mail');
+
+      function getCode()
+      {
+         var filter = /^([a-zA-Z0-9]+[_|_|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|.]?)*[a-zA-Z0-9]+\.(?:com|cn)$/;
+        var strEmail=filter.test(mail.value);
+        if(!strEmail){
+            alert('邮箱格式不正确');
+        }
+       ajax({
+          method:'post',
+          url:'/index/user/email',
+          async:true,
+          data:{to:mail.value},
+          success:success,
+        });
+
+       function success(data)
+       {
+        //console.log(data);
+        //var oSpan = document.getElementById('span');
+        var obj = JSON.parse(data);
+        if(obj.state == 1){
+          alert('邮箱验证获取成功');
+        }else{
+          alert('邮箱验证获取失败');
+        }
+       }
+      }
+      var admin = document.getElementById('ipt-username-reg');
+    /*  var oInput = document.getElementsByTagName('input');*/
+      admin.onblur= function ()
+      {
+        //alert(this.value);
+        ajax({
+          method:'post',
+          url:'zhuce',
+          async:true,
+          data:{name:this.value},
+          success:success
+        });
+      };
+      function success(data)
+      {
+       // console.log(data);
+        var oSpan = document.getElementById('span');
+        var obj = JSON.parse(data);
+        if (obj.state == 1) {
+
+          oSpan.innerHTML = '该用户已存在，请重新输入';
+          oSpan.style.color = 'red';
+        } else {
+          oSpan.innerHTML = '用户名合法，可以使用';
+          oSpan.style.color = 'green';
+        }
+      }
+
+    function panduan(){
+      //alert(oSpan);
+
+        var oSpan = document.getElementById('span');
+        var name = document.getElementById('ipt-username-reg');
+        var pwd = document.getElementById('ipt-pwd-reg');
+        var repwd = document.getElementById('ipt-repwd-reg');
+        var phone = document.getElementById('phone');
+        var put = document.getElementById('input');
+        //console.log(pwd.value);
+        //alert(oSpan.innerHTML);
+        if(oSpan.innerHTML == '该用户已存在，请重新输入'){
+          alert('请重新输入用户名');
+          return false;
+        }else if(name.value.length < 3){
+          alert('用户名长度不能小于3位');
+          return false;
+        }else if(pwd.value.length < 6){
+          alert('密码长度不能小于6位');
+          return false;
+        }else if(pwd.value != repwd.value){
+          alert('两次密码输入不一致');
+          return false;
+        }else if(!/^1\d{10}$/.test(phone.value)){
+          alert('手机号格式错误');
+          return false;
+        }
+
+        var user = document.getElementById('ipt-username-reg').value;
+        var password = document.getElementById('ipt-pwd-reg').value;
+        var pho = document.getElementById('phone').value;
+/*        alert(user);
+        alert(password);
+        alert(pho);*/
+       ajax({
+          method:'post',
+          url:'doZhuce',
+          async:true,
+          data:{name:user,password:password,phone:pho,mailNum:put.value},
+          success:success
+        });
+      function success(data)
+      {
+        //console.log(data);
+        //var oSpan = document.getElementById('span');
+        var obj = JSON.parse(data);
+        if (obj.state == 1) {
+            alert('注册成功');
+            name.value = '';
+            pwd.value = '';
+            repwd.value = '';
+            phone.value = '';
+            oSpan.innerHTML = '';
+          }else if(obj.sta == 0){
+            alert('验证码输入错误');
+        } else if(obj.state == 0){
+          alert('注册失败');
+        }
+      }
+    }
+
+
+      //alert(admin.value);
+    </script>
+  </body>
+
+</html>

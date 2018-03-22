@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/ckform.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<form action="/admin/video/addVideo" method="post" enctype="multipart/form-data">
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <td>标题</td>
+        <td><input type="text" name="title" /></td>
+    </tr>
+    <tr>
+        <td>分区</td>
+        <td>
+            <select name="fenqu">
+                {foreach $result as $value}
+                <option value="{$value['cid']}">{$value['bkname']}</option>
+                {/foreach}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>封面</td>
+        <td><input type="file" name="vimg"/></td>
+    </tr>
+    <tr>
+        <td>简介</td>
+        <td><input type="text" name="content"></td>
+    </tr>
+    <tr>
+        <td>视频文件</td>
+        <td><input type="file" name="vpath"></td>
+    </tr>
+
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <input type="submit" class="btn btn-primary" value="上传" />
+            <!-- <button type="submit" class="btn btn-primary" type="button">上传</button> -->&nbsp;&nbsp;
+            <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+
+
+</table>
+</form>
+</body>
+</html>
+<script>
+    $(function () {
+		$('#backid').click(function(){
+				window.location.href="index.html";
+		 });
+
+    });
+</script>

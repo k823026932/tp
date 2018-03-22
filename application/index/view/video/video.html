@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title> 
+    
+<style>
+.comment-filed{  
+    width:640px;  
+    min-height: 100%;
+    margin:0 auto;
+
+}  
+  
+.comment-num{  
+    text-align: right;    
+    font-size:14px;  
+}  
+.div-txt-submit{  
+    text-align:right;  
+    margin-top:8px;  
+      
+}  
+  
+.comment-submit{  
+    background-color:#63B8FF;  
+    margin-top:15px;  
+    text-decoration:none;  
+    color:#fff;  
+    padding:5px;  
+    font-size:14px;  
+}  
+  
+.txt-commit{  
+    border:1px solid blue;  
+    width:620px;  
+    height: 60px;   
+    padding: 10px;  
+}  
+  
+.txt-reply{  
+    width: 100%;   
+    height: 60px;  
+}  
+  
+  
+  
+.comment-filed-list{  
+    margin-top:20px;  
+}  
+  
+.comment-list{  
+    margin-top:2px;  
+    width:herit;  
+    height:50px;  
+    border-top:1px solid gray;  
+}  
+  
+.comment-ul{  
+    list-style:none;  
+    padding: 0px;
+}  
+  
+.head-pic{  
+    width:40px;  
+    height:40px;      
+}  
+  
+.cm{  
+    posit-ion:rel-ative;  
+    margin-top:0px;  
+    margin-left:40px;  
+    margin-top:-40px;  
+    width:600px;  
+}  
+  
+.cm-header{  
+    padding-left:5px;  
+}  
+  
+.cm-content{  
+    padding-left:5px;  
+}  
+  
+.cm-footer{  
+    padding-bottom:5px;  
+    text-align:right;  
+    border-bottom: 1px dotted #CCC;  
+}  
+  
+.comment-reply{  
+    text-decoration:none;  
+    color:gray;  
+    font-size: 14px;  
+}  
+  
+.children{  
+    list-style:none;  
+    background-color:#FAFAFA;  
+    padding-left:0;  
+    margin-left:40px;  
+}  
+  
+.children-cm{  
+    posit-ion:re-lative;    
+    margin-left:40px;  
+    margin-top:-40px;  
+    width:90%;  
+} 
+</style> 
+</head> 
+<body>
+ <div class="comment-filed">  
+  <!--发表评论区begin-->  
+  <div>  
+    <div class="comment-num">  
+        <span>条评论</span>  
+    </div>  
+    <div>  
+        <div>  
+        <textarea class="txt-commit" replyid="0"></textarea>  
+        </div>  
+        <div class="div-txt-submit">  
+            <a class="comment-submit" parent_id="0" style="" href="javascript:void(0);" target="_blank"><span style="">发表评论</span></a>  
+        </div>        
+    </div>  
+  </div>  
+  <!--发表评论区end-->  
+  
+  <!--评论列表显示区begin-->  
+    <div class="comment-filed-list">  
+        <div><span>全部评论</span></div>  
+        <div class="comment-list">  
+            <!--一级评论列表begin-->
+            {foreach $cat as $k=>$v}
+            {if $v['level'] == 0}
+            <ul class="comment-ul" style="list-style:none;">
+              <volist name="commlist" id="data">                    
+                    <li >                      
+                    <div style="height: 100px;">  
+                        <div>  
+                            <img class="head-pic" src="{$v['head_pic']}" alt="">      
+                        </div>  
+                        <div class="cm">  
+                            <div class="cm-header">  
+                            <span>{$v['nickname']}</span>  
+                            <span>{$a = date('Y:m:d H:i:s',$v['create_time'])}</span>  
+                            </div>  
+                            <div class="cm-content">  
+                                <p>  
+                                    {$v['content']} 
+                                </p>  
+                            </div>
+                            <div class="cm-footer">
+                                 <textarea class="text" style="display: none;"></textarea>
+                                <span class="comment-reply" comment_id="11"  >回复</span>                        
+                            </div>    
+                        </div>         
+                    </div>    
+  
+                </li>  
+                </volist>                                                                       
+            </ul>
+            {else}
+            
+            <ul class="comment-ul" style="list-style:none;margin-left: {$v['level']*20 . 'px'};">
+                   
+                <volist name="commlist" id="data">                    
+                    <li comment_id="11">                      
+                    <div style="height: 100px;">  
+                        <div>  
+                            <img class="head-pic" src="{$v['head_pic']}" alt="">      
+                        </div>  
+                        <div class="cm">  
+                            <div class="cm-header">  
+                            <span>{$v['nickname']}回复:@{$v['nickname']}</span>  
+                            <span>{$a = date('Y:m:d H:i:s',$v['create_time'])}</span>  
+                            </div>  
+                            <div class="cm-content">  
+                                <p>  
+                                    {$v['content']} 
+                                </p>  
+                            </div>
+                            <div class="cm-footer">
+                                 <textarea class="text" style="display: none;"></textarea>
+                                <span class="comment-reply" comment_id="11"  >回复</span>                        
+                            </div>    
+                        </div>         
+                    </div>    
+  
+                </li>  
+                </volist>                                                                       
+            </ul> 
+            
+            {/if}
+            {/foreach}
+            <!--一级评论列表end-->  
+        </div>        
+    </div>  
+  <!--评论列表显示区end-->  
+</div>  
+</body>
+<script type="text/javascript" src="/js/ajax.js"></script>
+<script type="text/javascript">
+   var aButton = document.getElementsByClassName('comment-reply');
+   var text = document.getElementsByClassName('text');
+   //alert(aButton);
+   ajax({
+        method:'post',
+        url:'/index/index/topxia',
+        async:true,
+        data:{vid:6},
+        success:success
+      });
+    
+    function success(data)
+    {
+      var obj = JSON.parse(data);
+      
+    }
+  for (var i = 0; i < aButton.length; i++) {
+      aButton[i].index = i;
+      //alert(aButton[i].index);
+      aButton[i].onclick = function () {
+        text[this.index].style = '';
+        text[this.index].style = 'overflow:hidden;';
+        
+               
+    }  
+  }
+      
+  
+
+</script>
+</html>

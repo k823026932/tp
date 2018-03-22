@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/ckform.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="index.html" method="get">
+    板块名称：
+    <!-- <input type="text" name="rolename" id="rolename"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;  --><a href="/admin/node/add"><button type="button" class="btn btn-success" id="addnew">新增板块</button></a>
+</form>
+
+
+<table id="table" class="table table-bordered table-hover definewidth m10" >
+<form action="/admin/node/duoshan" method="post">
+     <tr>
+         <th>选择</th>
+         <th>板块ID</th>
+         <th>板块名称</th>
+         <th>板块图标</th>
+         <th>管理操作</th>
+     </tr>
+
+     {foreach $cat as $key=>$value}
+
+         <tr>
+            <td><input type="checkbox" name="id[]" value="{$value['cid']}"></td>
+            <td>{$value['cid']}</td>
+            <td>
+            {for start="0" end="$value['level']"}
+            —
+            {/for}
+            {$value['bkname']}
+            </td>
+            <td><img src="{$value['bkimg']}" style="width:50px;height:50px"/></td>
+            <td>
+
+            <a href="/admin/node/edit?id={$value['cid']}">编辑</a>
+            <a href="/admin/node/del?id={$value['cid']}">删除</a>
+            </td>
+        </tr>
+
+    {/foreach}
+    <tr>
+        <td><button>删除</button></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </form>
+
+</table>
+
+</body>
+</html>
+<script>
+
+</script>

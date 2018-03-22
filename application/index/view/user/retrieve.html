@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="Copyright (c) AcFun">
+    <meta name="keywords" content="A站 ACFUN ACG 弹幕 视频 动画 漫画 游戏 斗鱼 新番 鬼畜 东方 初音 DOTA MUGEN LOL Vocaloid MAD AMV 天下漫友是一家">
+    <meta name="description" content="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐。">
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <title>密码找回 - AcFun弹幕视频网</title>
+    <link rel="stylesheet" href="/css/core_2.css">
+    <!--[if lte IE 7]>
+      <link rel="stylesheet" href="css/font-awesome-ie7.min_2.css"></link>
+    <![endif]-->
+    <!--[if (gte IE 8)|!(IE)]>
+      <!-->
+      <link rel="stylesheet" href="/css/font-awesome.min_2.css"></link>
+    <!--<![endif]-->
+    <!--[if lte IE 7]>
+      <link rel="stylesheet" href="css/style-ie7_2.css"></link>
+    <![endif]-->
+    <!--[if (gte IE 8)|!(IE)]>
+      <!-->
+      <link rel="stylesheet" href="/css/style_3.css"></link>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="/css/forgot.css">
+    <link id="style-theme-member" rel="stylesheet" href="/css/theme.css"></head>
+
+  <body>
+    {include file="index/top" /}
+      <div id="mainer1">
+        <div id="mainer-inner">
+          <div id="block" class="block">
+            <div class="banner">
+              <p class="tab fixed">密码找回
+                <span class="hint">Password Recovery</span></p>
+            </div>
+            <div class="mainer">
+              <div id="fNav" class="fNav">
+                <div class="lineWrap lineWrap1 active">
+                  <h1>找回方式</h1>
+                  <div class="line"></div>
+                  <span>1</span></div>
+                <div class="lineWrap lineWrap2">
+                  <h1>验证身份</h1>
+                  <div class="line"></div>
+                  <span>2</span></div>
+                <div class="lineWrap lineWrap3">
+                  <h1>设置新密码</h1>
+                  <div class="line"></div>
+                  <span>3</span></div>
+                <div class="lineWrap lineWrap4">
+                  <h1>完成</h1>
+                  <div class="line"></div>
+                  <span>4</span></div>
+              </div>
+              <div class="c">
+                <div id="userName" style="display:block" class="f-block">
+                  <div class="input">
+                    <i class="icon icon-user"></i>
+                    <input type="password" placeholder="新密码" value="" class="inputUn" id="password"></div>
+                  <div class="input">
+                    <i class="icon icon-user"></i>
+                    <input type="password" value="" placeholder="确认密码" class="inputUn" id="repwd"></div>
+                  <span class="clearfix"></span>
+                  <div class="btnWrap">
+                    <div href="" class="next" onclick="yanzheng()">修改</div>
+                    <a href="/index/user/login" style="display:inline-block;margin-top:30px" class="/index/user/login">返回登录</a></div>
+                  <!-- <div class="service">
+                    <img src="/picture/talk.png">
+                    <span onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&amp;sid=800055564&amp;o=acfun.cn&amp;q=7', '_blank')" class="btn-service-online">人工找回</span></div> -->
+                </div>
+                <div id="mobileUser" style="display:none" class="f-block yzUser">
+                  <div style="display:none" class="selectYz">
+                    <!--h1 请选择验证方式：-->
+                    <!--select.selectM(style="display:none")-->
+                    <!-- option(value="mobile") 手机验证-->
+                    <!-- option(value="mail") 邮箱验证-->
+                    <!--span(style="display:none")--></div>
+                  <span class="clearfix"></span>
+                  <div style="display:none" class="nameWrap yz">
+                    <!--h1 昵称：-->
+                    <!-- span 小手冰凉--></div>
+                  <span class="clearfix"></span>
+                  <div style="display:none" class="shouji">
+                    <div class="yzMobile yz">
+                      <h1>验证手机：
+                        <span>186****545</span></h1>
+                    </div>
+                    <div class="mobileWrap">
+                      <input type="text" placeholder="手机短信验证码">
+                      <div class="sendBtn">获取短信验证码</div></div>
+                    <span class="clearfix"></span>
+                    <div class="btnWrap">
+                      <div href="" class="next">下一步</div></div>
+                  </div>
+                  <div style="display:none" class="youxiang">
+                    <div class="yzMail yz">
+                      <h1>验证邮箱：
+                        <span>s****@163.com</span></h1>
+                    </div>
+                    <div class="codeWrap">
+                      <input type="text" placeholder="请输入验证码">
+                      <img id="mailYz" src="/picture/bada3e91726c4df59b56396daff60cdf.gif" style="cursor:default">
+                      <span onclick="$('#mailYz').attr('src','/verification/captcha?d='+ $.now())">换一张</span></div>
+                    <span class="clearfix"></span>
+                    <div class="btnWrap">
+                      <div class="next">发送验证邮箱</div></div>
+                  </div>
+                  <!-- <div class="service">
+                    <img src="/picture/talk.png">
+                    <span onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&amp;sid=800055564&amp;o=acfun.cn&amp;q=7', '_blank')" class="btn-service-online">人工找回</span></div> -->
+                </div>
+                <!--#mailUser.f-block.yzUser(style="display:none") .selectYz h1 请选择验证方式 select.selectM option(value="mobile") 手机验证 option(value="mail") 邮箱验证 span.clearfix .nameWrap.yz h1 呢称： span 小手冰凉 span.clearfix-->
+                <div id="mailFaild" style="display:none">
+                  <!--h2 密码找回链接已失效，请重新申请。-->
+                  <dl>
+                    <dt>
+                      <img src="/picture/ac1.png"></dt>
+                    <dd>
+                      <h1>密码找回链接已失效，请重新申请。</h1></dd>
+                  </dl>
+                </div>
+                <div id="mailSuccess" style="display:none">
+                  <dl>
+                    <dt>
+                      <img src="/picture/ac.png"></dt>
+                    <dd>
+                      <h1>验证邮箱发送成功！</h1>
+                      <h2>验证邮件24小时内有效，请尽快登录您的邮箱点击验证链接完成验证。</h2></dd>
+                  </dl>
+                </div>
+                <div id="setPw" style="display:none" class="f-block">
+                  <div style="margin-bottom:15px" class="input pwd">
+                    <i class="icon icon-lock"></i>
+                    <input type="password" placeholder="6到32个字符" class="inputUn"></div>
+                  <div class="input qrpwd">
+                    <i class="icon icon-lock"></i>
+                    <input type="password" placeholder="重复输入新密码" class="inputUn2"></div>
+                  <div class="btnWrap">
+                    <div href="" class="next">提交修改</div></div>
+                </div>
+                <div id="mailsetPw" style="display:none" class="f-block">
+                  <div style="margin-bottom:15px" class="input pwd">
+                    <i class="icon icon-lock"></i>
+                    <input type="password" placeholder="6到32个字符" class="inputUn"></div>
+                  <div class="input qrpwd">
+                    <i class="icon icon-lock"></i>
+                    <input type="password" placeholder="重复输入新密码" class="inputUn2"></div>
+                  <div class="btnWrap">
+                    <div href="" class="next">提交修改</div></div>
+                </div>
+                <div id="success" style="display:none" class="f-block">
+                  <h1>密码重置成功
+                    <span>3</span>s后自动跳转首页</h1>
+                  <a href="http://www.acfun.cn/">立即跳转</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="clearfix"></span>
+      <div id="footer">
+        <div id="footer-inner">
+          <div class="top-footer">
+            <div class="l">
+              <div class="unit unit-0">
+                <div class="a">合作</div>
+                <div class="b">
+                  <a id="" target="_blank" href="/info/#page=about" data-id="" class="a-0">关于我们</a>
+                  <a id="" target="_blank" href="/info/#page=contact" data-id="" class="a-1">联系我们</a>
+                  <a id="" target="_blank" href="/info/#page=joinus" data-id="" class="a-2">AC招聘</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-1">
+                <div class="a">官方</div>
+                <div class="b">
+                  <a id="" target="_blank" href="http://weibo.com/danmushipin/" data-id="" class="a-0">新浪微博</a>
+                  <a id="" target="_blank" href="http://tb.am/cbaz8" data-id="" class="a-1">官方网店</a>
+                  <a id="" target="_blank" href="/gamecenter" data-id="1" class="a-2 gamePortal">游戏中心</a>
+                  <a id="" target="_blank" href="javascript:void(0);" data-id="" class="a-3">微信公众号</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-2">
+                <div class="a">下载</div>
+                <div class="b">
+                  <a id="app-footer-link" target="_blank" href="/app/" data-id="">移动客户端
+                    <span class="bg-new-app"></span></a>
+                  <a id="" target="_blank" href="/emot/" data-id="" class="a-1">AC娘表情包</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-3">
+                <div class="a">友情链接</div>
+                <div class="b">
+                  <a id="" target="_blank" href="http://lg.dianbo.me/index.php" data-id="" class="a-0">AC大逃杀</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="unit unit-4">
+                <div class="a">反馈</div>
+                <div class="b">
+                  <a id="" target="_blank" href="/feedback/" data-id="" class="a-0">意见反馈</a>
+                  <a id="" target="_blank" href="/report/" data-id="" class="a-1">举报</a>
+                  <a id="" target="_blank" href="/about/help" data-id="" class="a-2">帮助中心</a>
+                  <a id="" target="_blank" href="/info/#page=disclaimer" data-id="" class="a-3">免责声明</a>
+                  <a id="" target="_blank" href="/info/#page=agreement" data-id="" class="a-4">用户协议</a>
+                  <a id="" target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf" data-id="" class="a-5">联系客服</a></div>
+                <span class="clearfix"></span>
+              </div>
+              <div class="erweima">
+                <div class="arrow-top"></div>
+                <img src="/picture/erweima_4.jpg" width="140px" height="140px"></div>
+              <span class="clearfix"></span>
+              <div class="arrow-right"></div>
+            </div>
+            <div class="r">
+              <div id="avatar-ac-footer" class="hidden"></div>
+            </div>
+            <span class="clearfix"></span>
+          </div>
+          <div class="bottom-footer">
+            <ul id="explain">
+              <li>
+                <p class="report">
+                  <span class="reportImg"></span>
+                  <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a></p>
+                <p class="inter">
+                  <span class="reportImg"></span>
+                  <span>网络文化经营单位</span></p>
+                <p class="public">
+                  <span class="reportImg"></span>
+                  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032340" target="_blank">京公网安备 11010502032340号</a></p>
+              </li>
+              <li>
+                <p>
+                  <span>京ICP备15067359号</span></p>
+                <p>
+                  <a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a></p>
+                <p>
+                  <a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a></p>
+              </li>
+              <li>
+                <p>
+                  <span>节目制作经营许可证（京）字第05158号</span></p>
+                <p>
+                  <a href="http://www.cyberpolice.cn" target="_blank">公安部网络违法犯罪举报网站</a></p>
+              </li>
+              <li>
+                <p>
+                  <a href="//www.miitbeian.gov.cn/" target="_blank">京ICP证161323号</a></p>
+                <p>
+                  <a href="/about/qualification" target="_blank">京网文[2016]0948-099号</a></p>
+                <p class="hidden"></p>
+              </li>
+              <div style="clear:both"></div>
+            </ul>
+            <a id="a-logo-footer" href="/"></a>
+            <p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017 AcFun. 保留所有权利</p>
+          </div>
+          <p id="hint-time-released" data-time="2018.1.27 0:38:00" class="hidden">Released at 2018.1.27 0:38:00.</p></div>
+      </div>
+    </div>
+  </body>
+<script type="text/javascript">
+  var password = document.getElementById('password');
+  //alert(password);
+  var repwd = document.getElementById('repwd');
+  repwd.onblur= function ()
+  {
+    if(password.value != this.value){
+      alert('两次密码输入不一致');
+      return false;
+    }
+  }
+
+  function yanzheng()
+  {
+    //alert(password.value);
+       ajax({
+          method:'post',
+          url:'update',
+          async:true,
+          data:{password:password.value},
+          success:success
+        });
+
+       function success(data)
+       {
+          //console.log(data);
+          var obj = JSON.parse(data);
+          if(obj.state == 1){
+            alert('修改成功');
+           }else{
+            alert('修改失败');
+           }
+      }
+  }
+</script>
+</html>

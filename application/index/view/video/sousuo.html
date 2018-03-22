@@ -1,0 +1,635 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+  <head>
+    <script src="/js/route.min_3.js"></script>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="Copyright (c) AcFun">
+    <meta name="keywords" content="生活娱乐,A站,ACFUN,ACG,弹幕">
+    <meta name="description" content="生活娱乐,A站,ACFUN,ACG,弹幕,视频,动画,漫画,游戏,斗鱼,新番,鬼畜,东方,初音,DOTA,MUGEN,LOL,Vocaloid,MAD,AMV,天下漫友是一家">
+    <meta name="baidu-site-verification" content="4YkN38sctT">
+    <title>生活娱乐 - AcFun弹幕视频网 - 认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <link href="http://cdn.aixifan.com/ico/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/core.min_4.css">
+    <link rel="stylesheet" href="/css/list.min.css">
+    <link rel="stylesheet" href="/css/calendar.min.css">
+    <link rel="stylesheet" href="/css/pager.min_1.css">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min_4.js"></script>
+    <![endif]-->
+    <script>window.system = {};
+      window.globalConfig = {
+        debug: false,
+        cdn: "http://cdn.aixifan.com",
+        path: "http://cdn.aixifan.com/acfun-pc/2.2.93",
+        oldPath: 'http://cdn.aixifan.com/dotnet/20130418',
+        version: "2.2.93",
+        rootDomain: "http://www.acfun.cn",
+        showTime: "2018年1月27日凌晨12点46分",
+        api: "http://webapi.aixifan.com"
+      }</script>
+  </head>
+
+  <body>
+    <div id="christmas" style="display:none">
+      <div class="close-btn">跳过动画(14)</div></div>
+    <div id="header" class="header">
+      <div class="header-top">
+        <div class="wp clearfix header-top-con">
+          <h1 class="fl logo">
+            <a href="http://www.acfun.cn">
+              <img src="/picture/logo_3.png" width="88" height="27"></a>
+          </h1>
+          <ul id="header-guide" class="fr header-guide">
+            {if !empty($ziliao)}
+            <li class="guide-item guide-user user-logined">
+              <a href="/index/user/member" target="_blank" class="item user-avatar">
+                <img src="{$ziliao['touxiang']}" width="30" height="30"></a>
+              <a href="/index/user/login/" target="_blank" class="item user-login">登录/注册</a>
+              <span class="user-message-count hidden"></span>
+              <div class="guide-item-con">
+                <p class="clearfix">
+                  <a href="http://www.acfun.cn/member/" target="_blank" class="fl user-name"></a>
+                  <a href="/index/index/clear" class="fr icon icon-logout user-logout">退出</a></p>
+                <div id="user-message" class="user-message"></div>
+                <a href="http://www.acfun.cn/member/#area=mail" target="_blank" class="more">查看更多</a></div>
+            </li>
+            <li class="guide-item guide-history">
+              <a href="http://www.acfun.cn/member/#area=history" target="_blank" class="icon icon-history item"></a>
+              <div class="guide-item-con">
+                <ul></ul>
+                <a href="http://www.acfun.cn/member/#area=history" target="_blank" class="more">查看更多</a></div>
+              <script id="temp-history" type="text/template">< li > <a href = "[url]"target = "_blank" > [title] < /a><p>浏览于[time]</p > </li>/</script></li>
+            <li class="guide-item guide-upload">
+              <a href="/index/video/upload" target="_blank" class="icon icon-upload item"></a>
+              <div class="guide-item-con">
+                <ul>
+                  <li>
+                    <a href="/index/video/upload" target="_blank">投视频</a></li>
+
+                </ul>
+              </div>
+            </li>
+            <li class="guide-item">
+              <a href="/index/video/shoucang" target="_blank" class="icon icon-collect item"></a>
+            </li>
+          </ul>
+            {else}
+            <li class="guide-item guide-user">
+              <a href="http://www.acfun.cn/member/" target="_blank" class="user-avatar item">
+                <img src="" width="30" height="30"></a>
+              <a href="/index/user/login/" target="_blank" class="item user-login">登录/注册</a>
+              <span class="user-message-count hidden"></span>
+            </li>
+          </ul>
+            {/if}
+        <!--   <div id="search-box" class="fr search-box">
+
+
+
+            <input id="search-text" type="text"><button id="search-btn" class="search-btn"><i class="icon icon-search"></i><span>搜索</span></button>
+
+            <script type="text/javascript">
+              var content = document.getElementById('search-text');
+              var oBtn = document.getElementById('search-btn');
+              oBtn.onclick = function(){
+                //alert(content.value);
+                if(content != null){
+                  //alert(content);
+                   ajax({
+                       method:'post',
+                       url:'/index/video/souSuo',
+                       async:true,
+                       data:{content:content.value},
+                       success:success
+                     });
+                   //alert(content.value);
+                   function success(data)
+                   {
+
+                   }
+                }
+              };
+
+            </script>
+        </div> -->
+          <!--.tourIcon-->
+          <!-- a(class="fr tourPortal",href="/tour")-->
+          <!-- i.icon.icon-tour-->
+          <!-- span 旅游中心--></div>
+      </div>
+      <nav id="nav" class="wp nav">
+        <div class="clearfix wp nav-parent">
+          <ul class="clearfix">
+            <li class="nav-home"><a href="/index/index/index">首页</a></li>
+            <li class="nav-home ">
+              <a>搜索到跟“{$content}”相关的内容一共“{$count}”条</a></li>
+
+          </ul>
+        </div>
+        <div class="nav-sub">
+          <div class="wp nav-sub-con">
+            <ul data-category="105" data-cid="155" class="clearfix">
+              <li>
+                <a href="/v/list67/index.htm" data-cid="67">TV动画</a></li>
+              <li>
+                <a href="/v/list180/index.htm" data-cid="180">剧场动画</a></li>
+              <li>
+                <a href="/v/list181/index.htm" data-cid="181">短片动画</a></li>
+            </ul>
+            <ul data-category="14" data-cid="1" class="clearfix">
+              <li>
+                <a href="/v/list106/index.htm" data-cid="106">短片·手书</a></li>
+              <li>
+                <a href="/v/list107/index.htm" data-cid="107">MAD·AMV</a></li>
+              <li>
+                <a href="/v/list108/index.htm" data-cid="108">MMD·3D</a></li>
+              <li>
+                <a href="/v/list159/index.htm" data-cid="159">动画资讯</a></li>
+              <li>
+                <a href="/v/list133/index.htm" data-cid="133">COSPLAY·声优</a></li>
+              <li>
+                <a href="/v/list99/index.htm" data-cid="99">布袋·特摄</a></li>
+            </ul>
+            <ul data-category="113" data-cid="179" class="clearfix">
+              <li>
+                <a href="/v/list120/index.htm" data-cid="120">国产动画</a></li>
+              <li>
+                <a href="/v/list182/index.htm" data-cid="182">资讯·延伸</a></li>
+            </ul>
+            <ul data-category="16" data-cid="58" class="clearfix">
+              <li>
+                <a href="/v/list136/index.htm" data-cid="136">原创·翻唱</a></li>
+              <li>
+                <a href="/v/list137/index.htm" data-cid="137">演奏</a></li>
+              <li>
+                <a href="/v/list103/index.htm" data-cid="103">Vocaloid</a></li>
+              <li>
+                <a href="/v/list138/index.htm" data-cid="138">日系音乐</a></li>
+              <li>
+                <a href="/v/list139/index.htm" data-cid="139">综合音乐</a></li>
+              <li>
+                <a href="/v/list140/index.htm" data-cid="140">演唱会</a></li>
+            </ul>
+            <ul data-category="17" data-cid="123" class="clearfix">
+              <li>
+                <a href="/v/list134/index.htm" data-cid="134">宅舞</a></li>
+              <li>
+                <a href="/v/list135/index.htm" data-cid="135">综合舞蹈</a></li>
+              <li>
+                <a href="/v/list129/index.htm" data-cid="129">爱豆</a></li>
+              <li>
+                <a href="/v/list130/index.htm" data-cid="130">手作</a></li>
+              <li>
+                <a href="/v/list127/index.htm" data-cid="127">造型</a></li>
+            </ul>
+            <ul data-category="15" data-cid="59" class="clearfix">
+              <li>
+                <a href="/v/list84/index.htm" data-cid="84">主机单机</a></li>
+              <li>
+                <a href="/v/list83/index.htm" data-cid="83">游戏集锦</a></li>
+              <li>
+                <a href="/v/list145/index.htm" data-cid="145">电子竞技</a></li>
+              <li>
+                <a href="/v/list85/index.htm" data-cid="85">英雄联盟</a></li>
+              <li>
+                <a href="/v/list170/index.htm" data-cid="170">守望先锋</a></li>
+              <li>
+                <a href="/v/list165/index.htm" data-cid="165">桌游卡牌</a></li>
+              <li>
+                <a href="/v/list72/index.htm" data-cid="72">Mugen</a></li>
+              <li>
+                <a href="/gamecenter" data-cid="0" data-id="2" clase="gamePortal">游戏中心</a></li>
+            </ul>
+            <ul data-category="18" data-cid="60" class="clearfix">
+              <li>
+                <a href="/v/list86/index.htm" data-cid="86">生活娱乐</a></li>
+              <li>
+                <a href="/v/list87/index.htm" data-cid="87">鬼畜调教</a></li>
+              <li>
+                <a href="/v/list88/index.htm" data-cid="88">萌宠</a></li>
+              <li>
+                <a href="/v/list89/index.htm" data-cid="89">美食</a></li>
+            </ul>
+            <ul data-category="19" data-cid="70" class="clearfix">
+              <li>
+                <a href="/v/list90/index.htm" data-cid="90">科学技术</a></li>
+              <li>
+                <a href="/v/list151/index.htm" data-cid="151">教程</a></li>
+              <li>
+                <a href="/v/list91/index.htm" data-cid="91">数码</a></li>
+              <li>
+                <a href="/v/list122/index.htm" data-cid="122">汽车</a></li>
+              <li>
+                <a href="/v/list149/index.htm" data-cid="149">广告</a></li>
+            </ul>
+            <ul data-category="20" data-cid="68" class="clearfix">
+              <li>
+                <a href="/v/list141/index.htm" data-cid="141">国产剧</a></li>
+              <li>
+                <a href="/v/list121/index.htm" data-cid="121">网络剧</a></li>
+              <li>
+                <a href="/v/list100/index.htm" data-cid="100">纪录片</a></li>
+              <li>
+                <a href="/v/list98/index.htm" data-cid="98">综艺</a></li>
+            </ul>
+            <ul data-category="21" data-cid="69" class="clearfix">
+              <li>
+                <a href="/v/list152/index.htm" data-cid="152">综合体育</a></li>
+              <li>
+                <a href="/v/list94/index.htm" data-cid="94">足球</a></li>
+              <li>
+                <a href="/v/list95/index.htm" data-cid="95">篮球</a></li>
+              <li>
+                <a href="/v/list153/index.htm" data-cid="153">搏击</a></li>
+              <li>
+                <a href="/v/list154/index.htm" data-cid="154">11区体育</a></li>
+              <li>
+                <a href="/v/list93/index.htm" data-cid="93">惊奇体育</a></li>
+            </ul>
+            <ul data-category="22" data-cid="125" class="clearfix">
+              <li>
+                <a href="/v/list183/index.htm" data-cid="183">普法安全</a></li>
+              <li>
+                <a href="/v/list92/index.htm" data-cid="92">国防军事</a></li>
+              <li>
+                <a href="/v/list131/index.htm" data-cid="131">历史</a></li>
+              <li>
+                <a href="/v/list132/index.htm" data-cid="132">新鲜事·正能量</a></li>
+            </ul>
+            <ul data-category="24" data-cid="63" class="clearfix">
+              <li>
+                <a href="/v/list184/index.htm" data-cid="184">游记·涂鸦</a></li>
+              <li>
+                <a href="/v/list110/index.htm" data-cid="110">综合</a></li>
+              <li>
+                <a href="/v/list73/index.htm" data-cid="73">工作·情感</a></li>
+              <li>
+                <a href="/v/list74/index.htm" data-cid="74">动漫文化</a></li>
+              <li>
+                <a href="/v/list75/index.htm" data-cid="75">漫画·文学</a></li>
+              <li>
+                <a href="/v/list164/index.htm" data-cid="164">游戏</a></li>
+            </ul>
+            <ul data-category="25" data-cid="0" class="clearfix">
+              <li>
+                <a href="/a/aa5007988" data-cid="0">评论才是本体</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+ <div class="header-banner">
+  <style>.header .header-banner .banner-href{ background-image: url(/images/1516949822703_2.png); } @media screen and (max-width:1280px){ .header .header-banner .banner-href{ background-image: url(images/1516949825643_2.png); } }</style>
+  <a href="http://www.acfun.cn/z/ac4213313" target="_blank" class="banner-href"></a>
+  <span class="point hidden">快来看！这是一份AC娘的MH手札！</span>
+  <a href="http://www.acfun.cn/a/ac4183901" target="_blank" style="background-image:url(/images/1515667683355_2.png)" class="header-pendant"></a>
+</div>
+
+    <div id="main" class="main">
+      <input type="hidden" id="pageType" value="list">
+      <section class="wp clearfix column-box third-height">
+        <div class="column-left">
+          <header class="clearfix">
+            <div class="fl list-tab">
+              <a href="javascript:;" data-nav="0" class="no-select active">全部</a>
+           <!--    <a href="javascript:;" data-nav="1" class="no-select">播放最多</a>
+           <a href="javascript:;" data-nav="2" class="no-select">评论最多</a>
+           <a href="javascript:;" data-nav="3" class="no-select">弹幕最多</a> --></div>
+            <span class="area-date hidden">
+              <div class="area-date-list no-select">
+                <span class="calendar">
+                  <i class="icon icon-calendar"></i>日期&nbsp;:</span>
+                <span class="area-start-date"></span>
+                <span>-</span>
+                <span class="area-end-date"></span>
+              </div>
+            </span>
+            <div class="area-calendar">
+              <div class="calendar-mod">
+                <span>选择日期
+                  <div title="点击关闭窗口" class="close">
+                    <i class="icon icon-close"></i></div>
+                </span>
+                <input type="text" placeholder="请选择开始日期" id="calendar-start-date">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="请选择结束日期" id="calendar-end-date">
+                <div id="calendar-btn">
+                  <div class="calendar-sure">确定</div></div>
+              </div>
+              <p class="year-mouth">快速筛选</p>
+              <div class="unit-year unit unit-date">
+                <div data-year="2014" class="btn-year">2014年</div>
+                <div data-year="2015" class="btn-year">2015年</div>
+                <div data-year="2016" class="btn-year">2016年</div></div>
+              <span class="clearfix"></span>
+              <div class="unit-mouth unit unit-date">
+                <div data-month="1" class="btn-mouth">1月</div>
+                <div data-month="2" class="btn-mouth">2月</div>
+                <div data-month="3" class="btn-mouth">3月</div>
+                <div data-month="4" class="btn-mouth">4月</div>
+                <div data-month="5" class="btn-mouth">5月</div>
+                <div data-month="6" class="btn-mouth">6月</div>
+                <div data-month="7" class="btn-mouth">7月</div>
+                <div data-month="8" class="btn-mouth">8月</div>
+                <div data-month="9" class="btn-mouth">9月</div>
+                <div data-month="10" class="btn-mouth">10月</div>
+                <div data-month="11" class="btn-mouth">11月</div>
+                <div data-month="12" class="btn-mouth">12月</div>
+                <span class="clearfix"></span>
+              </div>
+          </header>
+          <div id="list-data" class="th-large">
+            <div id="list-video">
+            {if !empty($data)}
+            {foreach $data as $value}
+              <li class="has-img third-img fl">
+                <a href="/index/video/v?vid={$value['vid']}" target="_blank" class="fl img-wp">
+                  <img class="img" _src="{$value['vimg']}" data-original="http://imgs.aixifan.com/content/2018_02_01/1517466292.png?imageView2/1/w/160/h/90" width="160" height="90" style="display: inline;"></a>
+                  {foreach $userList as $val}
+                 {if $value['uname'] == $val['uid']}
+                <b class="text-over">
+                  <a href="http://www.acfun.cn/v/ac4223937" title="{$val['username']}
+                  发布于{2018-02-01 14:25:32} / 点击：73 / 评论：0" target="_blank" class="third-title">{$value['title']}</a>
+                </b><div><p class="up-name"><a href="http://www.acfun.cn/u/11094017.aspx" target="_blank"><img src="{$val['touxiang']}" data-original="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201712/201553331t4gzi0c.jpg?imageView2/1/w/24/h/24" style="display: inline;"></a><a href="http://www.acfun.cn/u/11094017.aspx" title="AC唠斯基" target="_blank" class="third-name"></a><span title="" class="verified-ico verified-0">{$val['username']}</span></p>
+     {/if}
+     {/foreach}<p class="video-num" style="margin-top:-30px">
+                    <span class="video-time">2月1日(星期四)14时25分</span>
+                    <span class="icon icon-view-player">
+                      <strong>73</strong></span>
+                    <span class="icon icon-danmu">&nbsp;0</span>
+                    <span class="icon icon-comments">&nbsp;0</span></p>
+                </div>
+                <p class="video-description">纯音频，请欣赏。之前压制视频 失败，因此。。。。将就一下</p></li>
+                {/foreach}
+                {/if}
+            </div>
+
+
+     <!--        <script id="temp-list-video" type="html">< li class = "has-img third-img fl" > <a href = "[link]"target = "_blank"class = "fl img-wp" > <img src = "/picture/1_3.png"data - original = "[coverImage]?imageView2/1/w/160/h/90"width = "160"height = "90" ></a><b class="text-over"><a href="[link]" title="[title]&#13;UP主:[username]&#13;发布于[contributeTimeFormat]&#160;/ & #160点击： [viewCountFormat] & #160;
+       /&#160评论：[commentCountFormat]" target="_blank" class="third-title">[title]</a > </b><div><p class="up-name"><a href="[userUrl]" target="_blank"><img src="picture/1_3.png " data-original=" [userAvatar] ? imageView2 / 1 / w / 24 / h / 24 "></a><a href=" [userUrl]" title=" [username]" target="_blank " class="third - name ">[username]</a><span title=" [verifiedTitle]" class="verified - ico verified - [verified]"></span></p><p class="video - num "><span class="video - time ">[contributeTimeFormat2]</span><span class="icon icon - view - player "><strong>[viewCountFormat]</strong></span><span class="icon icon - danmu ">&nbsp;[danmuSize]</span><span class="icon icon - comments ">&nbsp;[commentCountFormat]</span></p></div><p class="video - description ">[description]</p></li>"</script> -->
+            <div id="list-pager"></div>
+          </div>
+        </div>
+         <div class="column-right">
+          <section data-tab="" b-id="undefined" b-name="undefined" b-type="undefined" class="module module-rank">
+            <header class="clearfix module-header">
+              <div class="fl module-title">
+
+              </div>
+               <div class="fr module-tab">
+        <!-- <a href="javascript:;" data-nav="1" class="active">日榜</a>
+         <a href="javascript:;" data-nav="2">周榜</a>--></div>
+            </header>
+            <div m-id="undefined" m-name="" m-type="" class="module-main">
+              <div class="module-con">
+                <ul data-con="1">
+                </ul>
+              </div>
+            </div>
+            <footer class="module-footer">
+            </footer>
+          </section>
+          <div class="list-right-img"></div>
+          <div class="list-right-img1"></div>
+        </div>
+        </div>
+      </section>
+    </div>
+    <div id="footer" class="footer">
+      <div class="wp footer-con">
+        <div class="clearfix footer-top">
+          <div class="fl footer-nav">
+            <div class="item-cooperation">
+              <h5>合作</h5>
+              <p>
+                <a href="http://www.acfun.cn/info/#page=about" target="_blank">关于我们</a>
+                <a href="http://www.acfun.cn/info/#page=contact" target="_blank" class="mr0">联系我们</a>
+                <br>
+                <a href="http://www.acfun.cn/info/#page=joinus" target="_blank">AC招聘</a></p>
+            </div>
+            <div class="item-official">
+              <h5>官方</h5>
+              <p>
+                <a href="http://weibo.com/danmushipin/" target="_blank">新浪微博</a>
+                <a href="http://tb.am/cbaz8/" target="_blank" class="mr0">官方网店</a>
+                <br>
+                <a href="/gamecenter" target="_blank" data-id="1" class="gamePortal">游戏中心</a>
+                <a class="i-o-ewm">
+                  <span class="i-o-code">
+                    <img src="/picture/erweima_7.jpg"></span>微信公众号</a>
+                <!--br-->
+                <!--a(class="gamePortal",href="/tour",target="_blank",data-id="1") 去旅游--></p>
+            </div>
+            <div class="item-download">
+              <h5>下载</h5>
+              <p>
+                <a href="http://www.acfun.cn/app/" target="_blank" class="mr0">移动客户端</a>
+                <span class="new">new</span>
+                <br>
+                <a href="http://www.acfun.cn/emot/" target="_blank" class="mr0">AC娘表情包</a></p>
+            </div>
+            <div class="item-function">
+              <h5>友情链接</h5>
+              <p>
+                <!--a(href="#{think.config().rootDomain ||''}/map/",target="_blank") 网站地图-->
+                <!--a(href="#{think.config().rootDomain ||''}/rank/",target="_blank") 排行榜-->
+                <!--a.mr0(href="#{think.config().rootDomain ||''}/info/#page=help",target="_blank") 帮助手册-->
+                <!--br-->
+                <!--a(href="https://www.douyu.com/",target="_blank") 斗鱼直播-->
+                <!--a(href="http://h.nimingban.com",target="_blank" class="mr0") 匿名版-->
+                <a href="http://lg.dianbo.me/index.php" target="_blank">AC大逃杀</a></p>
+            </div>
+            <div class="item-feedback">
+              <h5>反馈</h5>
+              <p>
+                <a href="http://www.acfun.cn/feedback/" target="_blank">意见反馈</a>
+                <a href="http://www.acfun.cn/report/" target="_blank">举报</a>
+                <a href="http://www.acfun.cn/about/help" target="_blank" class="mr0">帮助中心</a>
+                <br>
+                <a href="http://www.acfun.cn/info/#page=disclaimer" target="_blank">免责声明</a>
+                <a href="http://www.acfun.cn/info/#page=agreement" target="_blank">用户协议</a>
+                <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf" target="_blank">联系客服</a></p>
+            </div>
+          </div>
+          <div class="fr no-select footer-avatar-ac">
+            <img src="/picture/29.gif" width="70" height="61">
+            <span class="num"></span>
+          </div>
+        </div>
+        <div class="clearfix footer-link">
+          <div class="item-link1">
+            <i class="item-icon-1"></i>
+            <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a>
+            <br>
+            <i class="item-icon-2"></i>
+            <span>网络文化经营单位</span>
+            <br>
+            <i class="item-icon-3"></i>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032340" target="_blank">京公网安备 11010502032340号</a></div>
+          <div class="item-link2">
+            <span>京ICP备15067359号</span>
+            <br>
+            <a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a>
+            <br>
+            <a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a></div>
+          <div class="item-link3">
+            <a href="//www.miitbeian.gov.cn/" target="_blank">京ICP证161323号</a>
+            <br>
+            <a href="/about/qualification" target="_blank">京网文[2016]0948-099号</a></div>
+          <div class="item-link4">
+            <span>节目制作经营许可证（京）字第05158号</span>
+            <br>
+            <a href="http://www.cyberpolice.cn" target="_blank">公安部网络违法犯罪举报网站</a></div>
+          <div class="item-link5 hidden"></div>
+        </div>
+        <div class="footer-bottom">
+          <a href="http://www.acfun.cn">
+            <img src="/picture/logo-gray_4.png" width="78" height="24"></a>
+          <p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017 AcFun. 保留所有权利</p>
+        </div>
+      </div>
+    </div>
+    <div id="allcover" class="allcover"></div>
+    <div id="toolbar" class="toolbar">
+      <div id="to-comm" title="前往评论" class="icon icon-to-comm tool-item tool-to-comm">
+        <span class="pts">0</span></div>
+      <div id="to-top" title="返回顶部" class="icon icon-arrow-slim-up tool-item tool-to-top"></div>
+    </div>
+    <div id="info-box" class="info-box">
+      <p>错误信息</p>
+    </div>
+    <div id="pop-login" style="display:none" class="pop">
+      <div class="login-logo">
+        <img src="/picture/area-login_3.png"></div>
+      <div class="login-tool">
+        <div class="fl help">
+          <a href="/info/#page=help" target="_blank" class="area-login-help">
+            <i class="icon icon-question"></i>
+          </a>
+        </div>
+        <div title="点击关闭窗体" onclick="$.callpop('login', 'close', '', '', '');" class="fl close">
+          <i class="icon icon-close"></i>
+        </div>
+      </div>
+      <div class="form-login">
+        <div class="form-info">
+          <div class="area1">
+            <input name="username" type="text" autocomplete="off" placeholder="请输入账号"></div>
+          <div class="area2">
+            <input name="password" type="password" autocomplete="off" placeholder="请输入密码"></div>
+        </div>
+        <div id="area-captcha-login" class="area area-captcha hidden">
+          <input id="ipt-captcha-login" name="captcha" type="text" data-direction="bottom" disabled="disabled" autocomplete="off" data-name="验证码" data-length="4,4" data-placeholder="输入验证码" required="required" placeholder="输入验证码" class="captcha fl">
+          <!--img(src="/captcha.svl" onclick="this.src='/captcha.svl?d='+(new date()).gettime()").captcha-pic.fl-->
+          <a id="ipt-captcha-switch">换一张</a></div>
+        <div class="area-tool">
+          <div class="fl">
+            <a href="/login/forgot/" target="_blank" class="fogetpwd">忘记密码?</a></div>
+          <div class="fr">还没有acfun账号，
+            <a href="/reg/" title="注册新帐号" target="_blank" class="disabled inro regacfun">立即注册</a></div>
+          <div class="clearfix hidden"></div>
+        </div>
+        <div id="area-login-btn">
+          <a class="login">登录</a></div>
+      </div>
+      <div id="area-login-tool">
+        <!--span.fl 使用第三方登录-->
+        <!--a(href="/loginbysina.aspx" title="使用新浪微博账号登录")#btn-login-sina.fl-->
+        <!-- img(src="http://cdn.aixifan.com/dotnet/20130418/project/sanae/style/image/weibo-reg.png")-->
+        <!--a(href="/loginbyqq.aspx" title="使用腾讯qq账号登录")#btn-login-tencent.fl-->
+        <!-- img(src="http://cdn.aixifan.com/dotnet/20130418/project/sanae/style/image/qq-reg.png")-->
+        <!--.clearfix.hidden--></div>
+    </div>
+    <div id="pop-confirm" style="display:none" class="pop">
+      <span class="win-hint-ensure">( *^_^* )</span>
+      <button id="btn_ok_ensure">确定</button>
+      <button id="btn_cancle_ensure">取消</button></div>
+    <div id="pop-follow" style="display:none" class="pop">
+      <span id="win-btn-close">
+        <i class="icon icon-close"></i>
+      </span>
+      <span class="win-hint-ensure">( *^_^* )</span>
+      <xmp id="temp-item-follow" class="hidden">
+        <option value="[gid]">[name]([count])</option></xmp>
+      <div class="unit">
+        <div class="fl">
+          <p class="p1">选择分组</p></div>
+        <div class="fl">
+          <select id="ipt-group-follow"></select>
+          <p class="hint">请选择分组。
+            <br/>您添加关注的用户将出现在对应的组中。</p></div>
+      </div>
+      <div class="clearfix hidden"></div>
+      <div class="unit-tool">
+        <div class="fl">
+          <button id="btn-do-follow">添加关注</button></div>
+      </div>
+    </div>
+    <div id="share-more" style="display:none">
+      <div class="jiao"></div>
+      <h1>把视频贴到博客或论坛</h1>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">视频地址</span>
+        <input type="text" readonly="readonly" value="" class="ipt-url fl">
+        <span class="copy fl cp-url">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">flash地址</span>
+        <input type="text" readonly="readonly" value="" class="ipt-flash fl">
+        <span class="copy fl cp-flash">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">html代码</span>
+        <input type="text" readonly="readonly" value="" class="ipt-html fl">
+        <span class="copy fl cp-html">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">通用代码</span>
+        <input type="text" readonly="readonly" value="" class="ipt-iframe fl">
+        <span class="copy fl cp-iframe">复制</span></div>
+    </div>
+    <div id="shade-layer"></div>
+  </body>
+
+</html>
+<!-- <script src="js/library.min_3.js"></script>
+<script src="js/main.min_4.js"></script>
+<script src="js/jquery.ui.min.js"></script>
+<script src="js/jquery.ui.datepicker.min.js"></script>
+<script src="js/pager.min_1.js"></script>
+<script src="js/calendar.min.js"></script>
+<script src="js/list.min.js"></script>
+<script src="js/sensorsdata-event.min_4.js"></script>
+<script>var _hmt = _hmt || []; (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?2af69bc2b378fb58ae04ed2a04257ed1";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();</script> -->
+
+
+        <script type="text/javascript">
+        window.onload = window.onscroll = function () {
+          var aImage = document.getElementsByClassName('img');
+          var oLi = document.getElementsByClassName('has-img');
+          //console.log(aImg._src);
+          //获取可视区域的高度
+          var height = document.documentElement.clientHeight;
+          //console.log(height);
+          //得到卷起的高度
+          var scrollTop = document.documentElement.scrollTop;
+          //console.log(scrollTop);
+          //console.log(aImage[0].offsetTop);
+          for (var i = 0; i < aImage.length; i++) {
+            var top = aImage[i].offsetTop;
+            //console.log(top);
+            if (top <= height + scrollTop) {
+              aImage[i].src = aImage[i].getAttribute('_src');
+              //oLi[i].style= 'display:block;';
+              //console.log(aImage[i].src);
+            }
+          }
+
+
+        };
+//瀑布流
+  </script>

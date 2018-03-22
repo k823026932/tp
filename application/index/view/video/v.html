@@ -1,0 +1,1048 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+  
+  <head>
+    <script src="/js/route.min_2.js"></script>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="Copyright (c) AcFun">
+    <meta name="keywords" content="【中华小子】这部太监了十年的国漫之光，终于要复活了,A站,ACFUN,ACG,弹幕">
+    <meta name="description" content="【中华小子】这部太监了十年的国漫之光，终于要复活了,A站,ACFUN,ACG,弹幕,视频,动画,漫画,游戏,斗鱼,新番,鬼畜,东方,初音,DOTA,MUGEN,LOL,Vocaloid,MAD,AMV,天下漫友是一家">
+    <meta name="baidu-site-verification" content="4YkN38sctT">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://cdn.aixifan.com/acfun-pc/2.2.93/xml/opensearch.xml" title="AcFun">
+    <title>【中华小子】这部太监了十年的国漫之光，终于要复活了 - AcFun弹幕视频网 - 认真你就输啦 (?ω?)ノ- ( ゜- ゜)つロ</title>
+    <link href="http://cdn.aixifan.com/ico/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/core.min_3.css">
+    <link rel="stylesheet" href="/css/detail.min.css">
+    <link rel="stylesheet" href="/css/comm.min.css">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min_3.js"></script>
+    <![endif]-->
+    <script>window.system = {};
+      window.globalConfig = {
+        debug: "false",
+        cdn: "http://cdn.aixifan.com",
+        path: "http://cdn.aixifan.com/acfun-pc/2.2.93",
+        oldPath: 'http://cdn.aixifan.com/dotnet/20130418',
+        version: "2.2.93",
+        rootDomain: "http://www.acfun.cn",
+        showTime: "2018年1月27日凌晨12点48分",
+        api: "http://webapi.aixifan.com"
+      }</script>
+      <style type="text/css">  
+        #ctxt{  
+            margin-top: -600px;
+            margin-left: 50px;
+            /* background:#666; */  
+            width:800px;  
+            height:600px; 
+
+             
+            overflow:hidden; 
+        }  
+        #ctxt p{  
+            position:relative;  
+            left:1000px;  
+            margin:0;  
+            padding:0;  
+        }  
+    </style>
+  </head>
+  
+  <body>
+    <div id="area-info"></div>
+    <div id="area-window">
+      <div id="win-info" class="win">
+        <div class="mainer"></div>
+      </div>
+      <div id="win-hint" class="win win-hint">
+        <div class="mainer"></div>
+        <div class="tail"></div>
+      </div>
+    </div>
+    <div id="header" class="header clearfix">
+      <nav id="nav" class="wp nav">
+        <div class="clearfix wp nav-parent">
+          <ul class="fl">
+            <h1 class="fl logo">
+              <a href="http://www.acfun.cn">
+                <img src="/picture/logo_2.png" width="88" height="27"></a>
+            </h1>
+            {foreach $lala as $k=>$v}
+            <li data-category="{$v['cid']}" class="ac" 
+            data-cid="{$v['cid']}">
+              <a href="/index/video/list?parentid={$v['cid']}">
+              {$v['bkname']}
+            </a>
+            </li>
+            {/foreach}
+            
+          </ul>
+
+          {if !empty($ziliao)}
+          <ol id="header-guide" class="fr header-guide">
+            <li class="guide-item guide-user user-logined" id="tu1">
+              <a href="/index/user/member" target="_blank" class="item user-avatar1">
+                <img  src="{$ziliao['touxiang']}" width="30" height="30"></a>
+              <script type="text/javascript">
+                var tu = document.getElementById('tu1');
+                tu.onmouseover = function (){
+                  var tu2 = document.getElementById('tu2');
+                  tu2.style = "";
+                }
+                tu.onmouseout = function (){
+                  var tu2 = document.getElementById('tu2');
+                  tu2.style = "display: none;";
+                }
+              </script>
+              <!-- <a href="http://www.acfun.cn/login/" target="_blank" class="user-login item">登录/注册</a> -->
+              <span class="user-message-count hidden"></span>
+              <div class="" id="tu2" style="display: none;">
+                <p class="clearfix">
+                  <!-- <a href="http://www.acfun.cn/member/" target="_blank" class="fl user-name"></a> -->
+                  <a href="/index/index/clear" class="fr icon icon-logout user-logout">退出</a></p>
+                <div id="user-message" class="user-message"></div>
+                <!-- <a href="http://www.acfun.cn/member/#area=mail" target="_blank" class="more">查看更多</a>--></div> 
+            </li>
+            <!-- <li class="guide-item guide-history">
+              <a href="http://www.acfun.cn/member/#area=history" target="_blank" class="icon icon-history item"></a>
+              <div class="guide-item-con">
+                <ul></ul>
+                <a href="http://www.acfun.cn/member/#area=history" target="_blank" class="more">查看更多</a></div>
+              <script id="temp-history" type="text/template">< li > <a href = "[url]"target = "_blank" > [title] < /a><p>浏览于[time]</p > </script></li> -->
+            <li class="guide-item guide-upload">
+              <a href="/index/video/upload" target="_blank" class="icon icon-upload item"></a>
+              <div class="guide-item-con">
+                <ul>
+                  <li>
+                    <a href="/index/video/upload" target="_blank">投视频</a></li>
+                  <!-- <li>
+                    <a href="http://www.acfun.cn/member/#area=post-article" target="_blank">投文章</a></li> -->
+                </ul>
+              </div>
+            </li>
+            <li class="guide-item">
+              <a href="/index/video/shoucang" target="_blank" class="icon icon-collect item"></a>
+            </li>
+          </ol>
+          {else}
+          <ol id="header-guide" class="fr header-guide">
+            <li class="" id="tu1">
+              <a href="/index/user/login" target="_blank" class="user-login item">登录/注册</a>
+            </li>
+          </ol>
+          {/if}
+
+          <div id="search-box" class="fr search-box">
+            <form  method="post" action="/index/video/souSuo">
+              <input id="search-text" type="text" placeholder="文章猴姬的恋爱小课堂 ver1.0" data-url="http://www.acfun.cn/a/ac4182091" value="" name="content" autocomplete="off"><button id="search-btn" class="search-btn"><i class="icon icon-search"></i><span>搜索</span></button>
+            </form>
+          </div>
+        </div>
+        <div class="nav-sub">
+          <div class="wp nav-sub-con" id="xiala">
+            {foreach $lala as $k=>$v}
+            <ul data-category="{$v['cid']}" 
+            data-cid="{$v['cid']}" class="clearfix">
+              {foreach $lala1 as $key=>$value}
+              {if $v['cid'] == $value['parentid']}
+              <li>
+                <a href="/index/video/list?cid={$value['cid']}" data-cid="{$value['cid']}">
+                  {$value['bkname']}
+                </a>
+              </li>
+              
+              {/if}
+              {/foreach}
+                
+            </ul>
+            {/foreach}
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div id="main" class="main">
+      <section class="clearfix wp area head">
+        
+        <div id="pageInfo" data-title="{$shipin[0]['title']}" data-desc="{$shipin[0]['content']}" data-name="{foreach $qbzl as $key=>$value}
+                    {if $shipin[0]['uname'] == $value['uid']}
+                    {$value['username']}
+                    {/if}
+                    {/foreach}" data-view="89595" data-collect="288" data-comment="122" data-pic="http://imgs.aixifan.com/content/2018_01_24/1516782638.jpg" data-vid="5851784" data-cid="106" data-pcid="1" data-aid="4209785" data-sid="5851784" data-from="zhuzhan" data-isShowCount="1" data-uid="8194321" data-isAllowedAddTag="false"></div>
+        <div class="title">{$shipin[0]['title']}</div>
+        <div class="crumbs">
+          <div id="bd_crumb" class="fl">
+            <a href="/" class="sp1">主页</a>
+            <span class="sp2">></span>
+            {foreach $lala as $key=>$value}
+                    {if $shipin[0]['dabankuai'] == $value['cid']}
+                    <a href="/index/video/list?parentid={$shipin[0]['dabankuai']}" class="sp3">
+                    {$value['bkname']}</a>
+                    {/if}
+                    {/foreach}
+            <span class="sp4">></span>
+            {foreach $lala1 as $key=>$value}
+                    {if $shipin[0]['fenqu'] == $value['cid']}
+            <a href="/index/video/list?cid={$shipin[0]['fenqu']}" class="sp5">{$value['bkname']}</a>
+            {/if}
+            {/foreach}
+
+            {foreach $qbzl as $key=>$value}
+            {if $shipin[0]['uname'] == $value['uid']}
+            <a href="" target="_blank" class="avatar-wrap">
+              <img src="{$value['touxiang']}" class="avatar"></a>
+            <a href="" target="_blank" class="name-wrap">{$value['username']}
+            </a>{/if}
+            {/foreach}
+
+
+            <span class="sp6">发布于</span>
+            <!--坑爹的百分点-->
+            <span class="time hidden">{$a = date('Y:m:d H:i:s',$shipin[0]['create_time'])}</span>
+            <span class="time">{$a = date('Y:m:d H:i:s',$shipin[0]['create_time'])}</span>
+            <!-- <span data-uname="{foreach $qbzl as $key=>$value}
+                    {if $shipin[0]['uname'] == $value['uid']}
+                    {$value['username']}
+                    {/if}
+                    {/foreach}" data-type="投稿" data-oid="4209785" data-proof="$shipin[0]['title']" class="sp7">举报视频</span> --></div>
+          <!-- <div class="fr">
+            <a href="/member/#area=admin;aid=4209785" target="_blank" class="barrage-management">弹幕管理</a></div> -->
+        </div>
+      </section>
+
+      {if !empty($ziliao)}
+      {if $shipin[0]['huiyuan'] == 0 || $ziliao['huiyuan'] == 1}
+      <section class="clearfix wp area player">
+        
+        <video width="900px" height="600px;" controls autoplay>
+        <source src="{$shipin[0]['vpath']}" type="video/mp4">
+        
+        </video>
+        
+          <div id="ctxt" class=""></div>  
+      {if !empty($ziliao)}
+      <form method="post" action="" align="center">  
+          <input type="text" id="msg" style="height:24px;width:200px;" /> <button type="button" id="submitBut">发布弹幕</button>  
+      </form>
+      {else}
+      <a href="/index/user/login">登陆后才能发弹幕哦</a> 
+      {/if}
+       <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+       <script type="text/javascript" src="/js/ajax.js"></script>
+      <script type="text/javascript">
+        setInterval("test()",2000);
+        var vid = getQueryString("vid");
+        function test() {
+            $.ajax({
+                method:'post',
+                url:'danmu',
+                async:true,
+                data:{vid:vid},
+                success:success
+            });
+            function success(data)
+           {
+              //console.log(data);
+              var obj = JSON.parse(data);
+              console.log(obj.danmu);
+              for (var i in obj.danmu) {
+                  var msgtxt = obj.danmu[i].danmu;
+                  var colortxt = getReandomColor();  
+                  var topPos = generateMixed(3);  
+                  if (topPos > 300)  
+                  {  
+                      topPos = 30;  
+                  }  
+                  var newtxt = '<p style="top:'+topPos+'px; color:'+colortxt+'">'+msgtxt+'</p>';  
+                  $("#ctxt").prepend(newtxt);  
+                  var addTextW = $("#ctxt").find("p").width();  
+                  $("#ctxt p").animate({left: '-'+addTextW+"px"}, 30000,function(){  
+                      $(this).hide();  
+                  });
+                }
+            }
+        }
+
+        function getQueryString(name) {
+              var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+              if (result == null || result.length < 1) {
+                  return "";
+              }
+              return result[1];
+          }
+
+       
+      $(document).ready(function(){  
+        
+          $("#submitBut").click(function(){  
+              var msgtxt=$("#msg").val();
+
+              $.ajax({
+                method:'post',
+                url:'idanmu',
+                async:true,
+                data:{vid:vid,danmu:msgtxt},
+                success:success
+            });
+            function success(data)
+           {
+              
+            }
+
+
+             /* var colortxt = getReandomColor();  
+              var topPos = generateMixed(3);  
+              if (topPos > 300)  
+              {  
+                  topPos = 30;  
+              }  
+              var newtxt = '<p style="top:'+topPos+'px; color:'+colortxt+'">'+msgtxt+'</p>';  
+              $("#ctxt").prepend(newtxt);  
+              var addTextW = $("#ctxt").find("p").width();  
+              $("#ctxt p").animate({left: '-'+addTextW+"px"}, 30000,function(){  
+                  $(this).hide();  
+              }); */ 
+          });  
+        
+      });  
+      //随机获取颜色值  
+          function getReandomColor(){  
+              return '#'+(function(h){  
+              return new Array(7-h.length).join("0")+h  
+              })((Math.random()*0x1000000<<0).toString(16))  
+          }  
+        
+      //生成随机数据。n表示位数    
+          var jschars = ['0','1','2','3','4','5','6','7','8','9'];    
+          function generateMixed(n) {    
+              var res = "";    
+              for(var i = 0; i < n ; i ++) {    
+                  var id = Math.ceil(Math.random()*9);    
+                  res += jschars[id];    
+              }    
+              return res;    
+          }   
+      </script>
+
+
+      </section>
+      {else}
+      <div style="margin:30px 0px 30px 300px;">
+      <a style="color: red;font-size: 20px;" href="/codepay/index.php?user={$ziliao['username']}">会员可观看，点击购买会员</a>
+      </div>
+      {/if}
+      {else}
+      {if $shipin[0]['huiyuan'] == 0}
+        <section class="clearfix wp area player">
+        
+        <video width="900px" height="600px;" controls autoplay>
+        <source src="{$shipin[0]['vpath']}" type="video/mp4">
+        
+        </video>
+        
+          <div id="ctxt" class=""></div>  
+      {if !empty($ziliao)}
+      <form method="post" action="" align="center">  
+          <input type="text" id="msg" style="height:24px;width:200px;" /> <button type="button" id="submitBut">发布弹幕</button>  
+      </form>
+      {else}
+      <a href="/index/user/login">登陆后才能发弹幕哦</a> 
+      {/if}
+       <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+       <script type="text/javascript" src="/js/ajax.js"></script>
+      <script type="text/javascript">
+        setInterval("test()",2000);
+        var vid = getQueryString("vid");
+        function test() {
+            $.ajax({
+                method:'post',
+                url:'danmu',
+                async:true,
+                data:{vid:vid},
+                success:success
+            });
+            function success(data)
+           {
+              //console.log(data);
+              var obj = JSON.parse(data);
+              console.log(obj.danmu);
+              for (var i in obj.danmu) {
+                  var msgtxt = obj.danmu[i].danmu;
+                  var colortxt = getReandomColor();  
+                  var topPos = generateMixed(3);  
+                  if (topPos > 300)  
+                  {  
+                      topPos = 30;  
+                  }  
+                  var newtxt = '<p style="top:'+topPos+'px; color:'+colortxt+'">'+msgtxt+'</p>';  
+                  $("#ctxt").prepend(newtxt);  
+                  var addTextW = $("#ctxt").find("p").width();  
+                  $("#ctxt p").animate({left: '-'+addTextW+"px"}, 30000,function(){  
+                      $(this).hide();  
+                  });
+                }
+            }
+        }
+
+        function getQueryString(name) {
+              var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+              if (result == null || result.length < 1) {
+                  return "";
+              }
+              return result[1];
+          }
+
+       
+      $(document).ready(function(){  
+        
+          $("#submitBut").click(function(){  
+              var msgtxt=$("#msg").val();
+
+              $.ajax({
+                method:'post',
+                url:'idanmu',
+                async:true,
+                data:{vid:vid,danmu:msgtxt},
+                success:success
+            });
+            function success(data)
+           {
+              
+            }
+
+
+             /* var colortxt = getReandomColor();  
+              var topPos = generateMixed(3);  
+              if (topPos > 300)  
+              {  
+                  topPos = 30;  
+              }  
+              var newtxt = '<p style="top:'+topPos+'px; color:'+colortxt+'">'+msgtxt+'</p>';  
+              $("#ctxt").prepend(newtxt);  
+              var addTextW = $("#ctxt").find("p").width();  
+              $("#ctxt p").animate({left: '-'+addTextW+"px"}, 30000,function(){  
+                  $(this).hide();  
+              }); */ 
+          });  
+        
+      });  
+      //随机获取颜色值  
+          function getReandomColor(){  
+              return '#'+(function(h){  
+              return new Array(7-h.length).join("0")+h  
+              })((Math.random()*0x1000000<<0).toString(16))  
+          }  
+        
+      //生成随机数据。n表示位数    
+          var jschars = ['0','1','2','3','4','5','6','7','8','9'];    
+          function generateMixed(n) {    
+              var res = "";    
+              for(var i = 0; i < n ; i ++) {    
+                  var id = Math.ceil(Math.random()*9);    
+                  res += jschars[id];    
+              }    
+              return res;    
+          }   
+      </script>
+
+
+      </section>
+      {else}
+      <div style="margin:30px 0px 30px 300px;">
+      <a style="color: red;font-size: 20px;" href="/index/user/login">会员可观看，点击登录</a>
+      </div>
+      {/if}
+      {/if}
+
+
+      
+
+      <section class="clearfix wp area crumb">
+        <span class="view fl">
+          <span class="sp1">播放</span>
+          <span class="sp2">{$shipin[0]['bofangliang']}</span></span>
+        <span class="danmu fl">
+          <span class="sp1">弹幕</span>
+          <span class="sp2">{$shipin[0]['danmu']}</span></span>
+        <span id="bd_comm" class="comm fl">
+          <span class="sp1">评论</span>
+          <span class="sp2">{$shipin[0]['pinglun']}</span></span>
+        <span class="shu fl"></span>
+        {if !empty($sc)}
+        <span id="bd_collection" data-status="0" class="collection fl">
+          <div class="fl ico">
+            <div class="img"></div>
+          </div>
+          <span class="sp3 fl" id="shou">已收藏</span>
+          <br>
+          <span class="sp4">{$shipin[0]['shoucangliang']}</span></span>
+          {else}
+          <span id="bd_collection" data-status="0" class="collection fl">
+          <div class="fl ico">
+            <div class="img"></div>
+          </div>
+          <span class="sp3 fl" id="shou">收藏</span>
+          <br>
+          <span class="sp4">{$shipin[0]['shoucangliang']}</span></span>
+          {/if}
+          <script type="text/javascript">
+            var shou = document.getElementById('shou');
+            var sc = document.getElementById('bd_collection');
+            //alert(shou);
+            
+              sc.onclick = function ()
+              {
+                if (shou.innerHTML == '收藏') {
+                //alert(shou.innerHTML);
+                var vid = getQueryString("vid");
+                //alert(vid);
+                function getQueryString(name) {
+                var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+                  if (result == null || result.length < 1) {
+                      return "";
+                  }
+                  return result[1];
+                }
+                ajax({
+                    method:'post',
+                    url:'shoucang1',
+                    async:true,
+                    data:{vid:vid},
+                    success:success
+                  });
+
+                 function success(data)
+                 {
+                    //console.log(data);
+                    var obj = JSON.parse(data);
+                    if(obj.state == 1){
+                      
+                      shou.innerHTML = '已收藏';
+                     }
+                  }
+              } else {
+                var vid = getQueryString("vid");
+                //alert(vid);
+                function getQueryString(name) {
+                var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+                  if (result == null || result.length < 1) {
+                      return "";
+                  }
+                  return result[1];
+                }
+                ajax({
+                    method:'post',
+                    url:'qxsc',
+                    async:true,
+                    data:{vid:vid},
+                    success:success
+                  });
+
+                 function success(data)
+                 {
+                    //console.log(data);
+                    var obj = JSON.parse(data);
+                    if(obj.state == 1){
+                      
+                      shou.innerHTML = '收藏';
+                     }
+                  }
+              }
+
+
+
+            } 
+            
+          </script>
+
+        <div id="bdshare" class="share_box fr"></div>
+        <div class="share-more fr">分享
+          <span class="icon fr"></span></div>
+      </section>
+      <div class="introduction">
+        <section class="clearfix wp area">
+          <div class="columen-left fl">
+            <div class="title">简介</div>
+            <div class="desc gheight">
+              <div class="sp1">{$shipin[0]['content']}</div>
+              <span class="open">展开详情</span>
+              <span class="close">关闭详情</span></div>
+           <!--  <div id="bd_tag" class="tag">
+             <span class="tag-single fl">
+               <a href="/search/#query=废话连篇" data-tid="452418" target="_blank" class="fl">废话连篇</a></span>
+             <span class="tag-single fl">
+               <a href="/search/#query=标题党" data-tid="2621" target="_blank" class="fl">标题党</a></span>
+             <span class="tag-single fl">
+               <a href="/search/#query=龙虎" data-tid="5797" target="_blank" class="fl">龙虎</a></span>
+             <span class="tag-single fl">
+               <a href="/search/#query=中华小子" data-tid="184157" target="_blank" class="fl">中华小子</a></span>
+             <span class="tag-single fl">
+               <a href="/search/#query=我去1990" data-tid="1083622" target="_blank" class="fl">我去1990</a></span>
+             <span class="tag-single fl">
+               <a href="/search/#query=网易王三三" data-tid="1088379" target="_blank" class="fl">网易王三三</a></span>
+             <a href="javascript:void(0)" data-status="0" class="fl add">+添加</a>
+             <input placeholder="请输入标签" class="tagInp"></div> -->
+            <!-- <div id="temp-tag-view" class="hidden">
+              <span class="tag-single fl">
+                <a href="/search/#query=[name]" data-tid="[tid]" target="_blank" class="fl">[name]</a>
+                <span title="删除标签" data-tid="[tid]" class="icon icon-delete1 fl"></span>
+              </span>
+            </div> -->
+          </div>
+          <!-- <div class="column-right fr">
+            <div class="upzhu"></div>
+            <div data-uid="8194321" class="user">
+              <a href="/u/8194321.aspx" target="_blank" id="bd_uphead" class="a1">
+                <div class="backg"></div>
+                <img src="/picture/26114838na2mbahw.jpg" class="avatar">
+                <div class="banana-num"></div>
+                <div class="bubble">
+                  <div class="bubble-1 fl"></div>
+                  <div class="bubble-3 fl"></div>
+                  <div class="bubble-2 fl"></div>
+                </div>
+                <div class="eating"></div>
+              </a>
+              <a href="/u/8194321.aspx" target="_blank" id="bd_upname" class="a2">
+                <div class="title">网易王三三</div></a>
+              <div class="tool">
+                <span id="bd_follow" data-status="0" data-name="网易王三三" data-userid="8194321" class="fl flow">+&nbsp;关注</span>
+                <a href="/member/#area=mail-new;username=网易王三三;" target="_blank" id="bd_letter" class="fl letter">私信</a></div>
+            </div>
+            <div class="bottom">
+              <div class="desc">这个人很懒，什么都没有写!</div>
+              <div class="crumbs">
+                <span class="sp1">0</span>
+                <span>投稿&nbsp;/&nbsp;</span>
+                <span class="sp2">0</span>
+                <span>听众</span></div>
+            </div>
+          </div> -->
+        </section>
+        <!-- <section class="clearfix wp area collection"></section> -->
+        <!-- <div id="temp-collection" class="hidden">
+          <div class="top clearfix">
+            <div id="bd_collectionname" class="title fl">所属合辑：
+              <a>[title]</a>
+            </div>
+            <div id="bd_collectionsubscribe" data-status="0" class="subs fl">
+              <i>订阅</i>
+              <span class="sp1">&nbsp;[subscribeSize]</span>
+              <div class="cover">取消订阅</div></div>
+          </div>
+          <div class="up-crumb clearfix">
+            <span id="bd_collectionmanager" class="up">
+              <i>创建者:</i>
+              <a>[username]</a>
+            </span>
+            <span class="gaojian">
+              <i>稿件:</i>
+              <span>[countSize]</span></span>
+            <span class="time">
+              <i>最近更新:</i>
+              <span>[updateTime]</span></span>
+          </div>
+          <div id="bd_collectionvideo" class="video-list"></div>
+        </div> -->
+        <!-- <div id="temp-video" class="hidden">
+          <figure data-collec="[cid]" class="fl">
+            <a href="[href]" title="[title]">[cover]
+              <div class="play-icon"></div></a>
+            <div class="cover">
+              <i class="icon">播放中</i></div>
+            <figcaption>
+              <div class="title">
+                <a href="[href]" title="[title]">[title]</a></div>
+              <p class="clearfix">
+                <span class="icon icon-view-player fl">[viewCount]</span>
+                <span class="icon icon-danmu fl">[danmuSize]</span></p>
+            </figcaption>
+          </figure>
+        </div> -->
+        <!-- <section id="bd_ad1" data-info="{&quot;adJsscript&quot;:&quot;&quot;,&quot;adTag&quot;:0,&quot;id&quot;:363,&quot;image&quot;:&quot;http://imgs.aixifan.com/cms/2018_01_25/1516864583829.jpg&quot;,&quot;isDelete&quot;:0,&quot;link&quot;:&quot;http://www.acfun.cn//z/ac4211212&quot;,&quot;mediaId&quot;:0,&quot;mediaType&quot;:0,&quot;sortTime&quot;:1516864594000,&quot;spreadTypeId&quot;:95,&quot;status&quot;:1,&quot;title&quot;:&quot;趋势&quot;}" class="clearfix wp area ad">
+          <a data-adTag="0" href="http://www.acfun.cn//z/ac4211212" target="_blank">
+            <img src="/picture/1516864583829.jpg" height="100%" width="100%"></a>
+        </section> -->
+      </div>
+      <div class="comment-area">
+        <section class="clearfix wp area comm">
+          <div class="columen-left fl">
+            <div id="area-comment" class="block">
+              <div class="banner">
+                <i class="icon _icon-commentLeft"></i>
+                <p class="tab _fixed">评论区</p>
+                <p id="btn-refresh" class="tab more">
+                  <i class="icon _icon-refresh"></i>
+                </p>
+              </div>
+              <div class="mainer">
+
+                <div style="width: 640px;">
+                  <!--发表评论区begin-->  
+                    <div>  
+                      <div>  
+                          <span>条评论</span>  
+                      </div>  
+                      <div>  
+                          <div>  
+                          <textarea style="width: 640px;height: 82px;" replyid="0" id="neirong"></textarea>  
+                          </div>  
+                          <div style="text-align:right;">  
+                              <a style="background-color:#63B8FF;  margin-top:15px;text-decoration:none;  color:#fff;padding:5px;font-size:14px;" href="javascript:void(0);" target="_blank"><span id="fabiao" style="">发表评论</span></a>  
+                          </div>        
+                      </div>  
+                    </div>
+
+                    <div style="margin-top:20px; font-size: 16px;margin-bottom: 20px;">  
+                      <div style="border-bottom:1px solid #ccc"><span>全部评论</span></div> 
+
+                      {foreach $cat as $k=>$v}
+                      {if $v['level'] == 0}
+                      <div style="padding-top:10px;width:herit;min-height: 100px; border-top:1px solid #ccc">
+                        <div class="img">
+                          <img src="{$v['head_pic']}" style="width:30px;height:30px"/>
+                          <span style="color:#63B8FF">{$v['nickname']}</span>
+                          <!-- <span style="color:#63B8FF">{$v['nickname']}</span> -->
+                          <span>{$a = date('Y:m:d H:i:s',$v['create_time'])}</span>
+                        </div>
+                        <div class="content">
+                          <div style="margin-left:35px;">{$v['content']}</div>
+                          <div>
+                              <input type="hidden" name="{$v['pid']}" class="in" value="0">
+                              <a style="float:right;font-size:13px;color:gray;margin-top:15px" class="reply">回复</a>
+
+                              <textarea class="text" a="0" style="float:right;display:none;"></textarea>
+                            
+                          </div>
+                          
+                        </div>
+                      </div> 
+                      {else}
+                        <div style="padding-top:10px;width:herit;margin-left: {$v['level']*20 . 'px'};min-height: 100px; border-top:1px solid #ccc">
+                        <div class="img">
+                          <img src="{$v['head_pic']}" style="width:30px;height:30px"/>
+                          <span style="color:#63B8FF">{$v['nickname']}</span>
+                          <span>回复</span>
+                          <!-- <span style="color:#63B8FF">{$v['nickname']}</span> -->
+                          <span>{$a = date('Y:m:d H:i:s',$v['create_time'])}</span>
+                        </div>
+                        <div class="content">
+                          <div style="margin-left:35px;">{$v['content']}</div>
+                          <div>
+                              <input type="hidden" name="{$v['pid']}" class="in" value="0">
+                              <a style="float:right;font-size:13px;color:gray;margin-top:15px" class="reply">回复</a>
+
+                              <textarea class="text" a="0" style="float:right;display:none;"></textarea>
+                            
+                          </div>
+                          
+                        </div>
+                      </div>
+                      {/if}
+                      {/foreach}
+    
+                  </div>
+                  
+
+
+                </div>
+                <script type="text/javascript" src="/js/ajax.js"></script>
+<script type="text/javascript">
+   var aButton = document.getElementsByClassName('reply');
+   var text = document.getElementsByClassName('text');
+   var inp = document.getElementsByClassName('in');
+   var vid = getQueryString("vid");
+          //alert(vid);
+          function getQueryString(name) {
+          var result = window.location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"));
+            if (result == null || result.length < 1) {
+                return "";
+            }
+            return result[1];
+          }
+    
+    //alert(neirong);
+    var fa = document.getElementById('fabiao');
+    fa.onclick = function () {
+      var neirong = document.getElementById('neirong').value;
+      
+      ajax({
+            method:'post',
+            url:'/index/video/ping',
+            async:true,
+            data:{pid:0,vid:vid,content:neirong},
+            success:success
+          });
+          function success(data)
+          {
+            var obj = JSON.parse(data);
+            if (obj.state == 1) {
+              alert('回复成功');
+            }
+          }
+    }
+   
+  for (var i = 0; i < aButton.length; i++) {
+      aButton[i].index = i;
+      //alert(aButton[i].index);
+      aButton[i].onclick = function () {
+        //alert(inp[this.index].value);
+        if (inp[this.index].value == 0) {
+          text[this.index].style = '';
+          text[this.index].style = 'overflow:hidden;float:right;';
+          inp[this.index].value = '1';
+        } else {
+          
+          var pid = inp[this.index].name;
+          var content = text[this.index].value;
+          
+          ajax({
+            method:'post',
+            url:'/index/video/ping',
+            async:true,
+            data:{pid:pid,vid:vid,content:content},
+            success:success
+          });
+          function success(data)
+          {
+            var obj = JSON.parse(data);
+            if (obj.state == 1) {
+              alert('回复成功');
+            }
+          }
+        
+               
+    }  
+  }
+}      
+  
+
+</script>
+
+
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          
+        </section>
+          
+      </div>
+       
+      <div id="goniudan">
+        <a href="javascript:;" target="_blank" class="J_niudan">
+          <img src="" width="121" height="165" style="opacity:0"></a>
+      </div>
+    </div>
+
+
+    <div id="footer" class="footer">
+      <div class="wp footer-con">
+        <div class="clearfix footer-top">
+          <div class="fl footer-nav">
+            <div class="item-cooperation">
+              <h5>合作</h5>
+              <p>
+                <a href="http://www.acfun.cn/info/#page=about" target="_blank">关于我们</a>
+                <a href="http://www.acfun.cn/info/#page=contact" target="_blank" class="mr0">联系我们</a>
+                <br>
+                <a href="http://www.acfun.cn/info/#page=joinus" target="_blank">AC招聘</a></p>
+            </div>
+            <div class="item-official">
+              <h5>官方</h5>
+              <p>
+                <a href="http://weibo.com/danmushipin/" target="_blank">新浪微博</a>
+                <a href="http://tb.am/cbaz8/" target="_blank" class="mr0">官方网店</a>
+                <br>
+                <a href="/gamecenter" target="_blank" data-id="1" class="gamePortal">游戏中心</a>
+                <a class="i-o-ewm">
+                  <span class="i-o-code">
+                    <img src="/picture/erweima_6.jpg"></span>微信公众号</a>
+                <!--br-->
+                <!--a(class="gamePortal",href="/tour",target="_blank",data-id="1") 去旅游--></p>
+            </div>
+            <div class="item-download">
+              <h5>下载</h5>
+              <p>
+                <a href="http://www.acfun.cn/app/" target="_blank" class="mr0">移动客户端</a>
+                <span class="new">new</span>
+                <br>
+                <a href="http://www.acfun.cn/emot/" target="_blank" class="mr0">AC娘表情包</a></p>
+            </div>
+            <div class="item-function">
+              <h5>友情链接</h5>
+              <p>
+                <!--a(href="#{think.config().rootDomain ||''}/map/",target="_blank") 网站地图-->
+                <!--a(href="#{think.config().rootDomain ||''}/rank/",target="_blank") 排行榜-->
+                <!--a.mr0(href="#{think.config().rootDomain ||''}/info/#page=help",target="_blank") 帮助手册-->
+                <!--br-->
+                <!--a(href="https://www.douyu.com/",target="_blank") 斗鱼直播-->
+                <!--a(href="http://h.nimingban.com",target="_blank" class="mr0") 匿名版-->
+                <a href="http://lg.dianbo.me/index.php" target="_blank">AC大逃杀</a></p>
+            </div>
+            <div class="item-feedback">
+              <h5>反馈</h5>
+              <p>
+                <a href="http://www.acfun.cn/feedback/" target="_blank">意见反馈</a>
+                <a href="http://www.acfun.cn/report/" target="_blank">举报</a>
+                <a href="http://www.acfun.cn/about/help" target="_blank" class="mr0">帮助中心</a>
+                <br>
+                <a href="http://www.acfun.cn/info/#page=disclaimer" target="_blank">免责声明</a>
+                <a href="http://www.acfun.cn/info/#page=agreement" target="_blank">用户协议</a>
+                <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf" target="_blank">联系客服</a></p>
+            </div>
+          </div>
+          <div class="fr no-select footer-avatar-ac">
+            <img src="" width="70" height="61">
+            <span class="num"></span>
+          </div>
+        </div>
+        <div class="clearfix footer-link">
+          <div class="item-link1">
+            <i class="item-icon-1"></i>
+            <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a>
+            <br>
+            <i class="item-icon-2"></i>
+            <span>网络文化经营单位</span>
+            <br>
+            <i class="item-icon-3"></i>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032340" target="_blank">京公网安备 11010502032340号</a></div>
+          <div class="item-link2">
+            <span>京ICP备15067359号</span>
+            <br>
+            <a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a>
+            <br>
+            <a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a></div>
+          <div class="item-link3">
+            <a href="//www.miitbeian.gov.cn/" target="_blank">京ICP证161323号</a>
+            <br>
+            <a href="/about/qualification" target="_blank">京网文[2016]0948-099号</a></div>
+          <div class="item-link4">
+            <span>节目制作经营许可证（京）字第05158号</span>
+            <br>
+            <a href="http://www.cyberpolice.cn" target="_blank">公安部网络违法犯罪举报网站</a></div>
+          <div class="item-link5 hidden"></div>
+        </div>
+        <div class="footer-bottom">
+          <a href="http://www.acfun.cn">
+            <img src="/picture/logo-gray_3.png" width="78" height="24"></a>
+          <p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017 AcFun. 保留所有权利</p>
+        </div>
+      </div>
+    </div>
+    <div id="allcover" class="allcover"></div>
+    <div id="toolbar" class="toolbar">
+      <div id="to-comm" title="前往评论" class="icon icon-to-comm tool-item tool-to-comm">
+        <span class="pts">0</span></div>
+      <div id="to-top" title="返回顶部" class="icon icon-arrow-slim-up tool-item tool-to-top"></div>
+    </div>
+    <div id="info-box" class="info-box">
+      <p>错误信息</p>
+    </div>
+    <div id="pop-login" style="display:none" class="pop">
+      <div class="login-logo">
+        <img src="picture/area-login_2.png"></div>
+      <div class="login-tool">
+        <div class="fl help">
+          <a href="/info/#page=help" target="_blank" class="area-login-help">
+            <i class="icon icon-question"></i>
+          </a>
+        </div>
+        <div title="点击关闭窗体" onclick="$.callpop('login', 'close', '', '', '');" class="fl close">
+          <i class="icon icon-close"></i>
+        </div>
+      </div>
+      <div class="form-login">
+        <div class="form-info">
+          <div class="area1">
+            <input name="username" type="text" autocomplete="off" placeholder="请输入账号"></div>
+          <div class="area2">
+            <input name="password" type="password" autocomplete="off" placeholder="请输入密码"></div>
+        </div>
+        <div id="area-captcha-login" class="area area-captcha hidden">
+          <input id="ipt-captcha-login" name="captcha" type="text" data-direction="bottom" disabled="disabled" autocomplete="off" data-name="验证码" data-length="4,4" data-placeholder="输入验证码" required="required" placeholder="输入验证码" class="captcha fl">
+          <!--img(src="/captcha.svl" onclick="this.src='/captcha.svl?d='+(new date()).gettime()").captcha-pic.fl-->
+          <a id="ipt-captcha-switch">换一张</a></div>
+        <div class="area-tool">
+          <div class="fl">
+            <a href="/login/forgot/" target="_blank" class="fogetpwd">忘记密码?</a></div>
+          <div class="fr">还没有acfun账号，
+            <a href="/reg/" title="注册新帐号" target="_blank" class="disabled inro regacfun">立即注册</a></div>
+          <div class="clearfix hidden"></div>
+        </div>
+        <div id="area-login-btn">
+          <a class="login">登录</a></div>
+      </div>
+      <div id="area-login-tool">
+        <!--span.fl 使用第三方登录-->
+        <!--a(href="/loginbysina.aspx" title="使用新浪微博账号登录")#btn-login-sina.fl-->
+        <!-- img(src="http://cdn.aixifan.com/dotnet/20130418/project/sanae/style/image/weibo-reg.png")-->
+        <!--a(href="/loginbyqq.aspx" title="使用腾讯qq账号登录")#btn-login-tencent.fl-->
+        <!-- img(src="http://cdn.aixifan.com/dotnet/20130418/project/sanae/style/image/qq-reg.png")-->
+        <!--.clearfix.hidden--></div>
+    </div>
+    <div id="pop-confirm" style="display:none" class="pop">
+      <span class="win-hint-ensure">( *^_^* )</span>
+      <button id="btn_ok_ensure">确定</button>
+      <button id="btn_cancle_ensure">取消</button></div>
+    <div id="pop-follow" style="display:none" class="pop">
+      <span id="win-btn-close">
+        <i class="icon icon-close"></i>
+      </span>
+      <span class="win-hint-ensure">( *^_^* )</span>
+      <xmp id="temp-item-follow" class="hidden">
+        <option value="[gid]">[name]([count])</option></xmp>
+      <div class="unit">
+        <div class="fl">
+          <p class="p1">选择分组</p></div>
+        <div class="fl">
+          <select id="ipt-group-follow"></select>
+          <p class="hint">请选择分组。
+            <br/>您添加关注的用户将出现在对应的组中。</p></div>
+      </div>
+      <div class="clearfix hidden"></div>
+      <div class="unit-tool">
+        <div class="fl">
+          <button id="btn-do-follow">添加关注</button></div>
+      </div>
+    </div>
+    <div id="share-more" style="display:none">
+      <div class="jiao"></div>
+      <h1>把视频贴到博客或论坛</h1>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">视频地址</span>
+        <input type="text" readonly="readonly" value="" class="ipt-url fl">
+        <span class="copy fl cp-url">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">flash地址</span>
+        <input type="text" readonly="readonly" value="" class="ipt-flash fl">
+        <span class="copy fl cp-flash">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">html代码</span>
+        <input type="text" readonly="readonly" value="" class="ipt-html fl">
+        <span class="copy fl cp-html">复制</span></div>
+      <div class="area-share clearfix">
+        <span class="subtitle fl">通用代码</span>
+        <input type="text" readonly="readonly" value="" class="ipt-iframe fl">
+        <span class="copy fl cp-iframe">复制</span></div>
+    </div>
+    <div id="shade-layer"></div>
+  </body>
+
+</html>
+<script src="/js/library.min.js"></script>
+<script src="/js/main.min_3.js"></script>
+<script src="/js/ubb.min.js"></script>
+<script src="/js/comm.min.js"></script>
+<script src="/js/swfobject.min.js"></script>
+<script src="/js/detail.min.js"></script>
+<script src="/js/sensorsdata-event.min_3.js"></script>
+<script>var _hmt = _hmt || []; (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?2af69bc2b378fb58ae04ed2a04257ed1";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();</script>

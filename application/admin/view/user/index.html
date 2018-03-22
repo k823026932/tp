@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" href="/js/jquery.xdomainrequest.min.js">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.sorted.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/ckform.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form class="form-inline definewidth m20" action="/admin/user/add" method="post">
+    <input type="submit" value="新增用户" class="btn btn-success" id="addnew">
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <th style="width:8%">用户ID</th>
+        <th style="width:19%">用户名</th>
+        <th style="width:35%">用户手机号</th>
+        <th style="width:23%">用户头像</th>
+        <th>管理操作</th>
+    </tr>
+</table>
+<!-- <table class="table table-bordered table-hover definewidth m10">
+    <tr>
+    <th>用户ID</th>
+    <th>用户名称</th>
+    <th>用户手机号</th>
+    <th>用户头像</th>
+    <th>操作</th>
+    </tr>
+</table> -->
+<table class="table table-bordered table-hover definewidth m10" id="table">
+
+<!--          <tr>
+            <td>2</td>
+            <td>admin</td>
+            <td>管理员</td>
+            <td></td>
+            <td>
+                <a href="edit.html">编辑</a>
+            </td>
+        </tr> -->
+</table>
+    <div id="page" style="text-align: center">
+        <a href="" class="a">首页</a>
+        <a href="" class="a">上一页</a>
+        <a href="" class="a">下一页</a>
+        <a href="" class="a">尾页</a>
+        <!-- <a href="javascript:test('http://localhost:80/php1714/gaoji/day22/list.php?rand=0.2561276820402456&page=5')"></a> -->
+    </div>
+</body>
+</html>
+<script>
+
+
+
+
+var oTable = document.getElementById('table');
+var aA = document.getElementsByClassName('a');
+    ajax({
+        method:'get',
+        url:'/admin/user/index1',
+        async:true,
+        data:{page:1},
+        success:success
+    });
+
+    function success(data)
+    {
+        //console.log(data);
+        oTable.innerHTML = '';
+        var obj = JSON.parse(data);
+        for(var i in obj.data){
+            var oTr = document.createElement('tr');
+            var oTd1 = document.createElement('td');
+            oTd1.innerHTML = obj.data[i].uid;
+            oTd1.style = 'width:8%';
+            var oTd2 = document.createElement('td');
+            oTd2.innerHTML = obj.data[i].username;
+            oTd2.style = 'width:19%';
+            var oTd3 = document.createElement('td');
+            oTd3.innerHTML = obj.data[i].phone;
+            oTd3.style = 'width:35%';
+            var oTd4 = document.createElement('td');
+            oTd4.style='width:23%';
+            var oA1 = document.createElement('img');
+            oA1.src = obj.data[i].touxiang;
+            oA1.style = 'width:50px;height:50px';
+            oTd4.appendChild(oA1);
+            var oTd5 = document.createElement('td');
+            var oA2 = document.createElement('a');
+            oA2.innerHTML = '拉黑';
+            oA2.href='/admin/user/del?id='+obj.data[i].uid;
+            oTd5.appendChild(oA2);
+            oTr.appendChild(oTd1);
+            oTr.appendChild(oTd2);
+            oTr.appendChild(oTd3);
+            oTr.appendChild(oTd4);
+            oTr.appendChild(oTd5);
+            oTable.appendChild(oTr);
+        }
+
+        var oPage =  obj.allPage;
+        var i = 0;
+        for (var name in oPage) {
+            //console.log(name);
+            aA[i].href = 'javascript:test(\'' +oPage[name] +'\')';
+            i++;
+        }
+    }
+
+    function test(url)
+    {
+        $.ajax({
+            method:'get',
+            url:url,
+            async:true,
+            data:null,
+            success:success
+        });
+    }
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>登录 - AcFun弹幕视频网</title>
+
+    <!-- <link rel="stylesheet" href="/css/core.css">
+
+      <link rel="stylesheet" href="/css/font-awesome.min.css"></link>
+
+      <link rel="stylesheet" href="/css/style.css"></link> -->
+    <!--<![endif]-->
+    <!-- <link rel="stylesheet" href="/css/style_1.css"> --></head>
+    <!-- <script type="text/javascript" src="/js/ajax.js"></script>
+    <script>var globalConfig = {
+        version: "1.2.103"
+      };</script>
+
+      <script src="/js/8f0f0b14f2544ab09b00b2b3a219a9b0.js"></script>
+    <script>var path = {
+        base: "http://www.acfun.cn",
+        cdn: "http://cdn.aixifan.com",
+        ssl: "https://ssl.acfun.tv",
+        api: "http://api.acfun.cn"
+      },
+      date = 1516861064027;</script>
+    <script src="/js/6c2426e3dee6442daa2d659e8b392ff3.js"></script>
+    <script src="/js/login.min.js"></script> -->
+  <body>
+
+    <div id="stage" style="position: absolute;z-index: 6;">
+      <div id="area-info"></div>
+      <div id="area-window">
+        <div id="win-info" class="win">
+          <div class="mainer"></div>
+        </div>
+        <div id="win-hint" class="win win-hint">
+          <div class="mainer"></div>
+          <div class="tail"></div>
+        </div>
+      </div>
+      <div id="guide-space" class="simple"></div>
+      <div id="guide" class="simple float">
+
+        <a id="guide-middle" href="/v/ac1839231" target="_blank">
+          <div id="guide-winhint" class="win win-hint left">
+            <div class="mainer"></div>
+            <div class="arrow"></div>
+          </div>
+          <div id="guide-inner"></div>
+        </a>
+        <div id="guide-bar">
+          <div class="inner inner-list-item">
+            <div class="l">
+              <a href="/" title="天下漫友是一家" class="first only">首页</a>
+              {foreach $lala as $k=>$v}
+              <a href="/index/video/list?parentid={$v['cid']}" data-channel="am" id="{$v['cid']}"  class="ac">
+
+              {$v['bkname']}</a>
+
+              {/foreach}
+              <span class="clearfix"></span>
+            </div>
+            <div class="r">
+              <form id="area-search-guide" target="_blank" method="post" action="/index/video/souSuo">
+                <input name="content" type="text" placeholder="请输入搜索词" autocomplete="off" x-webkit-speech class="ipt-search">
+                <i class="icon icon-search"></i>
+                <input type="submit" value="搜 索" title="搜索" class="btn-search">
+                <span class="clearfix"></span>
+                <ul class="menu menu-search"></ul>
+              </form>
+            </div>
+            <span class="clearfix"></span>
+          </div>
+        </div>
+        <script type="text/javascript" src="/js/ajax.js"></script>
+        <script type="text/javascript">
+          var aButton = document.getElementsByClassName('ac');
+          for (var i = 0; i < aButton.length; i++) {
+            aButton[i].index = i;
+            aButton[i].onmouseover = function () {
+               ajax({
+                  method:'post',
+                  url:'/index/index/topxia',
+                  async:true,
+                  data:{cid:this.id},
+                  success:success
+                });
+              };
+              /*var aBut = document.getElementsByClassName('sub-guide');
+              for (var j = 0; j < aBut.length; j++) {
+              aBut[j].inde = j;
+              aBut[j].onmouseout &&  = function () {
+                var oSpan = document.getElementById('xiala');
+                oSpan.innerHTML = '';
+
+                var od = document.getElementById('sub-guide');
+                  oSpan.style = '';
+                  od.className = '';
+
+              }*/
+              function success(data)
+              {
+                var obj = JSON.parse(data);
+                var oSpan = document.getElementById('xiala');
+                oSpan.innerHTML = '';
+                oSpan.className = '';
+                oSpan.className = 'unit channel-am c1 sc2 wc1 swc1 active';
+                oSpan.style = 'opacity: 1; left: 107.2px;';
+                var od = document.getElementById('sub-guide');
+                od.className = 'active';
+                od.style = '';
+                od.style = 'width:100%;';
+                for (var i in obj.xiao) {
+                  var oa = document.createElement('a');
+                  //alert('1');
+                  oa.innerHTML = obj.xiao[i].bkname;
+                  oSpan.appendChild(oa);
+                }
+
+
+
+              }
+            };
+
+
+        </script>
+        <div id="sub-guide">
+          <div id="sub-guide-inner">
+            <div class="unit channel-am hidden c1 sc2 wc1 swc1" id="xiala"><!-- <div class="unit channel-am c1 sc2 wc1 swc1 active" id="xiala" style="opacity: 1; left: 107.2px;"><a>国产动画</a></div> -->
+              <span class="clearfix"></span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <span class="clearfix"></span>
+
+    </div>
+
+  </body>
+
+</html>

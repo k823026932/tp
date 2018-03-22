@@ -1,0 +1,90 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>后台管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/main-min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+<div class="header">
+
+
+
+    <div class="dl-title">
+        <!--<img src="/chinapost/Public/assets/img/top.png">-->
+    </div>
+
+
+    <div class="dl-log">欢迎您，<span class="dl-log-user">{$username}</span><a href="/admin/index/clear" title="退出系统" class="dl-log-quit">[退出]</a>
+    </div>
+</div>
+<div class="content">
+    <div class="dl-main-nav">
+        <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
+        <ul id="J_Nav"  class="nav-list ks-clear">
+            <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">系统管理</div></li>       <!-- <li class="nav-item dl-selected"><div class="nav-item-inner nav-order">业务管理</div></li> -->
+
+
+        </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+
+    </ul>
+</div>
+<script type="text/javascript" src="/assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/bui-min.js"></script>
+<script type="text/javascript" src="/assets/js/common/main-min.js"></script>
+<script type="text/javascript" src="/assets/js/config-min.js"></script>
+<script type="text/javascript" src="/js/ajax.js"></script>
+<script>
+
+    ajax({
+      method:'post',
+      url:'/admin/index/index1',
+      async:true,
+      data:{},
+      success:success
+
+
+    });
+    function success(data)
+  {
+    var obj = JSON.parse(data);
+    console.log(obj);
+    var con = '';
+    for (var i in obj.result) {
+        if (con == '') {
+            con = '{id:' + '\'' + obj.result[i].id + '\'' + ',text:' + '\'' + obj.result[i].name + '\'' + ',href:' + '\'' + obj.result[i].url + '\'' + '}';
+        } else {
+            con = con + ',' + '{id:' + '\'' + obj.result[i].id + '\'' + ',text:' + '\'' + obj.result[i].name + '\'' + ',href:' + '\'' + obj.result[i].url + '\'' + '}';
+        }
+
+
+    }
+        con = '[{id:' + '\'' + '1' + '\'' + ',menu:[{text:' + '\'' + '系统管理' + '\'' + ',items:[' + con + ']}]}]';
+//console.log(con);
+        BUI.use('common/main',function(){
+
+            var config = eval("("+con+")"); 
+
+            //console.log(config);
+            new PageUtil.MainPage({
+                modulesConfig : config
+            });
+        });
+
+
+  }
+
+</script>
+<div style="text-align:center;">
+<p>来源：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+</div>
+</body>
+</html>

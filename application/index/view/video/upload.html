@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="Copyright (c) AcFun">
+    <meta property="wb:webmaster" content="1cfc89ab72f02dc3">
+    <meta name="keywords" content="A站 ACFUN ACG 弹幕 视频 动画 漫画 游戏 斗鱼 新番 鬼畜 东方 初音 DOTA MUGEN LOL Vocaloid MAD AMV 天下漫友是一家">
+    <meta name="description" content="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐。">
+    <title>用户中心 - AcFun弹幕视频网 - 认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
+    <!-- <script>(function() {
+        var mUrl, u, isAndroid, isIOS, routes, localHref;
+        u = navigator.userAgent;
+        isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        localHref = location.href;
+        routes = [[/\/a\/aa(\d+)/, "/a/aa$1?"], [/\/a\/ab(\d+)/, "/v/?ab=$1?"], [/\/a\/ac(\d+)/, "/v/?ac=$1&type=article"], [/\/z\/ac(\d+)/, "/v/?ac=$1&type=article"], [/\/a\/ad(\d+)/, "/ad$1"], [/\/v\/ab(\d+)/, "/v/?ab=$1"], [/\/v\/ab(\d+)_(\d+)/, "/v/?ab=$1&part=$2"], [/\/v\/ac(\d+)/, "/v/?ac=$1"], [/\/v\/ac(\d+)_(\d+)/, "/v/?ac=$1&part=$2"], [/\/[av]\/list(\d+)\/.*/, "/list/?channel=$1"], [/\/sp\/cw2016(.*)/, "/newyear2016$1"], [/\/sp\/acdc2016/, "/sp/acdc2016"], [/\/sp\/2016chuanpuwang\//, "/2016chuanpuwang/"], [/\/sp\/2017chunwanyure/, "/newyear2017"], [/\/app\/download\//, "/app/download/"], [/\/sp\/dragonnest\//, "/special/dragonnest/"], [/\/sp\/cj2017(.*)\//, "/special/cj2017/$1"], [/\/app\//, "/app/download/"]];
+        if (isAndroid || isIOS) {
+          if (location.href == "http://www.acfun.cn/") {
+            location = "http://m.acfun.cn/";
+          } else {
+            for (var k = 0; k < routes.length; k++) {
+              if (localHref.match(routes[k][0])) {
+                localHref = localHref.replace(new RegExp(location.origin), "http://m.acfun.cn") mUrl = localHref.replace(routes[k][0], routes[k][1]);
+                location = mUrl;
+                break;
+              }
+            }
+          }
+        }
+      })()</script> -->
+    <link rel="stylesheet" href="/css/core_7.css">
+    <!--[if lte IE 7]>
+      <link rel="stylesheet" href="css/font-awesome-ie7.min_7.css"></link>
+    <![endif]-->
+    <!--[if (gte IE 8)|!(IE)]>
+      <!-->
+      <link rel="stylesheet" href="/css/font-awesome.min_7.css"></link>
+    <!--<![endif]-->
+    <!--[if lte IE 7]>
+      <link rel="stylesheet" href="css/style-ie7_7.css"></link>
+    <![endif]-->
+    <!--[if (gte IE 8)|!(IE)]>
+      <!-->
+      <link rel="stylesheet" href="/css/style_9.css"></link>
+    <!--<![endif]-->
+    <link rel="stylesheet" media="screen and (min-width: 1440px)" href="/css/wide_3.css">
+    <link rel="stylesheet" href="/css/member_3.css">
+    <link id="style-theme-member" rel="stylesheet" href="/css/theme_4.css"></head>
+  
+  <body>
+    <!-- <div id="stage">
+      <div id="area-info"></div>
+      <div id="area-window">
+        <div id="win-info" class="win">
+          <div class="mainer"></div>
+        </div>
+        <div id="win-hint" class="win win-hint">
+          <div class="mainer"></div>
+          <div class="tail"></div>
+        </div>
+      </div>
+      <div id="guide-space" class="simple"></div>
+       -->
+      {include file="index/top" /}
+      <div id="guide-space" class="simple"></div>
+      <div id="guide-space" class="simple"></div>
+      <div id="guide-space" class="simple"></div>
+      <!-- <div id="header">
+        <div id="header-inner" class="inner">
+          <a id="logo-home-member" href="/" title="认真你就输了"></a>
+          <div id="block-message-header" class="block hidden">
+            <div class="mainer"></div>
+            <xmp id="temp-user-active" class="hidden">
+              <p style="word-break: break-all;" class="alert">[t]</p>
+              <div class="l">
+                <a href="/activation.aspx?id=[uid]" target="_blank" class="btn success">
+                  <i class="icon icon-check-circle-o"></i>验证邮箱</a>
+              </div>
+              <div class="r">
+                <a class="btn info">
+                  <i class="icon icon-times-circle-o"></i>关闭提示</a>
+              </div>
+              <span class="clearfix"></span>
+            </xmp>
+          </div>
+        </div>
+         -->
+      </div>
+      <div id="mainer">
+        <div id="mainer-inner">
+          <div id="block-main">
+            <div id="area-main-left" class="l">
+              <div id="block-user-left" data-active="active">
+                <a href="/index/user/member" class="thumb">
+                  <img src="{$ziliao['touxiang']}" class="avatar">
+                  <span class="cover">
+                    <i class="icon icon-user"></i>编辑资料</span>
+                </a>
+                <div class="d">
+                  <a href="/index/user/member" target="_blank" class="name">{$ziliao['username']}</a></div>
+                
+              </div>
+              <div id="shadow-guide-left" class="hidden"></div>
+              <div id="list-guide-left">
+                <div class="part-guide-left">
+                  <div class="banner">
+                    <a href="" class="tab fixed">
+                      <i class="icon icon-home"></i>欢迎</a>
+                  </div>
+                  <div class="mainer hidden">
+                    <a href="" class="tab">
+                      <i class="icon"></i>欢迎</a>
+                  </div>
+                </div>
+                <div class="part-guide-left">
+                  <div class="banner">
+                    <a href="#area=favourite" class="tab fixed">
+                      <i class="icon icon-folder-open"></i>收藏夹</a>
+                    <span id="hint-favourite-left" class="hidden">0</span></div>
+                  <div class="mainer hidden">
+                    <a href="" class="tab">
+                      <i class="icon"></i>视频收藏
+                      <span class="hint hidden hint-favourite-left">(0)</span></a>
+                  </div>
+                </div>
+                
+                
+                <div class="part-guide-left">
+                  <div class="banner">
+                    <p class="tab fixed unfold">
+                      <i class="icon icon-upload"></i>投稿·管理</p>
+                  </div>
+                  <div class="mainer">
+                    <a href="" class="tab">
+                      <i class="icon"></i>视频投稿</a>
+                    
+                  </div>
+                </div>
+                
+                
+                
+                
+              </div>
+            </div>
+
+
+
+
+            <div id="area-main-right" class="r">
+              <div id="area-cont-right">
+                <style>.container{display:block;padding:0;margin:0;}.container .nav{height:20px;position:relative;}.container .nav h2{border-left:8px solid #fb4e5f;margin:0;font-size:16px;color:#434343;line-height:1.2em;text-indent:8px}.container .nav a.goto-link{margin-left:8px;color:#99928e;font-size:12px}.container .nav a.right-link{margin-left:30px;color:#fb4e5f;font-size:12px}.container .nav .mtop4{margin-top:4px}.container .up-progress,.container .up-info{margin-top:25px;}.container .up-progress h3.up-text,.container .up-info h3.up-text{font-size:14px;color:#434343;line-height:20px;margin:4px 0 0 0}.container .up-progress .up-tips,.container .up-info .up-tips{font-size:10px;color:#99928e;margin-top:7px}.container .up-progress #addNew,.container .up-info #addNew{text-align:center;width:59px;height:22px;line-height:22px;font-size:12px;border-radius:2px;color:#fff;border:none;background-color:#3a9bd9;padding:0}.container .up-info{width:50%;}.container .up-info .up-detail label{font-size:12px;color:#66615f;margin-right:36px}.container .up-info .up-detail .must em{margin-left:8px;color:#fb4e5f;font-size:18px;font-weight:bold;line-height:12px;vertical-align:middle}.container .up-info .up-detail input{text-indent:6px;border:none;outline:none;box-shadow:none;margin:0;padding:0;width:auto;height:auto}.container .up-info .up-detail .up-title .titt{margin:8px 0 0 0;border:1px solid #dcdcdc;border-radius:4px;width:340px;height:26px;line-height:26px;color:#434343;background-color:#fff;}.container .up-info .up-detail .up-title .titt .num{margin-left:10px;color:#99928e;}.container .up-info .up-detail .up-title .titt .num.err{color:#fb4e5f}.container .up-info .up-detail .up-title input{width:310px;height:18px;line-height:18px;color:#434343;appearance:none;text-overflow:ellipsis}.container .up-info .up-detail .up-type .up-typeset{display:none;}.container .up-info .up-detail .up-type .up-typeset + label{margin:0;width:16px;height:16px;appearance:none;background-color:#fff;border:1px solid #dcdcdc;box-shadow:0 1px 2px rgba(0,0,0,0.05),inset 0 -15px 10px -12px rgba(0,0,0,0.05);padding:6px;border-radius:50px;display:inline-block;position:relative;top:3px}.container .up-info .up-detail .up-type .up-typeset:checked +label{border:1px solid #3a9bd9}.container .up-info .up-detail .up-type .up-typeset:checked + label:after{content:' ';width:10px;height:10px;background:#3a9bd9;border-radius:50px;position:absolute;top:2px;box-shadow:inset 0 0 10px rgba(0,0,0,0.3);text-shadow:0;left:2px;font-size:32px}.container .up-info .up-detail .up-type span.type-text{margin:0 40px 0 10px}.container .up-info .up-detail .up-area{height:auto;}.container .up-info .up-detail .up-area select{height:22px;border-radius:4px;min-width:auto;margin-top:0;vertical-align:middle;line-height:16px}.container .up-info .up-detail .up-area select.up-channel{min-width:90px;width:90px;margin-right:20px}.container .up-info .up-detail .up-area select.up-sub{min-width:110px;width:110px}.container .up-info .up-detail .up-area .pos-live{width:386px;color:#999;margin:6px 0 0 76px;display:none}.container .up-info .up-detail .up-pic .pic-cont{margin:22px 0 10px 80px}.container .up-info .up-detail .up-pic #up-pic{width:132px;height:74px;border-radius:4px;background:none;text-align:left;padding:0;margin:0;line-height:70px;overflow:hidden;cursor:pointer;}.container .up-info .up-detail .up-pic #up-pic img{width:132px;height:74px}.container .up-info .up-detail .up-tag{position:relative;}.container .up-info .up-detail .up-tag .up-tagbox{border-radius:2px;margin:10px 0 6px 0;width:340px;height:88px;border:1px solid #dcdcdc;position:relative;background-color:#fff}.container .up-info .up-detail .up-tag .tag-num{position:relative;font-size:12px;margin:0 10px 0 0;overflow:hidden;color:#99928e;text-align:right}.container .up-info .up-detail .up-tag #tag-num{color:#99928e;}.container .up-info .up-detail .up-tag #tag-num.err{color:#fb4e5f}.container .up-info .up-detail .up-descr{margin-bottom:50px;}.container .up-info .up-detail .up-descr .overCont{margin:10px 0 0 0;width:342px;border:1px solid #dcdcdc;border-radius:2px;background-color:#fff;}.container .up-info .up-detail .up-descr .overCont .num{margin:5px 10px 5px 0;color:#99928e;}.container .up-info .up-detail .up-descr .overCont .num.err{color:#fb4e5f}.container .up-info .up-detail .up-descr textarea{width:330px;height:120px;white-space:normal;word-break:break-all;font-size:12px;line-height:14px;overflow-y:auto;resize:none;border:none;box-shadow:none}.container .up-info .up-detail .pic-text{font-size:12px;text-indent:40px;margin-bottom:10px}.container .up-info .up-detail .pic-tips{font-size:10px;color:#99928e;text-indent:40px}.container .up-info .up-title,.container .up-info .up-type,.container .up-info .up-area,.container .up-info .up-pic,.container .up-info .up-tag{margin-bottom:20px}#uploadVideo{-webkit-animation:scale-in .5s ease .4s backwards;-moz-animation:scale-in .5s ease .4s backwards;-o-animation:scale-in .5s ease .4s backwards;animation:scale-in .5s ease .4s backwards;}#uploadVideo .dividers{margin-bottom:24px}#uploadVideo .up-submit{position:relative}#uploadVideo .tip-left,#uploadVideo .tip-right{line-height:20px}#uploadVideo .tip-left{margin-right:20px}#uploadVideo #up-submit{text-align:center;width:120px;height:30px;line-height:30px;border:none;outline:none;border-radius:4px;font-size:16px;letter-spacing:6px;color:#fff;cursor:pointer;background-color:#3a9bd9;}#uploadVideo #up-submit:hover{background-color:#4ea5dd}#uploadVideo #up-submit.disabled{cursor:not-allowed;background-color:#e0e0e0;color:#666}#uploadVideo .up-progress{width:350px;overflow-x:hidden;position:relative}#uploadVideo ul.barspool{position:relative;background-color:#fff;height:576px;overflow-y:auto;padding:10px 0 0 10px;list-style:none;}#uploadVideo ul.barspool li.up-ready{padding-top:130px;min-height:554px;text-align:center;cursor:pointer;}#uploadVideo ul.barspool li.up-ready .tips-1{margin-top:23px;font-size:14px}#uploadVideo ul.barspool li.up-ready .tips-2{margin-top:10px;color:#99928e}#uploadVideo ul.barspool .icon-plus-font{display:inline-block;height:15px;width:14px;position:relative;top:1px;margin:0 10px 0 14px;background:url("../../dotnet/date/style/image/member/icon-plus.png") no-repeat}#uploadVideo ul.barspool .dividers{width:290px;margin:12px 0 12px 6px}#uploadVideo .phand{width:40px;height:80px;}#uploadVideo .phand .phand-up,#uploadVideo .phand .phand-down{display:block;width:0;height:0;border-style:solid;}#uploadVideo .phand .phand-up.disabled,#uploadVideo .phand .phand-down.disabled{cursor:not-allowed}#uploadVideo .phand .pnum{cursor:move;text-indent:2px;}#uploadVideo .phand .pnum.not{cursor:auto}#uploadVideo .phand .phand-up{margin:0 0 14px 0;border-width:0 9px 13px;border-color:transparent transparent #99928e;}#uploadVideo .phand .phand-up:hover{border-color:transparent transparent #fb4e5f}#uploadVideo .phand .phand-down{margin:14px 0 0 0;border-width:13px 9px 0;border-color:#99928e transparent transparent;}#uploadVideo
+                  .phand .phand-down:hover{border-color:#fb4e5f transparent transparent}#uploadVideo .pinfo .ptittlebox{border:1px solid #dcdcdc;border-radius:4px;width:216px;}#uploadVideo .pinfo .ptittlebox .num{color:#99928e;line-height:20px;margin-right:3px;}#uploadVideo .pinfo .ptittlebox .num.err{color:#fb4e5f}#uploadVideo .pinfo .ptitles{margin:0;width:185px;overflow:hidden;text-overflow:ellipsis;text-indent:2px;height:20px;border:none;box-shadow:none;line-height:20px}#uploadVideo .pinfo .ptext{margin:6px 0;text-indent:2px;color:#99928e;font-size:12px;width:214px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#uploadVideo .pinfo .pbox{width:216px;height:18px;border-radius:2px;background-color:#e0e0e0;position:relative;z-index:0;}#uploadVideo .pinfo .pbox span{font-size:12px;line-height:18px}#uploadVideo .pinfo .pbox .psize{min-width:48px;display:inline-block;margin-left:10px;color:#fff}#uploadVideo .pinfo .pbox .ptime{width:74px;margin:0 0 0 20px;color:#fff}#uploadVideo .pinfo .pbox .pinfos{width:52px;margin-right:10px;text-align:right;}#uploadVideo .pinfo .pbox .pinfos .error{color:#fb4e5f}#uploadVideo .pinfo .pbox .pgreen{position:absolute;left:0;top:0;z-index:-1;width:70%;height:18px;background-color:#00b394;border-radius:2px}#uploadVideo .pmovement .pstatus{margin:0 14px 0 12px;}#uploadVideo .pmovement .pstatus.disabled{cursor:not-allowed}#uploadVideo .pmovement .icon-sts-1,#uploadVideo .pmovement .icon-sts-2,#uploadVideo .pmovement .icon-sts-3,#uploadVideo .pmovement .icon-sts-4,#uploadVideo .pmovement .icon-del,#uploadVideo .pmovement .icon-sts-5{display:block;width:16px;height:16px;position:relative;top:51px;overflow:hidden;cursor:pointer;}#uploadVideo .pmovement .icon-sts-1:after,#uploadVideo .pmovement .icon-sts-2:after,#uploadVideo .pmovement .icon-sts-3:after,#uploadVideo .pmovement .icon-sts-4:after,#uploadVideo .pmovement .icon-del:after,#uploadVideo .pmovement .icon-sts-5:after{content:'';display:block;width:100%;height:100%;_background:none;_filter:progid DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=crop,src="../../dotnet/date/style/image/member/icon-sprite.png")}#uploadVideo .pmovement .icon-del,#uploadVideo .pmovement .icon-sts-3{width:15px !important}#uploadVideo .pmovement .icon-sts-1:after{background:url("../../dotnet/date/style/image/member/icon-sprite.png") -45px 0 no-repeat;_padding-left:45px;_margin-left:-45px;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-sts-2:after{background:url("../../dotnet/date/style/image/member/icon-sprite.png") -61px 0 no-repeat;_padding-left:61px;_margin-left:-61px;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-sts-3:after{background:url("../../dotnet/date/style/image/member/icon-sprite.png") -30px 0 no-repeat;width:100%;height:100%;_background:none;_padding-left:30px;_margin-left:-30px;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-sts-4:after{cursor:auto;background:url("../../dotnet/date/style/image/member/icon-sprite.png") -108px 0 no-repeat;_padding-left:108px;_margin-left:-108px;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-del:after{background:url("../../dotnet/date/style/image/member/icon-sprite.png") 0 0 no-repeat;_padding-left:0;_margin-left:0;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-sts-5:after{cursor:auto;background:url("../../dotnet/date/style/image/member/icon-sprite.png") -92px 0 no-repeat;_padding-left:92px;_margin-left:-92px;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-del:hover:after{background:url("../../dotnet/date/style/image/member/icon-sprite.png") -15px 0 no-repeat;_padding-left:15px;_margin-left:-15px;_padding-top:0;_margin-top:0}#uploadVideo .pmovement .icon-del:hover.disabled{cursor:not-allowed}#uploadVideo .pselect{position:absolute;width:350px;top:-30px;line-height:12px;right:0;}#uploadVideo .pselect .auto-submit{margin:0 10px 0 0;padding:0;width:12px;height:12px;box-shadow:none;line-height:12px;outline:none;vertical-align:bottom}@media screen and (min-width:1440px){#uploadVideo .follow-tips.type-one{margin-left:0}#uploadVideo .follow-tips.type-three{margin-left:40px}#uploadVideo .up-info{width:520px}#uploadVideo .up-title label{float:left;height:26px;line-height:26px}#uploadVideo .up-title .titt{width:385px;float:left;margin-top:0;}#uploadVideo .up-title .titt #title{width:350px}#uploadVideo .up-pic label{display:block}#uploadVideo .up-pic .pic-cont{margin:22px 10px 20px 0;float:left}#uploadVideo .up-pic .pic-textbox{margin:36px 0 0 10px;float:left}#uploadVideo .pic-text,#uploadVideo .pic-tips{text-indent:0}#uploadVideo .up-tagbox{width:460px}#uploadVideo .tagator{width:458px !important}#uploadVideo .overCont{width:460px;}#uploadVideo .overCont #up-descr{width:448px}#uploadVideo ul.barspool{height:635px;}#uploadVideo ul.barspool li.up-ready{min-height:615px}.up-area .pos-live{width:272px}}.icon-done,.icon-undone{display:inline-block;width:20px;height:20px;position:relative;margin-left:5px;top:4px}.icon-done{background:url("http://cdn.aixifan.com/dotnet/20130418/style/image/member/up-done.png") no-repeat}.icon-undone{background:url("http://cdn.aixifan.com/dotnet/20130418/style/image/member/up-undone.png") no-repeat}.pos-rel{position:relative}.fl{float:left}.fr{float:right}.cfix{zoom:1;}.cfix:after{content:'';display:block;height:0;clear:both}.hide-t{display:none !important}.dividers{clear:both;border-top:1px solid #dcdcdc}#layers{position:absolute;z-index:99;left:0;top:0;background-color:rgba(0,0,0,0.8);height:100%;width:100%}.layer-cont{width:360px;height:210px;position:relative;background-color:#fff;left:50%;top:400px;z-index:100;margin-left:-180px;margin-top:-123px;border:1px solid #dcdcdc;border-radius:3px;}.layer-cont .p1{height:40px;text-align:left;padding-top:10px;}.layer-cont .p1 span{display:block;font-size:14px;margin-top:2px;margin-left:2px}.layer-cont .icon-scissor{display:block;width:18px;height:18px;margin-left:10px;background:url("http://cdn.aixifan.com/dotnet/20130418/style/image/member/scissors.png") no-repeat}.layer-cont .icon-shut{display:block;width:40px;height:40px;position:relative;top:-10px;cursor:pointer;}.layer-cont .icon-shut:hover{color:#fd4c5b}.layer-cont .icon-shut:before{content:'\2716';font-size:14px;font-style:normal;display:block;margin-top:13px;text-indent:12px}.layer-cont p{text-align:center;font-size:14px;margin-top:10px;}.layer-cont p.lineone{margin-top:40px}.layer-cont .btn-box{margin-top:56px;height:56px;}.layer-cont .btn-box .btn-del,.layer-cont .btn-box .btn-nodel,.layer-cont .btn-box .btn-suc,.layer-cont .btn-box .btn-old,.layer-cont .btn-box .btn-new{display:block;width:130px;height:30px;color:#fff;text-align:center;font-size:14px;line-height:30px;border-radius:4px;cursor:pointer}.layer-cont .btn-box .btn-del{letter-spacing:10px;background-color:#fd4c5b;margin-left:30px}.layer-cont .btn-box .btn-nodel{background-color:#1cb79d;margin-right:30px}.layer-cont .btn-box .btn-suc{margin-top:52px;background-color:#fd4c5b}.layer-cont .btn-box .btn-old{background-color:#fd4c5b;margin-left:30px}.layer-cont
+                  .btn-box .btn-new{background-color:#1cb79d;margin-right:30px}.webuploader-container{position:relative}.webuploader-element-invisible{position:absolute !important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px)}.webuploader-pick{position:relative;display:inline-block;cursor:pointer;width:100%;height:100%;color:#fff;text-align:center;border-radius:3px;overflow:hidden}.webuploader-pick-disable{opacity:.6;pointer-eventsnone}#tagator_dimmer{background-color:rgba(0,0,0,0.1);width:100%;height:100%;position:fixed;z-index:100}.tagator{width:338px !important;height:60px !important;border-radius:3px;box-sizing:border-box;display:inline-block;text-decoration:none;overflow-y:auto;}.tagator .options-visible{position:relative;z-index:101}.tagator .options-hidden .tagator_options{display:none}.tagator_tags{display:inline}.tagator_tag{display:inline-block;background-color:#39f;border-radius:2px;color:#fff;padding:2px 20px 2px 4px;font-size:12px;margin:5px;position:relative;vertical-align:top;max-width:200px;overflow:hidden;text-overflow:ellipsis}.tagator_tag_remove{font-family:simsun;display:inline-block;font-weight:bold;color:#fff;margin:0 0 0 5px;padding:6px 2px 4px 2px;cursor:pointer;font-size:12px;line-height:10px;vertical-align:top;border-radius:0 2px 2px 0;position:absolute;right:0;top:0;bottom:0;}.tagator_tag_remove:hover{color:#000;background-color:#8cf}.tagator_input,.tagator_textlength{border:0;display:none;margin:0;background-color:transparent;font-size:13px;outline:none;padding:7px 0 0 5px;max-width:200px}#tagator_inputTagator .tagator_input{display:inline-block;box-shadow:none;padding:2px 0 2px 4px;font-size:12px;line-height:12px;margin:5px;position:relative;vertical-align:top;max-width:200px;min-width:120px;text-indent:0}.tagator_options{margin:0;padding:0;border:1px solid #7f9db9;border-radius:0 0 3px 3px;font-family:sans-serif;position:absolute;box-sizing:border-box;-moz-box-sizing:border-box;z-index:101;background-color:#fff;overflow:auto;max-height:250px;list-style:none;left:-1px;right:-1px;display:none}.tagator_option{padding:5px;cursor:pointer;color:#000;}.tagator_option .active{background-color:#39f;color:#fff}.pos-rele{position:relative}.follow-tips{display:block;position:absolute;width:auto;height:24px;padding:0 8px;line-height:24px;font-size:12px;border-radius:4px;white-space:nowrap;background-color:#fdeae3;color:#fa4e5f;}.follow-tips.type-one{margin:-60px 0 0 30px}.follow-tips.type-two{margin:-52px 0 0 0}.follow-tips.type-three{margin:-136px 0 0 0}.follow-tips.type-four{margin:-136px 0 0 40px}.follow-tips.type-five{margin:-164px 0 0 40px}.follow-tips:after{font-size:14px;content:'';display:block;width:0;height:0;border:6px solid;margin:-1px 0 0 8px;border-color:#fdeae3 transparent transparent}.follow-tips .icon-am{display:inline-block;background:url("http://cdn.aixifan.com/dotnet/20130418/style/image/member/icon-am.png") no-repeat;font-size:14px;height:20px;width:22px;line-height:24px;vertical-align:middle}.follow-tips.warn{background-color:#ff9101}#go-old{position:absolute;}#go-old .go-old{display:block;cursor:pointer;color:#999;font-size:12px;height:24px;line-height:24px;}#go-old .go-old:hover{color:#3a9bd9 !important}.sortable-placeholder{height:84px}#add-new-copy{display:none;}#add-new-copy .add-new-copy{margin:0 auto;font-size:14px;width:148px;height:33px;border:1px solid #bfbfbf;border-radius:18px;line-height:33px;cursor:pointer;}#add-new-copy .add-new-copy span{display:inline-block;text-indent:3px;text-align:center}#add-new-copy .add-new-copy:hover{border:1px solid #3a9bd9;color:#3a9bd9;}#add-new-copy .add-new-copy:hover .icon-plus-font{background:url("../../dotnet/date/style/image/member/icon-plus-h.png") no-repeat}.tag-checkbox #tag-checkbox,.tag-checkbox #auto-c{display:none;}.tag-checkbox #tag-checkbox + label,.tag-checkbox #auto-c + label{position:relative;top:2px;display:inline-block;width:14px;height:14px;margin-right:6px;border:1px solid #dcdcdc;box-shadow:0 1px 2px rgba(0,0,0,0.05),inset 0 -15px 10px -12px rgba(0,0,0,0.05);border-radius:3px}.tag-checkbox #tag-checkbox:checked + label,.tag-checkbox #auto-c:checked + label{border:1px solid #3a9bd9;box-shadow:0 1px 2px rgba(0,0,0,0.05),inset 0 -15px 10px -12px rgba(0,0,0,0.05),inset 15px 10px -12px rgba(255,255,255,0.1)}.tag-checkbox #tag-checkbox:checked + label:after,.tag-checkbox #auto-c:checked + label:after{content:'\2714';font-size:18px;position:absolute;top:-4px;color:#3a9bd9;left:0}.y-btn{text-align:center;width:76px;height:22px;line-height:22px;font-size:12px;margin-left:10px;border-radius:2px;color:#fff;border:none;padding:0;background-color:#3a9bd9;}.y-btn:hover{color:#fff}.sub-user-guide{position:absolute;height:30px;line-height:30px;right:0;top:0;}.sub-user-guide a{color:#3a9bd9;padding:0 7px;}.sub-user-guide a:last-child{padding-right:0}.clearfix:after{content:" ";display:block;width:0;height:0;clear:both}.ui-btn{display:inline-block;width:140px;height:30px;font-size:14px;color:#333;line-height:30px;border:1px solid #dcdcdc;border-radius:2px;background-color:#e0e0e0;text-align:center;border:1px solid transparent;}.ui-btn:hover{color:#333}.ui-btn-dis{color:#bfbfbf;background-color:#f7f7f7;border-color:#dcdcdc;}.ui-btn-dis:hover{color:#bfbfbf}.ui-btn-active{background-color:#3a9bd9;border-color:transparent;color:#fff;}.ui-btn-active:hover{color:#fff;background-color:#378fc7}.ui-mask{display:none;position:fixed;top:0;left:0;height:100%;width:100%;background:rgba(0,0,0,0.4);}.ui-mask .t-code-success,.ui-mask .t-code-fail,.ui-mask .t-code-encoding{display:inline-block;font-size:12px;line-height:14px;color:#fff;border-radius:7px;height:18px;line-height:18px;padding:0 8px}.ui-mask .t-code-encoding{background-color:#3a9bd9}.ui-mask .t-code-success{background-color:#92c202}.ui-mask .t-code-fail{background-color:#fd4c5b}.ui-mask input{width:auto;padding:0;margin:0;box-shadow:none;height:auto}.ui-mask .ui-dialog{width:650px;height:410px;background-color:#fff;position:absolute;top:50%;margin-top:-205px;left:50%;margin-left:-325px;}.ui-mask .ui-dialog .ui-dialog-wrapper{padding:25px}.ui-mask .ui-dialog .ui-dialog-hd{margin-bottom:18px;line-height:20px;}.ui-mask .ui-dialog .ui-dialog-hd h4{font-size:15px;color:#333;font-weight:bold;float:left;margin-right:10px}.ui-mask .ui-dialog .ui-dialog-hd p{font-size:12px;color:#999}.ui-mask .ui-dialog .ui-dialog-bd table{width:100%;}.ui-mask .ui-dialog .ui-dialog-bd table thead{background-color:#f2f2f2;}.ui-mask .ui-dialog .ui-dialog-bd table thead th{height:34px;line-height:34px;}.ui-mask .ui-dialog .ui-dialog-bd table thead th:first-child{padding-left:13px}.ui-mask .ui-dialog .ui-dialog-bd table tbody .active{background-color:#e0f3ff}.ui-mask .ui-dialog .ui-dialog-bd table tbody tr td{height:36px;line-height:36px;border-bottom:1px solid #e5e5e5;}.ui-mask .ui-dialog .ui-dialog-bd table tbody tr td:first-child{padding-left:13px}.ui-mask .ui-dialog .ui-dialog-bd table tbody .encode-fail td{color:#999}.ui-mask .ui-dialog .ui-dialog-ft{padding-top:30px;text-align:center;}.ui-mask
+                  .ui-dialog .ui-dialog-ft a{margin:0 37px}.vedio-list-dialog .ui-dialog-close{right:24px;top:16px}.vedio-list-dialog .ui-dialog-header,.no-vedio-list-dialog .ui-dialog-header{border:none}.ui-popup-backdrop{opacity:.4 !important}.vedio-list-dialog .ui-dialog-title{padding:25px 25px 0;font-size:15px;margin-bottom:18px}.vedio-list-dialog .ui-dialog-footer{padding:30px 0}.vedio-list-dialog .ui-dialog-footer button{display:inline-block;width:140px;height:30px;font-size:14px;color:#333;line-height:30px;border:1px solid #dcdcdc;padding:0;border-radius:2px;background-color:#e0e0e0;text-align:center;border:1px solid transparent}.vedio-list-dialog .ui-dialog-button{float:none;text-align:center;}.vedio-list-dialog .ui-dialog-button button{margin:0 37px}.ui-popup-modal .vedio-list-dialog{box-shadow:none}.vedio-list-dialog,.no-vedio-list-dialog{border-radius:0;border:none}.vedio-list-dialog .ui-dialog-content{width:100%}.vedio-list-dialog .ui-dialog-body table{width:100%;font-size:12px;}.vedio-list-dialog .ui-dialog-body table input[type='checkbox']{width:auto;padding:0;margin:0;box-shadow:none;height:auto}.vedio-list-dialog .ui-dialog-body .t-code-success,.vedio-list-dialog .ui-dialog-body .t-code-fail,.vedio-list-dialog .ui-dialog-body .t-code-encoding{display:inline-block;font-size:12px;line-height:14px;color:#fff;border-radius:7px;height:18px;line-height:18px;padding:0 8px;}.vedio-list-dialog .ui-dialog-body .t-code-success .t-code-success,.vedio-list-dialog .ui-dialog-body .t-code-fail .t-code-success,.vedio-list-dialog .ui-dialog-body .t-code-encoding .t-code-success{background-color:#92c202}.vedio-list-dialog .ui-dialog-body .t-code-success .t-code-fail,.vedio-list-dialog .ui-dialog-body .t-code-fail .t-code-fail,.vedio-list-dialog .ui-dialog-body .t-code-encoding .t-code-fail{background-color:#fd4c5b}.vedio-list-dialog .ui-dialog-body .t-code-encoding{background-color:#3a9bd9}.vedio-list-dialog .ui-dialog-body .t-code-success{background-color:#92c202}.vedio-list-dialog .ui-dialog-body .t-code-fail{background-color:#fd4c5b}.vedio-list-dialog .ui-dialog-body thead{background-color:#f2f2f2;}.vedio-list-dialog .ui-dialog-body thead th{height:34px;line-height:34px;}.vedio-list-dialog .ui-dialog-body thead th:first-child{padding-left:13px}.vedio-list-dialog .ui-dialog-body tbody .active{background-color:#e0f3ff}.vedio-list-dialog .ui-dialog-body tbody tr td{line-height:36px;border-bottom:1px solid #e5e5e5;}.vedio-list-dialog .ui-dialog-body tbody tr td:first-child{padding-left:13px}.vedio-list-dialog .ui-dialog-body tbody tr .file-name-m{max-width:140px;overflow:hidden;padding-right:10px;text-overflow:ellipsis;white-space:nowrap}.vedio-list-dialog .ui-dialog-body tbody .encode-fail td{color:#999}.vedio-list-dialog .ui-dialog-body{padding:0;padding:0 25px}.vedio-list-dialog .ui-dialog-footer button{border:1px solid transparent;}.vedio-list-dialog .ui-dialog-footer button:first-child{background-color:#3a9bd9;border-color:#3a9bd9;color:#fff}.vedio-list-dialog .ui-dialog-footer button[disabled]{color:#bfbfbf;background-color:#f7f7f7;border-color:#dcdcdc}.no-vedio-list-dialog .ui-dialog-content{text-align:center}.no-vedio-list-dialog .ui-dialog-body{padding:9px 0 0;}.no-vedio-list-dialog .ui-dialog-body p{font-size:14px;color:#666;line-height:22px}.dis-choose{display:inline-block;width:12px;height:12px;background:#f2f2f2;border:1px solid #d8d8d8;border-radius:2px}.post-count{color:#666;line-height:16px;padding-top:6px;font-size:12px;padding-left:16px}.upload-guide-tip{background-color:#fff;padding:8px 10px;margin:15px 0 0 0;}.upload-guide-tip p{padding:6px 10px;color:#666;background-color:#fff0f0;line-height:15px;font-size:12px}.water-mask{display:none;color:#666;background-color:#fff;height:51px;padding:2px 10px;}.water-mask .water-mask-content{background-color:#f5f7fa;padding:10px;}.water-mask .water-mask-content label{float:left;line-height:26px;margin-right:10px;}.water-mask .water-mask-content label span{color:#fb4e5f;font-size:18px;font-weight:bold;vertical-align:middle;margin-left:8px}.water-mask .water-mask-content .select-module{float:left}.water-mask .select-module{cursor:pointer;display:inline-block;color:#333;background:#fff;border:1px solid #dcdcdc;border-radius:2px;height:26px;min-width:88px;position:relative;}.water-mask .select-module .current-select{line-height:26px;position:relative;padding-left:8px;}.water-mask .select-module .current-select .icon{position:absolute;right:2px;top:6px}.water-mask .select-module p{display:inline-block}.water-mask .select-module .select-drop-down{max-height:300px;display:none;position:absolute;z-index:1;border:1px solid #dcdcdc;width:88px;overflow-x:hidden;margin-left:-1px;border-top-color:#fff;background:#fff;margin-top:-2px;}.water-mask .select-module .select-drop-down .drop-parent li{line-height:24px;text-indent:10px;}.water-mask .select-module .select-drop-down .drop-parent li:hover{background-color:#dcdcdc}.cf:after{content:'\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0;clear:both}.btn-link{position:absolute;height:30px;line-height:30px;left:0;top:0}</style>
+                <form  method="post" enctype="multipart/form-data" class="form" action="/index/video/upload1">
+                <div class="container">
+                  <div id="block-banner-right" class="block banner">
+                    <a href="#area=upload-video" class="tab active">
+                      <i class="icon"></i>视频投稿</a>
+                    
+                  </div>
+                  <!--#go-old-->
+                  <!-- a.go-old 返回旧版-->
+                  <div id="notice-block" style="display: none;">
+                    <link rel="stylesheet" href="css/notice.css">
+                    <div id="noticeWrap">
+                      <div class="notice-box">
+                        <div class="notice-info">亲爱的AcFun用户，依《网络安全法》相关要求,为确保您的账号安全使用，
+                          <br>2017年09月27日起账号需实名认证后才可使用投稿功能。感谢您的理解和支持，
+                          <a href="#area=verify">点此认证</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="uploadVideo" onsubmit="return false" data-focus="auto" data-save="uploadVideo" class="upload cfix form">
+                    <input id="J_bridge" value="" type="hidden">
+                    <div class="up-info fl">
+                      <div class="up-title cfix">
+                        <h3 class="up-text fl">投稿信息</h3>
+                        <span class="up-tips fl">（红色星号标记为必填项）</span></div>
+                      <div class="up-detail">
+                        <div class="up-title must cfix">
+                          <label>标题
+                            <em>*</em></label>
+                          <div class="titt pos-rele">
+                            <input id="title" placeholder="据老司机们说，好的标题能提升15%的Acer投蕉量....." spellcheck="false" autocomplete="off" data-length="1,50" data-name="标题" required="required" name="title" type="text">
+                            <span class="num">50</span></div>
+                        </div>
+                        
+                        <div class="up-area must">
+                          <label>分区
+                            <em>*</em></label>
+                          <div class="pos-rele inline-block">
+                            <select name="fenqu" class="up-channel" id="fenqu">
+                              <option value="-1" selected="selected">请选择分区</option>
+                              {foreach $result as $k => $v}
+                              <option value="{$v['cid']}">
+                                {$v['bkname']}
+                              </option>
+                              {/foreach}
+                            </select>
+                          </div>
+                          <!-- <div class="pos-rele inline-block">
+                            <select name="subject" class="up-sub disabled">
+                              <option value="-250" selected="selected">请选择子分区</option></select>
+                          </div> -->
+                          <!-- <div class="pos-live">未经剪辑的直播录屏请投至本分区，剪辑后的视频请按直播内容投至相应分区
+                            <br>直播分区的投稿将会在娱乐、游戏等的直播子分区出现，但不会进入到各大分区的最新/最热列表中</div></div> -->
+                        <div class="up-pic cfix must">
+                          <label>封面
+                            <em>*</em></label>
+                          <div class="pic-cont">
+                            <!-- <div id="up-pic" class="pos-rele"> -->
+                              <!-- <img src="/images/default.png"></div> -->
+                              <input type="file" name="vimg" id="img">
+                          </div>
+                          <div class="pic-textbox">
+                            <p class="pic-text">推荐使用高清精美封面吸引Acer们来围观</p>
+                            <p class="pic-tips">支持≤3MB，JPG、JPEG、PNG格式文件</p></div>
+                        </div>
+
+                    <div>
+                        <div class="up-descr must">
+                          <label>简介
+                            <em>*</em></label>
+                          <div class="overCont cfix">
+                            <input  placeholder="辛苦UP主的制作，请UP主为观众们介绍一下内容吧~" id="content" maxlength="" name="content" style="width: 200px;height: 100px;" ">
+                            <span class="num fr">255</span></div>
+                        </div>
+                      
+                    </div>
+                    <div class="up-pic cfix must">
+                          <label>视频文件
+                            <em>*</em></label>
+                          <div class="pic-cont">
+                            <!-- <div id="up-pic" class="pos-rele"> -->
+                              <!-- <img src="/images/default.png"></div> -->
+                              <input type="file" name="vpath" id="video">
+                          </div>
+                          <div class="pic-textbox">
+                            <p>请勿上传色情、反动等违法视频。建议上传分P时长在15分钟以内的视频，审核通过率会更高～</p>
+                            <p class="pic-tips">支持mp4格式文件</p></div>
+                      </div>
+                    
+                    
+                    <!-- <div class="dividers pos-rel">
+                      <div style="display:none" class="pselect cfix tag-checkbox">
+                        <input id="auto-c" value="1" class="auto-submit hide-t" type="checkbox">
+                        <label for="auto-c"></label>
+                        todo
+                        <span>视频上传完成后自动投稿</span>
+                        <span class="ptotal fr">共5P</span></div>
+                    </div> -->
+                    <div class="up-submit cfix">
+                      <!--todo-->
+                      <div class="tip-left hide-t fl">填写视频信息
+                        <i class="icon-done"></i></div>
+                      <div class="tip-right hide-t fl">上传视频文件
+                        <i class="icon-undone"></i></div>
+                      <button id="up-submit">投稿</button>
+                      <div id="btn-link" class="btn-link" style="display: none;">
+                        <a href="#area=verify">转至认证</a></div>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                <script type="text/javascript">
+                  var btn = document.getElementById('up-submit');
+                  btn.onclick = function ()
+                  {
+                      var title = document.getElementById('title').value;
+                      //alert(fenqu);
+                      if (title == '') {
+                        alert('请填写标题');
+                        return false;
+                      }
+                      var fenqu = document.getElementById('fenqu').value;
+                      //alert(fenqu);
+                      if (fenqu == '-1') {
+                        alert('请选择分区');
+                        return false;
+                      }
+                      var img = document.getElementById('img').value;
+                      var index= img.indexOf(".");
+                      img=img.substring(index);
+                      if(img!=".bmp"&&img!=".png"&&img!=".gif"&&img!=".jpg"&&img!=".jpeg"){  //根据后缀，判断是否符合图片格式
+                          alert("不是指定图片格式,重新选择"); 
+                         document.getElementById('img').value="";  // 不符合，就清除，重新选择
+                         return false;
+                      }
+                      var content = document.getElementById('content').value;
+                      //alert(fenqu);
+                      if (content == '') {
+                        alert('请填写简介');
+                        return false;
+                      }
+                      var video = document.getElementById('video').value;
+                      var vindex= video.indexOf(".");
+                      video=video.substring(vindex);
+                      if(video!=".mp4"){  //根据后缀，判断是否符合图片格式
+                          alert("不是指定视频格式,重新选择"); 
+                         document.getElementById('video').value="";  // 不符合，就清除，重新选择
+                         return false;
+                      }
+
+                  }
+                </script>
+
+
+
+                <!-- <script src="/js/dialog.js"></script>
+                <script src="/js/doT.js"></script>
+                <script src="/js/upload-video.js"></script>
+                <script src="/js/getVedioList.js"></script> -->
+              </div>
+            </div>
+
+
+            <span class="clearfix"></span>
+          </div>
+        </div>
+      </div>
+      <span class="clearfix"></span>
+      <div id="footer">
+        <div id="footer-inner">
+          <div class="top-footer">
+            <div class="l">
+              <div class="unit unit-0">
+                <div class="a">合作</div>
+                <div class="b">
+                  <a id="" target="_blank" href="/info/#page=about" data-id="" class="a-0">关于我们</a>
+                  <a id="" target="_blank" href="/info/#page=contact" data-id="" class="a-1">联系我们</a>
+                  <a id="" target="_blank" href="/info/#page=joinus" data-id="" class="a-2">AC招聘</a>
+                  <span class="clearfix"></span>
+                </div>
+              </div>
+              <div class="unit unit-1">
+                <div class="a">官方</div>
+                <div class="b">
+                  <a id="" target="_blank" href="http://weibo.com/danmushipin/" data-id="" class="a-0">新浪微博</a>
+                  <a id="" target="_blank" href="http://tb.am/cbaz8" data-id="" class="a-1">官方网店</a>
+                  <a id="" target="_blank" href="/gamecenter" data-id="1" class="a-2 gamePortal">游戏中心</a>
+                  <a id="" target="_blank" href="javascript:void(0);" data-id="" class="a-3">微信公众号</a>
+                  <span class="clearfix"></span>
+                </div>
+              </div>
+              <div class="unit unit-2">
+                <div class="a">下载</div>
+                <div class="b">
+                  <a id="app-footer-link" target="_blank" href="/app/" data-id="">移动客户端
+                    <span class="bg-new-app"></span></a>
+                  <a id="" target="_blank" href="/emot/" data-id="" class="a-1">AC娘表情包</a>
+                  <span class="clearfix"></span>
+                </div>
+              </div>
+              <div class="unit unit-3">
+                <div class="a">友情链接</div>
+                <div class="b">
+                  <a id="" target="_blank" href="http://lg.dianbo.me/index.php" data-id="" class="a-0">AC大逃杀</a>
+                  <span class="clearfix"></span>
+                </div>
+              </div>
+              <div class="unit unit-4">
+                <div class="a">反馈</div>
+                <div class="b">
+                  <a id="" target="_blank" href="/feedback/" data-id="" class="a-0">意见反馈</a>
+                  <a id="" target="_blank" href="/report/" data-id="" class="a-1">举报</a>
+                  <a id="" target="_blank" href="/about/help/" data-id="" class="a-2">帮助中心</a>
+                  <a id="" target="_blank" href="/info/#page=disclaimer" data-id="" class="a-3">免责声明</a>
+                  <a id="" target="_blank" href="/info/#page=agreement" data-id="" class="a-4">用户协议</a>
+                  <a id="" target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf" data-id="" class="a-5">联系客服</a>
+                  <span class="clearfix"></span>
+                </div>
+              </div>
+              <span class="clearfix"></span>
+              <div class="arrow-right"></div>
+              <div class="erweima">
+                <div class="arrow-top"></div>
+                <img src="picture/erweima_12.jpg" width="140px" height="140px"></div>
+            </div>
+            <div class="r">
+              <div id="avatar-ac-footer" class="">
+				<img src="/picture/29.gif">
+			  </div>
+            </div>
+            <span class="clearfix"></span>
+          </div>
+          <div class="bottom-footer">
+            <ul id="explain">
+              <li>
+                <p class="report">
+                  <span class="reportImg"></span>
+                  <a href="http://www.12377.cn/" target="_blank">中国互联网举报中心</a></p>
+                <p class="inter">
+                  <span class="reportImg"></span>
+                  <span>网络文化经营单位</span></p>
+                <p class="public">
+                  <span class="reportImg"></span>
+                  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032340" target="_blank">京公网安备 11010502032340号</a></p>
+              </li>
+              <li>
+                <p>
+                  <span>京ICP备15067359号</span></p>
+                <p>
+                  <a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a></p>
+                <p>
+                  <a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a></p>
+              </li>
+              <li>
+                <p>
+                  <span>节目制作经营许可证（京）字第05158号</span></p>
+                <p>
+                  <a href="http://www.cyberpolice.cn" target="_blank">公安部网络违法犯罪举报网站</a></p>
+              </li>
+              <li>
+                <p>
+                  <a href="//www.miitbeian.gov.cn/" target="_blank">京ICP证161323号</a></p>
+                <p>
+                  <a href="/about/qualification" target="_blank">京网文[2016]0948-099号</a></p>
+                <p class="hidden"></p>
+              </li>
+              <div style="clear:both"></div>
+            </ul>
+            <a id="a-logo-footer" href="/"></a>
+            <p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017 AcFun. 保留所有权利</p>
+            <p id="hint-time-released" data-time="2018.1.25 14:11:54" class="hidden">Released at 2018.1.25 14:11:54.</p></div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+
+</html>
